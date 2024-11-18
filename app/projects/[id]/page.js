@@ -8,7 +8,7 @@ export default async function Project({ params }) {
 
   return (
     <>
-      <div>
+      <div className="max-w-7xl mx-auto flex p-4 md:p-6">
         <Link
           href="/projects"
           className="link !no-underline text-base-content/80 hover:text-base-content inline-flex items-center gap-1"

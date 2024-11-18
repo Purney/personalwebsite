@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import ComponentFactory from "./ComponentFactory";
+import Link from "next/link";
 
 export default function ProjectTemplate({
   id,
@@ -70,7 +71,7 @@ export default function ProjectTemplate({
                   <span className="block md:hidden text-2xl">
                     {section.icon}
                   </span>
-                  <span className="hidden md:flex flex-row gap-2 items-center" >
+                  <span className="hidden md:flex flex-row gap-2 items-center">
                     {section.icon}
                     {section.name
                       .replaceAll("-", " ")
@@ -91,7 +92,7 @@ export default function ProjectTemplate({
               ref={(el) => (sectionRefs.current[section.name] = el)} // Use section.name as the key
               className="scroll-mt-16"
             >
-                <ComponentFactory type={section.type} content={section.content} />
+              <ComponentFactory type={section.type} content={section.content} />
             </section>
           ))}
         </main>

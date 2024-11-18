@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "William Purnell - Software Developer from Bournemouth",
-  description: "Will is a software developer with 5 years experience based in Bournemouth",
+  description:
+    "Will is a software developer with 5 years experience based in Bournemouth",
 };
 
 export default function RootLayout({ children }) {
