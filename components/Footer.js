@@ -2,10 +2,10 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white py-6">
-      <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
+    <footer className="py-6 bg-gray-200">
+      <div className="max-w-7xl mx-auto px-8 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
         {/* Footer Text */}
-        <p className="text-sm">
+        <p className="text-xxs md:text-sm">
           © {new Date().getFullYear()} William Purnell. All Rights Reserved.
         </p>
 
@@ -16,7 +16,7 @@ export default function Footer() {
             href="https://github.com/Purney"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-yellow-400"
+            className=""
           >
             <FaGithub size={24} />
           </a>
@@ -26,7 +26,7 @@ export default function Footer() {
             href="https://linkedin.com/in/william-purnell-uk"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-yellow-400"
+            className=""
           >
             <FaLinkedin size={24} />
           </a>

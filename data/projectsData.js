@@ -6,6 +6,8 @@ import {
   FaQuestion,
 } from "react-icons/fa";
 
+import placeholder from "../assets/images/placeholder.jpg";
+
 export const Data = [
   {
     id: "text-2-quiz",
@@ -14,7 +16,7 @@ export const Data = [
       "A platform that transforms lecture notes into interactive quizzes.",
     techStack: ["Next.js", "React", "Tailwind CSS"],
     category: ["Web Development", "AI Integration"],
-    image: "/images/quiz-saas.jpg",
+    image: placeholder,
     sections: [
       {
         name: "what-is-text-2-quiz",
@@ -65,7 +67,26 @@ export const Data = [
       "A fully functional e-commerce platform for 3d Printed goods.",
     techStack: [".NET", "React", "Stripe API"],
     category: ["Web Development", "AI Integration"],
-    image: "/images/e-commerce.jpg",
+    image: placeholder,
+    sections: [
+      {
+        name: "what-is-filament-gifts",
+        type: "text",
+        icon: <FaQuestion />,
+        content: {
+          text: "Filament Gifts is a a fully functional e-commerce platform for 3d Printed goods.",
+        },
+      },
+    ],
+  },
+  {
+    id: "filament-gifts",
+    title: "Filament Gifts",
+    shortDescription:
+      "A fully functional e-commerce platform for 3d Printed goods.",
+    techStack: [".NET", "React", "Stripe API"],
+    category: ["Web Development", "AI Integration"],
+    image: placeholder,
     sections: [
       {
         name: "what-is-filament-gifts",

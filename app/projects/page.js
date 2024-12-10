@@ -32,7 +32,7 @@ export default function Projects() {
       <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
           <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-            Portfolio
+            Our Work
           </h1>
           <p className="text-lg text-gray-600 text-center mb-8">
             Explore the projects I’ve worked on, showcasing my expertise in web
@@ -47,8 +47,8 @@ export default function Projects() {
                 onClick={() => setFilter(filterOption)}
                 className={`px-4 py-2 rounded-full text-sm ${
                   filter === filterOption
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                    ? "bg-blue-600 "
+                    : "bg-gray-200 text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 {filterOption}
@@ -85,7 +85,7 @@ export default function Projects() {
                   </div>
                   <Link
                     href={"/projects/" + project.id}
-                    className="bg-blue-600 text-white py-2 px-6 rounded-md text-lg hover:bg-blue-700 transition"
+                    className="bg-blue-600 py-2 px-6 rounded-md text-lg hover:bg-blue-700 transition"
                   >
                     View Project
                   </Link>

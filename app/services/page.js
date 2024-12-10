@@ -47,7 +47,7 @@ export default function Services() {
           <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
             Services
           </h1>
-          <p className="text-lg text-gray-600 text-center mb-12">
+          <p className="text-gray-600 text-center mb-12">
             Explore the wide range of services I offer, from web development to
             cutting-edge AI integration.
           </p>

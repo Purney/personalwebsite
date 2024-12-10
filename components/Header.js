@@ -1,20 +1,15 @@
 "use client";
 
+import PrimaryButton from "./PrimaryButton";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+export default function Header({isMenuOpen, toggleMenu}) {
   return (
-    <header className="bg-blue-900 text-white py-4 px-8 shadow-md">
+    <header className=" py-4 px-8">
       <nav className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold">
+        <div className="text-xl font-bold bg-gray-200 p-2 px-3 rounded-sm">
           <Link href="/">William Purnell</Link>
         </div>
 
@@ -28,40 +23,35 @@ export default function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6 text-lg">
+        <ul className="hidden md:flex space-x-6 items-center gap-8">
           <li>
-            <Link href="/" className="hover:text-yellow-400">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:text-yellow-400">
+            <Link href="/about" className="">
               About
             </Link>
           </li>
           <li>
-            <Link href="/services" className="hover:text-yellow-400">
+            <Link href="/services" className="">
               Services
             </Link>
           </li>
           <li>
-            <Link href="/projects" className="hover:text-yellow-400">
-              Projects
+            <Link href="/projects" className="">
+              Our Work
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-yellow-400">
-              Contact
-            </Link>
+            <div>
+              <PrimaryButton buttonLink="/contact" buttonText="Get in Touch" className="mt-0 inline-block bg-black text-white py-2 px-5 rounded-sm text-sm uppercase hover:bg-gray-700" />
+            </div>
           </li>
         </ul>
       </nav>
 
       {/* Mobile Side Menu */}
       <div
-        className={`fixed top-0 right-0 h-full bg-blue-900 text-white w-full transform z-10 ${
+        className={`fixed top-0 right-0 h-full  w-full transform z-10 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        } transition-transform duration-300 ease-in-out bg-gray-300`}
       >
         <button
           className="text-2xl p-4 focus:outline-none"
@@ -73,17 +63,8 @@ export default function Header() {
         <ul className="flex flex-col space-y-4 mt-10 px-6 text-lg">
           <li>
             <Link
-              href="/"
-              className="hover:text-yellow-400"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/about"
-              className="hover:text-yellow-400"
+              className=""
               onClick={toggleMenu}
             >
               About
@@ -92,7 +73,7 @@ export default function Header() {
           <li>
             <Link
               href="/services"
-              className="hover:text-yellow-400"
+              className=""
               onClick={toggleMenu}
             >
               Services
@@ -101,20 +82,14 @@ export default function Header() {
           <li>
             <Link
               href="/portfolio"
-              className="hover:text-yellow-400"
+              className=""
               onClick={toggleMenu}
             >
-              Portfolio
+              Our Work
             </Link>
           </li>
           <li>
-            <Link
-              href="/contact"
-              className="hover:text-yellow-400"
-              onClick={toggleMenu}
-            >
-              Contact
-            </Link>
+            <PrimaryButton className="mt-0 inline-block bg-black text-white py-2 px-4 rounded-sm uppercase hover:bg-gray-700" buttonLink="/contact" buttonText="Get in Touch" />
           </li>
         </ul>
       </div>
