@@ -6,7 +6,7 @@ export default function ServicesGrid() {
     {
       title: "Web Development",
       description:
-        "Building responsive, high-performance websites tailored to your needs.",
+        "Building responsive, high-performance websites tailored to your needs. Improve existing website performance. Help with software bugs",
       icon: <FaCode size={40} className="text-blue-600" />,
     },
     {

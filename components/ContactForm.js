@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { Data } from "@/data/servicesData";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [service, setService] = useState("");
+  const [otherService, setOtherService] = useState("");
   const [message, setMessage] = useState("");
   const [messagedSubmitted, setMessagedSubmitted] = useState(false);
 
@@ -25,40 +28,69 @@ export default function ContactForm() {
     >
       {!messagedSubmitted ? (
         <>
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-          <p className="mb-8 text-lg">Let me know how we can help</p>
+          <h2 className="text-3xl font-bold mb-4">Ready to take your business to the next level?</h2>
+          <p className="mb-8 text-lg">Reach out today for a free consultation!</p>
 
           <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
             <div className="mb-4 text-left">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Name *</label>
               <input
                 type="text"
                 placeholder="Your Full Name"
                 id="name"
                 name="name"
+                required
                 value={name}
                 onChange={(e) => setName(e.value)}
                 className="w-full px-4 py-3 mt-2 text-black "
               />
             </div>
             <div className="mb-4 text-left">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Email *</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="me@company.com"
+                required
                 className="w-full px-4 py-3 mt-2 text-black"
                 value={email}
                 onChange={(e) => setEmail(e.value)}
               />
             </div>
             <div className="mb-4 text-left">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="service">Service *</label>
+              <select
+                id="service"
+                name="service"
+                required
+                className="w-full px-4 py-3 mt-2 text-black"
+                value={service}
+                onChange={(e) => setService(e.target.value)}
+                >
+                  {Data.map((serviceItem, index) => (
+                    <option key={"service-index-" + index} value={serviceItem.title}>{serviceItem.title}</option>
+                  ))}
+                  <option value="Other">Other</option>
+                </select>
+                {service != "" && !Data.some(item => item.title == service) && (
+              <input
+                type="otherService"
+                id="otherService"
+                name="otherService"
+                placeholder="Custom Service"
+                className="w-full px-4 py-3 mt-2 text-black"
+                value={otherService}
+                onChange={(e) => setOtherService(e.value)}
+              />)}
+            </div>
+            <div className="mb-4 text-left">
+              <label htmlFor="message">Message *</label>
               <textarea
                 placeholder="Your Message..."
                 id="message"
                 name="message"
+                required
                 rows="4"
                 className="w-full px-4 py-3 mt-2 text-black"
                 value={message}
@@ -77,7 +109,7 @@ export default function ContactForm() {
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Thank you {name}!</h2>
           <p className="mt-4 text-lg">
-            Your message has been sent successfully. I'll get back to you soon!
+            Your message has been sent successfully. I&apos;ll get back to you soon!
           </p>
         </div>
       )}

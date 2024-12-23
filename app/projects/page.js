@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Data } from "@/data/projectsData";
+import Image from "next/image";
 
 export default function Projects() {
   const projects = Data;
@@ -63,7 +64,7 @@ export default function Projects() {
                 key={index}
                 className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="rounded-t-lg w-full h-48 object-cover"

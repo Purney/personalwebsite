@@ -1,12 +1,12 @@
 import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
-import ServicesGrid from "@/components/ServicesGrid";
 import TestimonalComponent from "@/components/TestimonalComponent";
 import placeholder from "../assets/images/placeholder.jpg";
 import ImageWithTextComponent from "@/components/ImageWithTextComponent";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
-import { FaCode, FaReact, FaRobot } from "react-icons/fa";
+import { FaCode, FaComment, FaReact, FaRobot } from "react-icons/fa";
+import { Data } from "@/data/servicesData";
 
 export const metadata = {
   title: "William Purnell - Software Developer from Bournemouth",
@@ -20,53 +20,23 @@ export default function Home() {
     alt: "About us Image"
   };
 
-  const placeholderText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.";
+  const aboutUsCopy = `Based in Bournemouth, we bring 5+ years of expertise in software development to local businesses and startups. Specializing in .NET and React, we deliver tailor-made solutions to help your business grow. Whether you're looking for web development, generative AI integration, or custom software, we're your trusted local partner.`
 
-  const services = [
-    {
-      title: "Web Development",
-      description:
-        "Building responsive, high-performance websites tailored to your needs.",
-      icon: <FaCode size={80} className="text-blue-600" />,
-    },
-    {
-      title: "React.js Development",
-      description:
-        "Specializing in creating modern, interactive front-end applications with React.js.",
-      icon: <FaReact size={80} className="text-cyan-500" />,
-    },
-    {
-      title: "Generative AI Integration",
-      description:
-        "Incorporating cutting-edge AI technologies to enhance your applications.",
-      icon: <FaRobot size={80} className="text-purple-600" />,
-    },
-  ];
+  const servicesCopy = `Looking for expert software development services in Bournemouth? You’re in the right place. With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape.`
+
+  const services = Data;
 
   return (
     <>
       <Hero
-        title="Freelance Software Engineer in Bournemouth"
-        description="Hi, I’m Will, a developer specializing in .NET, React, and Generative AI solutions.
-              Let’s build something great together!"
+        title="Expert Freelance Software Developer in Bournemouth"
+        description="Specialising in .NET, React, and AI Integration to Build Custom Solutions for Local Bournemouth Businesses!"
         buttonLink="#contact"
-        buttonText="Get in Touch"
+        buttonText="Get in Touch for a Free Consultation"
       />
-      <ImageWithTextComponent image={image} title="About Us" text={placeholderText} buttonLink="/about" buttonText="Get Started" />
-      <ShowcaseComponent title="Services" text={placeholderText} buttonLink="/services" buttonText="Learn More" services={services} />
+      <ImageWithTextComponent image={image} title="About Us" text={aboutUsCopy} buttonLink="/about" buttonText="Learn More" />
+      <ShowcaseComponent title="Services" text={servicesCopy} buttonLink="/services" buttonText="Explore Our Services" services={services} />
       <PortfolioGrid />
-      {/* Bournemouth Focus Section */}
-      <section className="py-24 px-8">
-        <h2 className="text-3xl font-bold text-center mb-8">
-          Why Hire a Bournemouth-Based Software Engineer?
-        </h2>
-        <p className="text-center text-gray-700 max-w-2xl mx-auto">
-          Based in Bournemouth, I provide local expertise with a deep
-          understanding of the needs of businesses in the area. Whether you're a
-          startup or a web agency, I can help you build exceptional software
-          solutions.
-        </p>
-      </section>
       <ContactForm />
       <TestimonalComponent />
     </>

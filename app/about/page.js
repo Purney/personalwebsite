@@ -1,31 +1,15 @@
-import { FaCode, FaRobot, FaDesktop } from "react-icons/fa";
+import ContactForm from "@/components/ContactForm";
+import { FaCode, FaRobot, FaComment, FaReact } from "react-icons/fa";
+import { Data } from "@/data/servicesData";
 
 export const metadata = {
   title: "William Purnell - About ",
-  description: "Will is a software developer with 5 years experience based in Bournemouth",
+  description:
+    "Will is a software developer with 5 years experience based in Bournemouth",
 };
 
 export default function About() {
-  const skills = [
-    {
-      title: "Web Development",
-      description:
-        "I build responsive, scalable, and high-performance websites.",
-      icon: <FaCode size={40} className="text-blue-600" />,
-    },
-    {
-      title: "AI Integration",
-      description:
-        "Integrating AI technologies to enhance application capabilities.",
-      icon: <FaRobot size={40} className="text-purple-600" />,
-    },
-    {
-      title: "Consulting",
-      description:
-        "Providing tailored advice on web architecture and scaling solutions.",
-      icon: <FaDesktop size={40} className="text-yellow-500" />,
-    },
-  ];
+  const skills = Data;
 
   return (
     <>
@@ -35,15 +19,26 @@ export default function About() {
             About Me
           </h1>
           <p className="text-lg text-gray-600 text-center mb-12">
-            I am a freelance software engineer based in Bournemouth with over 5
-            years of experience specializing in Full Stack Development. I am
-            passionate about creating scalable solutions and constantly
-            expanding my knowledge through side projects and emerging
-            technologies.
+          Hello! I&apos;m Will, a Bournemouth-based freelance software developer with over five years of industry experience. I specialize in .NET and React.js, helping businesses of all sizes unlock their potential with cutting-edge technology. My mission is to empower local companies with tailored software solutions that drive results.
           </p>
+           {/* Bournemouth Focus Section */}
+      <section className="py-24 px-8">
+        <h2 className="text-3xl font-bold text-center mb-8">
+        Why Choose a Local Software Developer in Bournemouth?
+        </h2>
+        <p className="text-center text-gray-700 max-w-2xl mx-auto">
+        Being based in Bournemouth allows me to understand the unique challenges and opportunities local businesses face. Whether you&apos;re a startup, small business, or established enterprise, I provide personalized solutions that make a difference.
+        </p>
+        <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2">
+        From Poole to Christchurch, I’m dedicated to serving the Dorset community with reliable, high-quality software development services.
+        </p>
+      </section>
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            My Expertise
+            Expertise and Approach
           </h2>
+          <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2 mb-8">
+          I bring a collaborative approach to every project, ensuring your vision is brought to life efficiently and effectively. With a strong focus on clean code, scalability, and performance, I’m committed to delivering results that exceed expectations.
+        </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skill, index) => (
               <div
@@ -59,6 +54,7 @@ export default function About() {
             ))}
           </div>
         </div>
+        <ContactForm />
       </section>
     </>
   );

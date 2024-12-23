@@ -2,7 +2,6 @@
 
 import PrimaryButton from "./PrimaryButton";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Header({isMenuOpen, toggleMenu}) {
   return (
