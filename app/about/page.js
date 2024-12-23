@@ -1,5 +1,4 @@
 import ContactForm from "@/components/ContactForm";
-import { FaCode, FaRobot, FaComment, FaReact } from "react-icons/fa";
 import { Data } from "@/data/servicesData";
 
 export const metadata = {

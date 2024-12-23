@@ -2,6 +2,11 @@ import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
 import Link from "next/link";
 
+export const metadata = {
+  title: "William Purnell - Project Name",
+  description: "Description of project",
+};
+
 export default async function Project({ params }) {
   const { id } = await params;
   const project = Data.find((project) => project.id === id);
