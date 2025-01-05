@@ -2,7 +2,6 @@ import Link from "next/link";
 import PrimaryButton from "./PrimaryButton";
 import { Data } from "@/data/projectsData";
 import Image from "next/image";
-import placeholder from "../assets/images/placeholder.jpg";
 
 export default function PortfolioGrid() {
   const projects = Data.slice(0, 3);

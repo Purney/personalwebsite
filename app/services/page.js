@@ -22,9 +22,11 @@ export default function Services() {
           description="<h2>Looking for expert software development services in Bournemouth? </h2>
           You're in the right place! <br> "
         />
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto">
           <ShowcaseComponent title="Our Services" services={services} />
-          <div className="bg-gray-200 px-8 py-24">
+        </div>
+        <div className="bg-gray-200 px-8 py-24 flex justify-center">
+          <div className="max-w-7xl">
             <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
               Why Choose Us?
             </h2>
@@ -43,8 +45,8 @@ export default function Services() {
               ))}
             </div>
           </div>
-          <ContactForm />
         </div>
+        <ContactForm />
       </section>
     </>
   );
