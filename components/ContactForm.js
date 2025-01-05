@@ -8,7 +8,7 @@ import axios from "axios";
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState("");
+  const [service, setService] = useState(Data[0].title);
   const [otherService, setOtherService] = useState("");
   const [message, setMessage] = useState("");
   const [messagedSubmitted, setMessagedSubmitted] = useState(false);
