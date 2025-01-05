@@ -8,7 +8,7 @@ import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data } from "@/data/servicesData";
 
 export const metadata = {
-  title: "William Purnell - Software Developer from Bournemouth",
+  title: "William Purnell - Freelance Software Developer from Bournemouth",
   description:
     "Will is a software developer with 5 years experience based in Bournemouth",
 };
@@ -19,13 +19,12 @@ export default function Home() {
     alt: "William Purnell headshot"
   };
 
-  const aboutUsCopy = `Hi I'm Will, </br> I'm a Bournemouth Based Software Developer 
-  with 5+ years of expertise in software development to local businesses 
-  and startups. </br>I have created and maintained a wide range of projects 
-  in .NET Framework / Core (C#) and Next.js (React) within a multitude of industries from education to 3D printing.
+  const aboutUsCopy = `Hello! I'm Will, </br> I'm a Software Developer from Bournemouth
+  with over 5 years of experience working with local agencies and startups. </br>I have created and maintained a wide range of projects 
+  in .NET Framework / Core (C#) and Next.js (React) within a variety of industries from education to manufacturing and 3D printing.
   </br>
-  Whether you're looking for web development, AI integration,
-  or custom software, I can help you achieve your goals.`
+  Whether you're looking for your first website, or looking to improve your companies efficiency with custom software,
+  I'm confident I can help you achieve your goals.`
 
   const servicesCopy = `Looking for expert software development services 
   in Bournemouth? You’re in the right place. 
