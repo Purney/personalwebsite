@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Data } from "@/data/servicesData";
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -10,15 +12,62 @@ export default function ContactForm() {
   const [otherService, setOtherService] = useState("");
   const [message, setMessage] = useState("");
   const [messagedSubmitted, setMessagedSubmitted] = useState(false);
+  const recaptchaRef = useRef();
+  const [isVerified, setIsVerified] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
+
+
+  const handleChange = (token) => {
+    handleCaptchaSubmission(token);
+  };
+
+  function handleExpired() {
+    setIsVerified(false);
+  }
+
+  async function handleCaptchaSubmission(token) {
+    try {
+      if (token) {
+        await fetch("/api/recaptcha", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token }),
+        });
+        setIsVerified(true);
+      }
+    } catch (e) {
+      setIsVerified(false);
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!isVerified) {
+      alert("Please verify the reCAPTCHA!");
+    } else {
+      axios
+        .post("/api/contact", {
+          name,
+          email,
+          service,
+          otherService,
+          message,
+        })
+        .then(() => {
+          setSubmittedName(name);
+          setMessagedSubmitted(true);
+          setEmail("");
+          setMessage("");
+          setService("");
+          setOtherService("");
+          setName("");
+        });
+    }
 
-    setMessagedSubmitted(true);
-
-    // Optionally clear the form
-    setEmail("");
-    setMessage("");
+   
   }
 
   return (
@@ -41,7 +90,7 @@ export default function ContactForm() {
                 name="name"
                 required
                 value={name}
-                onChange={(e) => setName(e.value)}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-3 mt-2 text-black "
               />
             </div>
@@ -55,7 +104,7 @@ export default function ContactForm() {
                 required
                 className="w-full px-4 py-3 mt-2 text-black"
                 value={email}
-                onChange={(e) => setEmail(e.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-4 text-left">
@@ -81,7 +130,7 @@ export default function ContactForm() {
                 placeholder="Custom Service"
                 className="w-full px-4 py-3 mt-2 text-black"
                 value={otherService}
-                onChange={(e) => setOtherService(e.value)}
+                onChange={(e) => setOtherService(e.target.value)}
               />)}
             </div>
             <div className="mb-4 text-left">
@@ -94,11 +143,20 @@ export default function ContactForm() {
                 rows="4"
                 className="w-full px-4 py-3 mt-2 text-black"
                 value={message}
-                onChange={(e) => setMessage(e.value)}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
+            <div className="flex justify-center py-4">
+                  <ReCAPTCHA
+                    sitekey={process.env.NEXT_PUBLIC_SITE_KEY || ""}
+                    ref={recaptchaRef}
+                    onChange={handleChange}
+                    onExpired={handleExpired}
+                  />
+                </div>
             <button
               type="submit"
+              disabled={!isVerified}
               className="bg-black text-white py-3 px-4 text-xs hover:bg-gray-700 w-full"
             >
               Send message
@@ -107,7 +165,7 @@ export default function ContactForm() {
         </>
       ) : (
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Thank you {name}!</h2>
+          <h2 className="text-3xl font-bold mb-4">Thank you {submittedName}!</h2>
           <p className="mt-4 text-lg">
             Your message has been sent successfully. I&apos;ll get back to you soon!
           </p>
