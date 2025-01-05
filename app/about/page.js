@@ -32,15 +32,15 @@ export default function About() {
             <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">About Us</h1>
               <div className="text-lg">
-                Hello! I'm Will, <br /> I'm a Software Developer from
+                Hello! I&apos;m Will, <br /> I&apos;m a Software Developer from
                 Bournemouth with over 5 years of experience working with local
                 agencies and startups. <br />I have created and maintained a
                 wide range of projects in .NET Framework / Core (C#) and Next.js
                 (React) within a variety of industries from education to
                 manufacturing and 3D printing.
                 <br />
-                Whether you're looking for your first website, or looking to
-                improve your companies efficiency with custom software, I'm
+                Whether you&apos;re looking for your first website, or looking to
+                improve your companies efficiency with custom software, I&apos;m
                 confident I can help you achieve your goals.
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function About() {
                 difference.
               </p>
               <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2">
-                From Poole to Christchurch, I’m dedicated to serving the Dorset
+                From Poole to Christchurch, I&apos;m dedicated to serving the Dorset
                 community with reliable, high-quality software development
                 services.
               </p>
@@ -74,7 +74,7 @@ export default function About() {
             <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2 mb-8">
               I bring a collaborative approach to every project, ensuring your
               vision is brought to life efficiently and effectively. With a
-              strong focus on clean code, scalability, and performance, I’m
+              strong focus on clean code, scalability, and performance, I&apos;m
               committed to delivering results that exceed expectations.
             </p>
           </div>
