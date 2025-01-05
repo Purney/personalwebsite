@@ -1,7 +1,11 @@
 import { sendEmail } from "@/lib/mailgun";
 
 export async function POST(request) {
-    const { name, email, service, message } = await request.json();
+    let { name, email, service, otherService, message } = await request.json();
+
+    if (!service || service == "Other") {
+        service = otherService;
+    }
 
     var subject = `NEW ${service} REQUEST from ${name}`
     var emailText = `
