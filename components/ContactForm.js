@@ -73,7 +73,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className=" py-16 text-center mx-8"
+      className=" py-24 text-center mx-8"
     >
       {!messagedSubmitted ? (
         <>

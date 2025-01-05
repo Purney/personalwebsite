@@ -21,7 +21,7 @@ export default function About() {
     <>
       <section className="bg-gray-100">
         <div className="max-w-7xl mx-auto px-0 md:px-9">
-          <div className="flex max-w-7xl mx-auto px-8 py-16 items-center flex-col md:flex-row">
+          <div className="flex max-w-7xl mx-auto px-8 py-24 items-center flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <Image
                 className="object-cover w-full"
@@ -46,7 +46,7 @@ export default function About() {
             </div>
           </div>
           {/* Bournemouth Focus Section */}
-          <div className="flex max-w-7xl mx-auto px-8 py-16 items-center bg-gray-200 flex-col mb-16 md:flex-row">
+          <div className="flex max-w-7xl mx-auto px-8 py-24 items-center bg-gray-200 flex-col mb-16 md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <h2 className="text-3xl font-bold text-center mb-8">
                 Why Choose a Local Software Developer in Bournemouth?

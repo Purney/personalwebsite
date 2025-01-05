@@ -8,11 +8,13 @@ export default function ShowcaseComponent({
   services,
 }) {
   return (
-    <div className="flex gap-8 max-w-7xl mx-auto px-8 py-12 items-center flex-col md:flex-row">
+    <div className="flex gap-8 max-w-7xl mx-auto md:px-8 py-16 md:py-24 items-center flex-col md:flex-row">
       <div className="w-full md:w-1/2 md:pr-8 pr-0">
         <div className="md:pl-16 pl-0">
           <h2 className="text-2xl font-bold mb-4">{title}</h2>
-          <p className="text-sm">{text}</p>
+          {text && (
+            <p className="text-sm" dangerouslySetInnerHTML={{ __html: text }} />
+          )}
           {buttonLink && buttonText && (
             <PrimaryButton
               buttonLink={buttonLink}
@@ -25,7 +27,7 @@ export default function ShowcaseComponent({
       <div className="w-full md:w-1/2 md:pl-8 pl-0 ">
         <div className="flex flex-col">
           {services.map((service, index) => (
-            <div key={index} className="flex my-4 gap-8">
+            <div key={index} className="flex my-4 gap-8 even:flex-row-reverse md:even:flex-row">
               <div className="flex items-center">{service.icon}</div>
               <div className="text-left">
                 <h3 className="text-xl font-semibold text-gray-700 mb-2">

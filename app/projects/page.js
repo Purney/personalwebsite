@@ -41,7 +41,7 @@ export default function Projects() {
           </p>
 
           {/* Filters */}
-          <div className="flex justify-center space-x-4 mb-12">
+          <div className="flex justify-center space-y-4 md:space-x-4 md:space-y-0 mb-12 flex-col md:flex-row">
             {filters.map((filterOption, index) => (
               <button
                 key={index}
@@ -58,21 +58,22 @@ export default function Projects() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white shadow-md rounded pb-6 text-left hover:shadow-lg"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
-                  className="rounded-t-lg w-full h-48 object-cover"
+                  className="object-cover mb-6"
                 />
-                <div className="p-6 text-center">
-                  <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+                <div className="px-6">
+                  <h3 className="text-2xl font-semibold mb-2">
                     {project.title}
                   </h3>
+                  <p className="text-sm">{project.shortDescription}</p>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex justify-center gap-2 flex-wrap mb-4">
                     {project.techStack.map((tech, idx) => (
@@ -84,12 +85,14 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <Link
-                    href={"/projects/" + project.id}
-                    className="bg-blue-600 py-2 px-6 rounded-md text-lg hover:bg-blue-700 transition"
-                  >
-                    View Project
-                  </Link>
+                  <div className="flex md:justify-end justify-center ">
+                    <Link
+                      href={"/projects/" + project.id}
+                      className="bg-blue-600 py-2 px-6 rounded-md text-lg hover:bg-blue-700 transition"
+                    >
+                      View Project
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
