@@ -10,9 +10,9 @@ export const metadata = {
     "Looking for expert software development services in Bournemouth? You’re in the right place. With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape.",
 };
 
-export default function Services() {
-  const services = Data;
-  const reasons = HireReasonsData;
+export default async function Services() {
+  const services = await Data;
+  const reasons = await HireReasonsData;
 
   return (
     <>

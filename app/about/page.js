@@ -14,8 +14,8 @@ const image = {
   alt: "William Purnell headshot",
 };
 
-export default function About() {
-  const skills = Data;
+export default async function About() {
+  const skills = await Data;
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function About() {
             </div>
           </div>
           {/* Bournemouth Focus Section */}
-          <div className="flex max-w-7xl mx-auto px-8 py-24 items-center bg-gray-200 flex-col mb-16 md:flex-row">
+          <div className="flex max-w-7xl mx-auto px-8 py-24 items-center bg-gray-200 flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <h2 className="text-3xl font-bold text-center mb-8">
                 Why Choose a Local Software Developer in Bournemouth?
@@ -67,7 +67,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="px-8">
+          <div className="pt-24 px-8">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Expertise and Approach
             </h2>

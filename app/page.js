@@ -13,7 +13,7 @@ export const metadata = {
     "Will is a software developer with 5 years experience based in Bournemouth",
 };
 
-export default function Home() {
+export default async function Home() {
   const image = {
     src: headshot,
     alt: "William Purnell headshot"
@@ -30,12 +30,12 @@ export default function Home() {
   in Bournemouth? You’re in the right place. 
   With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape.`
 
-  const services = Data;
+  const services = await Data;
 
   return (
     <>
       <Hero
-        title="Expert Freelance Software Developer in Bournemouth"
+        title="Freelance Software Developer in Bournemouth"
         description="Specialising in .NET, React, and AI Integration to Build Custom Solutions for Local Bournemouth Businesses!"
         buttonLink="#contact"
         buttonText="Get in Touch for a Free Consultation"

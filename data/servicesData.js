@@ -22,13 +22,13 @@ export const Data = [
       icon: <FaRobot size={80} className="text-purple-600" />,
       longDescription: "Enhance your applications with AI capabilities. From automating workflows with zapier to personalizing user experiences, I integrate cutting-edge generative AI technologies into your existing systems."
     },
-    {
-      title: "Consulting Services",
-      description:
-        "Expert advice on optimizing your tech stack for efficiency and growth.",
-      icon: <FaComment size={80} className="text-purple-600" />,
-      longDescription: "Not sure how to get started? I offer consulting services to help you choose the right tools and strategies for your business. Whether you’re looking to optimize your current setup or embark on a new project, I'll guide you every step of the way."
-    },
+    // {
+    //   title: "Consulting Services",
+    //   description:
+    //     "Expert advice on optimising your tech stack for efficiency and growth.",
+    //   icon: <FaComment size={80} className="text-purple-600" />,
+    //   longDescription: "Not sure how to get started? I offer consulting services to help you choose the right tools and strategies for your business. Whether you’re looking to optimize your current setup or embark on a new project, I'll guide you every step of the way."
+    // },
   ];
 
   export const HireReasonsData = [

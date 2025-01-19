@@ -2,12 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import ComponentFactory from "./ComponentFactory";
-import Link from "next/link";
 
 export default function ProjectTemplate({
   id,
-  title,
-  shortDescription,
   image,
   sections,
 }) {
@@ -52,7 +49,7 @@ export default function ProjectTemplate({
   return (
     <div className="max-w-7xl mx-auto flex justify-between items-center">
       <div className="flex">
-        {/* Left Menu */}
+        {/* Left Menu
         <nav className="sticky top-0 h-screen p-4 md:p-6 bg-gray-200 md:bg-gray-100">
           <ul
             className="flex flex-col space-y-4 md:h-full"
@@ -81,7 +78,7 @@ export default function ProjectTemplate({
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
 
         {/* Content */}
         <main className="flex-1 p-6 md:p-8 space-y-24">
