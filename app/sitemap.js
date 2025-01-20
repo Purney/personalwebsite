@@ -2,7 +2,7 @@ import { Data } from "@/data/projectsData";
 
 export default async function sitemap() {
   // Base URL - replace with your actual domain
-  const baseUrl = 'https://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
 
   // Static routes
   const staticRoutes = [

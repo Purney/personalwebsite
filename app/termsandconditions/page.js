@@ -3,7 +3,7 @@ export default function TermsAndConditions () {
    <div className="min-h-screen bg-gray-50 py-10 px-5 sm:px-10">
       <div className="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-lg">
         <h1 className="text-3xl font-bold mb-6">Terms and Conditions</h1>
-        <p className="text-gray-700 mb-4"> <b>Last Updated:</b> 20/01/2015</p>
+        <p className="text-gray-700 mb-4"> <b>Last Updated:</b> 20/01/2025</p>
         
         <p className="text-gray-700 mb-6">
           Welcome to the website of William Purnell ("we," "our," or "us"). By accessing or using this website, you agree to be bound by these Terms and Conditions. If you do not agree with these terms, please do not use the website.

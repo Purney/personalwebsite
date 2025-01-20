@@ -1,8 +1,4 @@
 import {
-  FaExclamationCircle,
-  FaLightbulb,
-  FaWrench,
-  FaArrowRight,
   FaQuestion,
 } from "react-icons/fa";
 
