@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
 import Link from "next/link";
+import { notFound } from 'next/navigation';
 
 export const metadata = {
   title: "William Purnell - Project Name",
@@ -13,11 +14,7 @@ export default async function Project({ params }) {
   const project = Data.find((project) => project.id === id);
 
   if (!project) {
-    return (
-      <div className="max-w-7xl mx-auto flex p-4 md:p-6">
-        <h1>404 page</h1>
-      </div>
-    );
+    notFound();
   }
 
   return (
