@@ -16,6 +16,9 @@ import mongodb from "../assets/images/logos/mongodb.png";
 import openai from "../assets/images/logos/openai.webp";
 import nextjs from "../assets/images/logos/nextjs.webp";
 import successFailure from "../assets/images/logos/success-failure.jpg";
+import generationScreen from "../assets/images/filamentgifts/generationScreen.png";
+import productPage from "../assets/images/filamentgifts/productPage.png";
+import benRobb from "../assets/images/testimonials/benRobb.jpg"
 
 export const Data = [
   {
@@ -126,7 +129,7 @@ export const Data = [
         type: "image-with-text",
         icon: <FaQuestion />,
         content: {
-          image: { src: placeholder, alt: "Filament Home Page Image" },
+          image: { src: filamentgiftshero, alt: "Filament Home Page Image" },
           title: "What is Filament Gifts?",
           text: "Filament Gifts is a manufacturing company that creates and distributes 3d printed goods",
         },
@@ -137,9 +140,9 @@ export const Data = [
         icon: <FaQuestion />,
         content: {
           title: "Initial Mission?",
-          text: "The mission was to filament gifts to easily sell their products away from Etsy",
-          beforeImage: { src: placeholder, alt: "Before Image" },
-          afterImage: { src: placeholder, alt: "After Image" },
+          text: "The mission was to create an ecommerce store and a backend management system that would allow them to create and launch products outside of Etsy.",
+          beforeImage: { src: generationScreen, alt: "Generation Screen" },
+          afterImage: { src: productPage, alt: "Pear Drop Bird Feeder Product Page" },
         },
       },
       {
@@ -148,11 +151,10 @@ export const Data = [
         icon: <FaQuestion />,
         content: {
           title: "Technical Overview",
-          text: "This uses Nextjs, Reactjs and MongoDB",
+          text: "This project used Nextjs and MongoDB",
           images: [
-            { src: placeholder, alt: "First Image" },
-            { src: placeholder, alt: "Second Image" },
-            { src: placeholder, alt: "Last Image" },
+            { src: nextjs, alt: "Next js Logo" },
+            { src: mongodb, alt: "Mongo db Logo" },
           ]
         },
       },
@@ -161,9 +163,9 @@ export const Data = [
         type: "image-with-text",
         icon: <FaQuestion />,
         content: {
-          image: { src: placeholder, alt: "Bens Face logo" },
+          image: { src: benRobb, alt: "Bens Face logo" },
           title: "What did the client say?",
-          text: "nice one mate",
+          text: "<q>It's been a smooth experience creating my custom 3D printing website with Will. He's always interested in developing the best user experience for my customers.</q>",
           format: "text-left",
           buttonLink: "https://filamentgifts.com/",
           buttonText: "Check out Filament Gifts"
@@ -173,6 +175,9 @@ export const Data = [
         name: "contact",
         type: "contact",
         icon: <FaQuestion />,
+        content: {
+          title:"Interested in having your own ecommerce store?",
+        },
       },
     ],
   },
