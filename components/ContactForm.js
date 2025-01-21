@@ -16,7 +16,6 @@ export default function ContactForm() {
   const [isVerified, setIsVerified] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
 
-
   const handleChange = (token) => {
     handleCaptchaSubmission(token);
   };
