@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const title = "William Purnell - " + project.title;
   const description = project.shortDescription;
 
-  return getSEOTags(title, description);
+  return getSEOTags({title, description});
 }
 
 export default async function Project({ params }) {

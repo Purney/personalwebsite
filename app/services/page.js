@@ -4,7 +4,7 @@ import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data, HireReasonsData } from "@/data/servicesData";
 import { getSEOTags } from "@/lib/seo";
 
-export const metadata = getSEOTags("William Purnell - Professional Software Development Services in Bournemouth", "Looking for expert software development services in Bournemouth? You’re in the right place. With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape.");
+export const metadata = getSEOTags({title: "William Purnell - Professional Software Development Services in Bournemouth", description: "Looking for expert software development services in Bournemouth? You’re in the right place. With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape."});
 
 export default async function Services() {
   const services = await Data;

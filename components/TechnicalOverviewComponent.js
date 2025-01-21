@@ -8,7 +8,7 @@ export default function TechnicalOverviewComponent({ title, text, images }) {
           <h3 className="text-4xl md:text-6xl pb-4 font-bold ">{title}</h3>
           <p>{text}</p>
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:px-28 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:px-28 gap-8 items-center">
           {images.map((image, index) => (
             <div key={"technical-overview-" + index}>
               <Image

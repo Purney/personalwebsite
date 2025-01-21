@@ -1,5 +1,10 @@
 import {
+  FaClock,
+  FaList,
+  FaPeopleArrows,
   FaQuestion,
+  FaSpeakap,
+  FaTimes,
 } from "react-icons/fa";
 
 import placeholder from "../assets/images/placeholder.jpg";
@@ -7,7 +12,10 @@ import text2quizhero from "../assets/images/text2quiz/text2quizhero.jpg";
 import quizscreen from "../assets/images/text2quiz/quizscreen.png";
 import pdfIcon from "../assets/images/text2quiz/pdf-icon-transparent.png";
 import filamentgiftshero from "../assets/images/filamentgifts/filamentgiftshero.png";
-
+import mongodb from "../assets/images/logos/mongodb.png";
+import openai from "../assets/images/logos/openai.webp";
+import nextjs from "../assets/images/logos/nextjs.webp";
+import successFailure from "../assets/images/logos/success-failure.jpg";
 
 export const Data = [
   {
@@ -27,7 +35,7 @@ export const Data = [
         content: {
           image: { src: text2quizhero, alt: "Text 2 Quiz Hero Image" },
           title: "What is Text 2 Quiz?",
-          text: "Text 2 Quiz is a Educational Tool that allows users to turn their lecture notes into online interactive quizzes",
+          text: "Text 2 Quiz is a Educational Tool that uses GenAI to allows users to turn their lecture notes into online interactive quizzes.",
         },
       },
       {
@@ -36,7 +44,7 @@ export const Data = [
         icon: <FaQuestion />,
         content: {
           title: "Initial Mission?",
-          text: "The mission was to allow users to turn their lecture notes into online interactive quizzes",
+          text: "The mission was to enable users to spend less time creating their own testing material. Allowing them to study in a more enjoyable way through interactive quizzes.",
           beforeImage: { src: pdfIcon, alt: "Pdf Icon" },
           afterImage: { src: quizscreen, alt: "Text 2 Quiz Game" },
         },
@@ -47,34 +55,12 @@ export const Data = [
         icon: <FaQuestion />,
         content: {
           title: "Technical Overview",
-          text: "This uses Nextjs, Reactjs and MongoDB",
+          text: "This project used Nextjs, MongoDB and OpenAI",
           images: [
-            { src: placeholder, alt: "First Image" },
-            { src: placeholder, alt: "Second Image" },
-            { src: placeholder, alt: "Last Image" },
+            { src: nextjs, alt: "Next js Logo" },
+            { src: mongodb, alt: "Mongo db Logo" },
+            { src: openai, alt: "Open AI Logo" },
           ]
-        },
-      },
-      {
-        name: "what-id-do-differently",
-        type: "showcase",
-        icon: <FaQuestion />,
-        content: {
-          title: "What I'd do differently",
-          services: [
-            {
-              icon: <FaQuestion />,
-              description: "MVP Speed",
-            },
-            {
-              icon: <FaQuestion />,
-              description: "Waiting List",
-            },
-            {
-              icon: <FaQuestion />,
-              description: "Speak to people",
-            },
-          ],
         },
       },
       {
@@ -82,15 +68,44 @@ export const Data = [
         type: "image-with-text",
         icon: <FaQuestion />,
         content: {
-          image: { src: placeholder, alt: "Was it a failure image" },
-          title: "Was text 2 quiz a failure?",
-          text: "Reasoning for why I learnt a lot",
+          image: { src: successFailure, alt: "Was it a failure image" },
+          title: "What happened?",
+          text: "I decided to shutdown Text2Quiz.</br></br> The reason being that there was a tonne of free alternatives being made by everyone from first year computer science students to senior software engineers.</br></br>I simply couldn't compete as I was building this project outside my 9-5 and wasn't willing to add a freemium version (which may have been my downfall). ",
           format: "text-left",
         },
       },
       {
+        name: "what-id-do-differently",
+        type: "showcase",
+        icon: <FaQuestion />,
+        content: {
+          title: "What would I do differently?",
+          services: [
+            {
+              icon: <FaClock />,
+              title: "MVP Speed",
+              description: "Create one feature and launch",
+            },
+            {
+              icon: <FaList />,
+              title: "Waiting List",
+              description: "Start a waitlist before creating",
+            },
+            {
+              icon: <FaPeopleArrows />,
+              title: "Speak to people",
+              description: "Get feedback from people ASAP",
+            },
+          ],
+        },
+      },
+      
+      {
         name: "contact",
         type: "contact",
+        content: {
+          title: "Would you like to create a similar project?",
+        },
         icon: <FaQuestion />,
       },
     ],

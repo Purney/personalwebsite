@@ -4,7 +4,7 @@ import headshot from "../../assets/images/william-purnell-headshot.png";
 import Image from "next/image";
 import { getSEOTags } from "@/lib/seo";
 
-export const metadata = getSEOTags("William Purnell - About", "Will is a software developer with 5 years experience based in Bournemouth");
+export const metadata = getSEOTags({title: "William Purnell - About", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 
 const image = {
   src: headshot,

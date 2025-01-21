@@ -5,7 +5,7 @@ const config = {
     },
     domainName: 'text2quiz.co.uk',    // Your Mailgun domain (e.g., your Mailgun domain)
     appName: "William Purnell",
-    appDescription: "Freelance software developer for hire"
+    appDescription: "Software Developer from Bournemouth for Hire"
   };
 
   

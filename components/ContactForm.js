@@ -5,7 +5,7 @@ import { Data } from "@/data/servicesData";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 
-export default function ContactForm() {
+export default function ContactForm({title = "Ready to take your business to the next level?", subHeading = "Reach out today for a free consultation!"}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [service, setService] = useState(Data[0].title);
@@ -76,8 +76,8 @@ export default function ContactForm() {
     >
       {!messagedSubmitted ? (
         <>
-          <h2 className="text-3xl font-bold mb-4">Ready to take your business to the next level?</h2>
-          <p className="mb-8 text-lg">Reach out today for a free consultation!</p>
+          <h2 className="text-3xl font-bold mb-4">{title}</h2>
+          <p className="mb-8 text-lg">{subHeading}</p>
 
           <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
             <div className="mb-4 text-left">

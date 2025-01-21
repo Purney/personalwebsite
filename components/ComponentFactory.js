@@ -23,7 +23,7 @@ export default function ComponentFactory({ type, content }) {
     case "porfolio":
       return <PortfolioGrid {...content} />;
     case "contact":
-      return <ContactForm />
+      return <ContactForm {...content} />
     case "technical-overview":
       return <TechnicalOverviewComponent {...content} />
     case "mission":
