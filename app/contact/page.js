@@ -1,10 +1,7 @@
 import ContactForm from "@/components/ContactForm";
+import { getSEOTags } from "@/lib/seo";
 
-export const metadata = {
-  title: "William Purnell - Contact Us ",
-  description:
-    "Need a freelance software developer with experience? Contact Us",
-};
+export const metadata = getSEOTags("William Purnell - Contact Us", "Need a freelance software developer with experience? Contact Us");
 
 export default function Contact() {
   return <ContactForm />;

@@ -6,12 +6,9 @@ import headshot from "../assets/images/william-purnell-headshot.png";
 import ImageWithTextComponent from "@/components/ImageWithTextComponent";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data } from "@/data/servicesData";
+import { getSEOTags } from "@/lib/seo";
 
-export const metadata = {
-  title: "William Purnell - Freelance Software Developer from Bournemouth",
-  description:
-    "Will is a software developer with 5 years experience based in Bournemouth",
-};
+export const metadata = getSEOTags("William Purnell - Freelance Software Developer from Bournemouth", "Will is a software developer with 5 years experience based in Bournemouth");
 
 export default async function Home() {
   const image = {

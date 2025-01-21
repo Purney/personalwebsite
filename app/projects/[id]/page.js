@@ -1,13 +1,19 @@
 import Hero from "@/components/Hero";
 import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
+import { getSEOTags } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from 'next/navigation';
 
-export const metadata = {
-  title: "William Purnell - Project Name",
-  description: "Description of project",
-};
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const project = await Data.find((project) => project.id === id);
+
+  const title = "William Purnell - " + project.title;
+  const description = project.shortDescription;
+
+  return getSEOTags(title, description);
+}
 
 export default async function Project({ params }) {
   const { id } = await params;
