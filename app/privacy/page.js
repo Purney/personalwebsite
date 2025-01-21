@@ -5,7 +5,7 @@ export default function Privacy () {
       <p className="text-gray-700 mb-4"><b>Last Updated:</b> 20/01/2025</p>
 
       <p className="text-gray-700 mb-6">
-        At William Purnell ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you use this website. By accessing or using this website, you agree to the terms outlined in this Privacy Policy.
+        At William Purnell (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you use this website. By accessing or using this website, you agree to the terms outlined in this Privacy Policy.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">1. Information We Collect</h2>
@@ -44,7 +44,7 @@ export default function Privacy () {
         <li>General location (e.g., city or country)</li>
       </ul>
       <p className="text-gray-700 mb-6">
-        This information is aggregated and does not include any personally identifiable information. It is used to improve the website’s performance and user experience.
+        This information is aggregated and does not include any personally identifiable information. It is used to improve the website&apos;s performance and user experience.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">4. Third-Party Services</h2>
@@ -78,7 +78,7 @@ export default function Privacy () {
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">7. Changes to This Privacy Policy</h2>
       <p className="text-gray-700 mb-6">
-        We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. Continued use of the website after changes have been made constitutes acceptance of the updated policy.
+        We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated &quot;Last Updated&quot; date. Continued use of the website after changes have been made constitutes acceptance of the updated policy.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">8. Contact Us</h2>

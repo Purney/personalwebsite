@@ -6,7 +6,7 @@ export default function TermsAndConditions () {
         <p className="text-gray-700 mb-4"> <b>Last Updated:</b> 20/01/2025</p>
         
         <p className="text-gray-700 mb-6">
-          Welcome to the website of William Purnell ("we," "our," or "us"). By accessing or using this website, you agree to be bound by these Terms and Conditions. If you do not agree with these terms, please do not use the website.
+          Welcome to the website of William Purnell (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By accessing or using this website, you agree to be bound by these Terms and Conditions. If you do not agree with these terms, please do not use the website.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-4">1. Use of the Website</h2>
