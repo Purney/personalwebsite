@@ -70,7 +70,7 @@ export const Data = [
         content: {
           image: { src: successFailure, alt: "Was it a failure image" },
           title: "What happened?",
-          text: "I decided to shutdown Text2Quiz.</br></br> The reason being that there was a tonne of free alternatives being made by everyone from first year computer science students to senior software engineers.</br></br>I simply couldn't compete as I was building this project outside my 9-5 and wasn't willing to add a freemium version (which may have been my downfall). ",
+          text: "I decided to shutdown Text2Quiz.</br></br> The reason being that there was a ton of free alternatives being made by everyone from first year computer science students to senior software engineers.</br></br>I simply couldn't compete as I was building this project outside my 9-5 and wasn't willing to add a freemium version (which may have been my downfall). ",
           format: "text-left",
         },
       },
