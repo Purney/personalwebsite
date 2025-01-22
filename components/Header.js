@@ -80,7 +80,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
           </li>
           <li>
             <Link
-              href="/portfolio"
+              href="/projects"
               className=""
               onClick={toggleMenu}
             >
