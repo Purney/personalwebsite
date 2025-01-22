@@ -27,7 +27,7 @@ export default async function Home() {
   in Bournemouth? You’re in the right place. 
   With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape.`
 
-  const services = await Data;
+  let services = await Data;
 
   return (
     <>
