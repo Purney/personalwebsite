@@ -12,7 +12,7 @@ const image = {
 };
 
 export default async function About() {
-  const skills = await Data;
+  let skills = (await Data).splice(0, 3);
 
   return (
     <>
@@ -76,7 +76,7 @@ export default async function About() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
-            {skills.splice(0, 3).map((skill, index) => (
+            {skills.map((skill, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow"

@@ -39,7 +39,7 @@ export default async function sitemap() {
   ]
 
   // Dynamic routes (blog posts)
-  const projects = await Data;
+  let projects = await Data;
   const dynamicRoutes = projects.map(post => ({
     url: `${baseUrl}/projects/${post.id}`,
     lastModified: post.dateUpdated ?? post.dateCreated,

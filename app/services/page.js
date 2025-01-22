@@ -7,7 +7,7 @@ import { getSEOTags } from "@/lib/seo";
 export const metadata = getSEOTags({title: "William Purnell - Professional Software Development Services in Bournemouth", description: "Looking for expert software development services in Bournemouth? You’re in the right place. With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape."});
 
 export default async function Services() {
-  const services = await Data;
+  let services = await Data;
   const reasons = await HireReasonsData;
 
   return (

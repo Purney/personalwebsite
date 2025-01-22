@@ -9,7 +9,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
       <nav className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl font-bold bg-gray-200 p-2 px-3 rounded-sm">
-          <Link href="/">William Purnell</Link>
+          <Link href="/" className="tracking-widest">William Purnell</Link>
         </div>
 
         {/* Hamburger Menu for Mobile */}
@@ -35,7 +35,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
           </li>
           <li>
             <Link href="/projects" className="">
-              Our Work
+              My Work
             </Link>
           </li>
           <li>
@@ -84,11 +84,11 @@ export default function Header({isMenuOpen, toggleMenu}) {
               className=""
               onClick={toggleMenu}
             >
-              Our Work
+              My Work
             </Link>
           </li>
           <li>
-            <PrimaryButton className="mt-0 inline-block bg-black text-white py-2 px-4 rounded-sm uppercase hover:bg-gray-700" buttonLink="/contact" buttonText="Get in Touch" />
+            <PrimaryButton className="mt-0 inline-block bg-black text-white py-2 px-4 rounded-sm uppercase hover:bg-gray-700" buttonLink="/contact" onClick={toggleMenu} buttonText="Get in Touch" />
           </li>
         </ul>
       </div>

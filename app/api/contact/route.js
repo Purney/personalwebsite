@@ -9,7 +9,7 @@ export async function POST(request) {
 
     var subject = `NEW ${service} REQUEST from ${name}`;
 
-    var replyBodyContent = `Hi ${name}, thanks for contacting us in regards to ${service}, in order to understand how we can best help you we'd love to have a discovery call, you can book a meeting with us here #enterbookingmeeting#` 
+    var replyBodyContent = `Hi ${name}, thanks for contacting us in regards to ${service}, in order to understand how we can best help you I'd love to have a discovery call, you can book a meeting with us here #enterbookingmeeting#` 
 
     var emailText = `
     <html>

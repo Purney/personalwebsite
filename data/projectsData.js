@@ -3,11 +3,8 @@ import {
   FaList,
   FaPeopleArrows,
   FaQuestion,
-  FaSpeakap,
-  FaTimes,
 } from "react-icons/fa";
 
-import placeholder from "../assets/images/placeholder.jpg";
 import text2quizhero from "../assets/images/text2quiz/text2quizhero.jpg";
 import quizscreen from "../assets/images/text2quiz/quizscreen.png";
 import pdfIcon from "../assets/images/text2quiz/pdf-icon-transparent.png";

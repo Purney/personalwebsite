@@ -33,7 +33,7 @@ export default function Projects() {
       <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
           <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-            Our Work
+            My Work
           </h1>
           <p className="text-lg text-gray-600 text-center mb-8">
             Explore the projects I’ve worked on, showcasing my expertise in web
@@ -85,14 +85,16 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex md:justify-end justify-center ">
-                    <Link
-                      href={"/projects/" + project.id}
-                      className="bg-blue-600 py-2 px-6 rounded-md text-lg hover:bg-blue-700 transition"
-                    >
-                      View Project
-                    </Link>
-                  </div>
+                  {project.id && (
+                    <div className="flex md:justify-end justify-center ">
+                      <Link
+                        href={"/projects/" + project.id}
+                        className="mt-0 inline-block bg-black text-white py-2 px-4 rounded-sm uppercase hover:bg-gray-700"
+                      >
+                        View Project
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
