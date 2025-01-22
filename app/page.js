@@ -6,7 +6,7 @@ import headshot from "../assets/images/william-purnell-headshot.png";
 import ImageWithTextComponent from "@/components/ImageWithTextComponent";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data } from "@/data/servicesData";
-import { getSEOTags } from "@/lib/seo";
+import { getSEOTags, getWebsiteSchema, getPersonSchema } from "@/lib/seo";
 
 export const metadata = getSEOTags({title: "William Purnell - Freelance Software Developer from Bournemouth", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 
@@ -31,6 +31,8 @@ export default async function Home() {
 
   return (
     <>
+     {getWebsiteSchema()}
+     {getPersonSchema()}
       <Hero
         title="Freelance Software Developer in Bournemouth"
         description="Specialising in .NET, React, and AI Integration to Build Custom Solutions for Local Bournemouth Businesses!"

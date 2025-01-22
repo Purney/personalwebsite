@@ -2,7 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import { Data } from "@/data/servicesData";
 import headshot from "../../assets/images/william-purnell-headshot.png";
 import Image from "next/image";
-import { getSEOTags } from "@/lib/seo";
+import { getSEOTags, getPersonSchema } from "@/lib/seo";
 
 export const metadata = getSEOTags({title: "William Purnell - About", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 
@@ -16,6 +16,7 @@ export default async function About() {
 
   return (
     <>
+      {getPersonSchema()}
       <section className="bg-gray-100">
         <div className="max-w-7xl mx-auto px-0 md:px-9">
           <div className="flex max-w-7xl mx-auto px-8 py-24 items-center flex-col md:flex-row">

@@ -30,6 +30,28 @@ export default function Projects() {
 
   return (
     <>
+      <script  type="application/ld+json"
+        dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://www.william-purnell.co.uk/projects/text-2-quiz"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://www.william-purnell.co.uk/projects/filament-gifts"
+            }
+          ]
+        }
+        
+        )
+      }}>
+      </script>
       <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
           <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">

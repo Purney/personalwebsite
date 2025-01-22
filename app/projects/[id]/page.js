@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
-import { getSEOTags } from "@/lib/seo";
+import { getSEOTags, getCreativeWorkSchema } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from 'next/navigation';
 
@@ -25,6 +25,7 @@ export default async function Project({ params }) {
 
   return (
     <>
+      {getCreativeWorkSchema(project.title, project.shortDescription, project.dateCreated, project.techStack, project.image.src, project.id)}
       <Hero title={project.title} description={project.shortDescription} />
       <div className="max-w-7xl mx-auto justify-between flex p-4 md:p-6">
         <Link

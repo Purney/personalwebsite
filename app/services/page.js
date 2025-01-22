@@ -2,7 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data, HireReasonsData } from "@/data/servicesData";
-import { getSEOTags } from "@/lib/seo";
+import { getSEOTags, getServicesSchema } from "@/lib/seo";
 
 export const metadata = getSEOTags({title: "William Purnell - Professional Software Development Services in Bournemouth", description: "Looking for expert software development services in Bournemouth? You’re in the right place. With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape."});
 
@@ -12,6 +12,7 @@ export default async function Services() {
 
   return (
     <>
+      {getServicesSchema()}
       <section className="bg-gray-100">
         <Hero
           title="Professional Software Development Services in Bournemouth"
