@@ -25,7 +25,7 @@ export const Data = [
     techStack: ["Next.js", "React", "Tailwind CSS"],
     category: ["Web Development", "AI Integration"],
     image: text2quizhero,
-    dateCreated: '18/01/2025',
+    dateCreated: '2025-01-23T08:32:06.301Z',
     dateUpdated: null,
     sections: [
       {
@@ -118,7 +118,7 @@ export const Data = [
     techStack: [".NET", "React", "Stripe API"],
     category: ["Web Development", "AI Integration"],
     image: filamentgiftshero,
-    dateCreated: '18/01/2025',
+    dateCreated: '2025-01-23T08:32:06.301Z',
     dateUpdated: null,
     sections: [
       {
