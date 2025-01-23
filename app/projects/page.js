@@ -39,12 +39,12 @@ export default function Projects() {
             {
               "@type": "ListItem",
               "position": 1,
-              "url": "https://www.william-purnell.co.uk/projects/text-2-quiz"
+              "url": "https://www.william-purnell.com/projects/text-2-quiz"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "url": "https://www.william-purnell.co.uk/projects/filament-gifts"
+              "url": "https://www.william-purnell.com/projects/filament-gifts"
             }
           ]
         }
