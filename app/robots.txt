@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /api/
 
 # Specify sitemap location
-Sitemap: https://localhost:3000/sitemap.xml
+Sitemap: https://www.william-purnell/sitemap.xml
