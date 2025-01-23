@@ -21,7 +21,7 @@ export async function POST(request) {
     `
 
     try {
-        await sendEmail(process.env.NOTIFICATIONEMAIL, subject, emailText, emailText, "noreply@william.purnell2016@gmail.com" );
+        await sendEmail(process.env.NOTIFICATIONEMAIL, subject, emailText, emailText, "noreply@william-purnell.com" );
 
         return new Response(JSON.stringify({ message: "Success" }), {
             status: 200,
