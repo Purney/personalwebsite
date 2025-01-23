@@ -42,7 +42,7 @@ export default async function sitemap() {
   let projects = await Data;
   const dynamicRoutes = projects.map(post => ({
     url: `${baseUrl}/projects/${post.id}`,
-    lastModified: post.dateUpdated ?? post.dateCreated,
+    lastModified: new Date(post.dateUpdated ?? post.dateCreated),
     changeFrequency: 'weekly',
     priority: 0.7,
   }))
