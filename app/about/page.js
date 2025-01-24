@@ -38,7 +38,7 @@ export default async function About() {
                 manufacturing and 3D printing.
                 <br />
                 Whether you&apos;re looking for your first website, or looking to
-                improve your companies efficiency with custom software, I&apos;m
+                improve your company&apos;s efficiency with custom software, I&apos;m
                 confident I can help you achieve your goals.
               </div>
             </div>
