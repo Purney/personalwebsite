@@ -4,7 +4,7 @@ import headshot from "../../assets/images/william-purnell-headshot.png";
 import Image from "next/image";
 import { getSEOTags, getPersonSchema } from "@/lib/seo";
 
-export const metadata = getSEOTags({title: "William Purnell - About", description: "Will is a software developer with 5 years experience based in Bournemouth"});
+export const metadata = getSEOTags({title: "Who is William Purnell?", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 
 const image = {
   src: headshot,
@@ -28,7 +28,7 @@ export default async function About() {
               />
             </div>
             <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">About Us</h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[4rem] md:leading-[5rem]">Who is <br/><span className="bg-gray-200 p-2">William Purnell</span> ?</h1>
               <div className="text-lg">
                 Hello! I&apos;m Will, <br /> I&apos;m a Software Developer from
                 Bournemouth with over 5 years of experience working with local
@@ -47,7 +47,7 @@ export default async function About() {
           <div className="flex max-w-7xl mx-auto px-8 py-24 items-center bg-gray-200 flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <h2 className="text-3xl font-bold text-center mb-8">
-                Why Choose a Local Software Developer in Bournemouth?
+                Why Choose William Purnell as your Local Bournemouth Software Developer ?
               </h2>
             </div>
             <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
@@ -66,9 +66,9 @@ export default async function About() {
             </div>
           </div>
           <div className="pt-24 px-8">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Expertise and Approach
-            </h2>
+            </h3>
             <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2 mb-8">
               I bring a collaborative approach to every project, ensuring your
               vision is brought to life efficiently and effectively. With a
