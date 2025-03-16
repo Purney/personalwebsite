@@ -7,6 +7,8 @@ import ImageWithTextComponent from "@/components/ImageWithTextComponent";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data } from "@/data/servicesData";
 import { getSEOTags, getWebsiteSchema, getPersonSchema } from "@/lib/seo";
+import TextCarouselVerticalComponent from "@/components/TextCarouselVerticalComponent";
+import TextCarouselHorizontalComponent from "@/components/TextCarouselHorizontalComponent";
 
 export const metadata = getSEOTags({title: "William Purnell - Freelance Software Developer from Bournemouth", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 
@@ -34,12 +36,13 @@ export default async function Home() {
      {getWebsiteSchema()}
      {getPersonSchema()}
       <Hero
-        title="Freelance Software Developer in Bournemouth"
-        description="Specialising in .NET, React, and AI Integration to Build Custom Solutions for Local Bournemouth Businesses!"
+        title="Freelance Software Developer for Hire"
+        description="Helping small businesses improve their efficiency through custom solutions, automation and AI!"
         buttonLink="#contact"
         buttonText="Get in Touch for a Free Consultation"
       />
-      <ImageWithTextComponent image={image} title="About Me" text={aboutUsCopy} buttonLink="/about" buttonText="Learn More" />
+      <TextCarouselHorizontalComponent />
+      <ImageWithTextComponent format="text-left" image={image} title="About Me" text={aboutUsCopy} buttonLink="/about" buttonText="Learn More" />
       <ShowcaseComponent title="Services" text={servicesCopy} buttonLink="/services" buttonText="Explore Our Services" services={services} />
       <PortfolioGrid />
       <ContactForm />
