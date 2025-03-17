@@ -19,7 +19,7 @@ export default async function About() {
       {getPersonSchema()}
       <section className="bg-gray-100">
         <div className="max-w-7xl mx-auto px-0 md:px-9">
-          <div className="flex max-w-7xl mx-auto px-8 py-24 items-center flex-col md:flex-row">
+          <div className="flex max-w-7xl mx-auto px-8 py-32 items-center flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <Image
                 className="object-cover w-full"
@@ -44,7 +44,7 @@ export default async function About() {
             </div>
           </div>
           {/* Bournemouth Focus Section */}
-          <div className="flex max-w-7xl mx-auto px-8 py-24 items-center bg-gray-200 flex-col md:flex-row">
+          <div className="flex max-w-7xl mx-auto px-8 py-32 items-center bg-gray-200 flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <h2 className="text-3xl font-bold text-center mb-8">
                 Why Choose William Purnell as your Local Bournemouth Software Developer ?
@@ -65,7 +65,7 @@ export default async function About() {
               </p>
             </div>
           </div>
-          <div className="pt-24 px-8">
+          <div className="pt-32 px-8">
             <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Expertise and Approach
             </h3>
@@ -76,7 +76,7 @@ export default async function About() {
               committed to delivering results that exceed expectations.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 pb-32">
             {skills.map((skill, index) => (
               <div
                 key={index}
