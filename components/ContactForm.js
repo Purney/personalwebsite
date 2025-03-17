@@ -82,7 +82,7 @@ export default function ContactForm({title = "Ready to take your business to the
 
           <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
             <div className="mb-4 text-left">
-              <label htmlFor="name">Name *</label>
+              <label htmlFor="name">What do we call you?</label>
               <input
                 type="text"
                 placeholder="Your Full Name"
@@ -95,7 +95,7 @@ export default function ContactForm({title = "Ready to take your business to the
               />
             </div>
             <div className="mb-4 text-left">
-              <label htmlFor="email">Email *</label>
+              <label htmlFor="email">How can we contact you?</label>
               <input
                 type="email"
                 id="email"
@@ -108,7 +108,7 @@ export default function ContactForm({title = "Ready to take your business to the
               />
             </div>
             <div className="mb-4 text-left">
-              <label htmlFor="service">Service *</label>
+              <label htmlFor="service">How can we help you?</label>
               <select
                 id="service"
                 name="service"
@@ -134,7 +134,7 @@ export default function ContactForm({title = "Ready to take your business to the
               />)}
             </div>
             <div className="mb-4 text-left">
-              <label htmlFor="message">Message *</label>
+              <label htmlFor="message">What is your desired outcome?</label>
               <textarea
                 placeholder="Your Message..."
                 id="message"
