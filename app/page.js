@@ -7,10 +7,9 @@ import ImageWithTextComponent from "@/components/ImageWithTextComponent";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data } from "@/data/servicesData";
 import { getSEOTags, getWebsiteSchema, getPersonSchema } from "@/lib/seo";
-import TextCarouselVerticalComponent from "@/components/TextCarouselVerticalComponent";
 import TextCarouselHorizontalComponent from "@/components/TextCarouselHorizontalComponent";
 
-export const metadata = getSEOTags({title: "William Purnell - Freelance Software Developer from Bournemouth", description: "Will is a software developer with 5 years experience based in Bournemouth"});
+export const metadata = getSEOTags({title: "William Purnell - Freelance Software Developer from Bournemouth", description: "Will is a freelance developer in Bournemouth with over 5 years experience"});
 
 export default async function Home() {
   const image = {
@@ -29,8 +28,6 @@ export default async function Home() {
   in Bournemouth? You’re in the right place. 
   With years of experience in .NET, React, and AI technologies, I provide end-to-end solutions that help businesses thrive in today’s digital landscape.`
 
-  let services = await Data;
-
   return (
     <>
      {getWebsiteSchema()}
@@ -43,7 +40,7 @@ export default async function Home() {
       />
       <TextCarouselHorizontalComponent />
       <ImageWithTextComponent format="text-left" image={image} title="About Me" text={aboutUsCopy} buttonLink="/about" buttonText="Learn More" />
-      <ShowcaseComponent title="Services" text={servicesCopy} buttonLink="/services" buttonText="Explore Our Services" services={services} />
+      <ShowcaseComponent title="Services" text={servicesCopy} buttonLink="/services" buttonText="Explore Our Services" services={Data} />
       <PortfolioGrid />
       <ContactForm />
       <TestimonalComponent />
