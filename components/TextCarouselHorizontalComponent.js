@@ -29,7 +29,7 @@ export default function TextCarouselHorizontalComponent() {
       <div className="flex w-max animate-marquee space-x-16 text-2xl font-semibold text-gray-800">
         {/* Render the messages twice for a seamless loop */}
         {[...messages, ...messages].map((text, index) => (
-          <span key={index} className="mx-4">
+          <span key={"service-list-" +index} className="mx-4">
             {text}
           </span>
         ))}

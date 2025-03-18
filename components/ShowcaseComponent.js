@@ -26,7 +26,7 @@ export default function ShowcaseComponent({
       </div>
       <div className="w-full md:w-1/2 md:pl-8 pl-0 ">
         <div className="flex flex-col">
-          {services.map((service, index) => (
+          {services.length > 0 && services.map((service, index) => (
             <div key={index} className="flex my-4 gap-8 even:flex-row-reverse md:even:flex-row">
               <div className="flex items-center">{service.icon}</div>
               <div className="text-left">

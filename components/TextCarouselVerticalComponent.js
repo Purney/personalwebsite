@@ -17,7 +17,7 @@ export default function TextCarouselVerticalComponent({className = "flex justify
   }, []);
 
   return (
-    <div className={className}>
+    <span className={className}>
       <AnimatePresence mode="wait">
         <motion.div
           key={messages[index]}
@@ -30,6 +30,6 @@ export default function TextCarouselVerticalComponent({className = "flex justify
           {messages[index]}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </span>
   );
 }
