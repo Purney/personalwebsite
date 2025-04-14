@@ -38,6 +38,12 @@ export default function TestimonalComponent() {
             </div>
             </>
           ))}
+           <div
+              className="card shadow-sm p-6 border-2 flex-col gap-8 md:flex hidden justify-center text-center"
+              key={"testimonial-coming-soon"}
+            >
+              Coming Soon
+            </div>
         </FadeInAndOutWrapper>
       </div>
     </section>

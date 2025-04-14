@@ -35,6 +35,16 @@ export default function PortfolioGrid() {
               </div>
             </Link>
           ))}
+           <Link
+              href={"/contact"}
+              key={"project-start-new"}
+              className="shadow-md pb-6 text-left hover:shadow-lg hover:border-cta-hover border-2"
+            >
+              <div className="px-6 py-6">
+                <h3 className="text-2xl font-semibold mb-2">Start a Project</h3>
+                <p className="text-sm">Who knows maybe your project will end up here?</p>
+              </div>
+            </Link>
         </div>
         <div className="mt-8 text-center">
           <PrimaryButton
