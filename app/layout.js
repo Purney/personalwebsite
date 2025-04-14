@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={className}
     >
-      <body className="bg-gray-100 min-h-screen flex flex-col">
+      <body className="bg-light-background text-base-text min-h-screen flex flex-col">
         <Analytics />
         <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
         <div className="flex-grow">{children}</div>

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const messages = ["increase conversions", "build a website", "automate your business", "drive more sales"];
 
-export default function TextCarouselVerticalComponent({className = "flex justify-center items-center h-20 text-lg font-semibold text-gray-800" }) {
+export default function TextCarouselVerticalComponent({className = "flex justify-center items-center h-20 text-lg font-semibold " }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

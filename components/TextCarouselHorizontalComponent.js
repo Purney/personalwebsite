@@ -25,11 +25,11 @@ export default function TextCarouselHorizontalComponent() {
   if (!isClient) return null; // Prevents mismatch issues
 
   return (
-    <div className="overflow-hidden whitespace-nowrap bg-gray-200 py-4 relative">
-      <div className="flex w-max animate-marquee space-x-16 text-2xl font-semibold text-gray-800">
+    <div className="overflow-hidden whitespace-nowrap bg-dark-section text-cta-text py-4 relative">
+      <div className="flex w-max animate-marquee space-x-16 text-2xl font-semibold ">
         {/* Render the messages twice for a seamless loop */}
         {[...messages, ...messages].map((text, index) => (
-          <span key={"service-list-" +index} className="mx-4">
+          <span key={"service-list-" + index} className="mx-4 text-cta-text">
             {text}
           </span>
         ))}

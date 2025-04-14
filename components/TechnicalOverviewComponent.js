@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function TechnicalOverviewComponent({ title, text, images }) {
   return (
-    <section className="bg-gray-200 justify-items-center">
-      <div className="max-w-7xl bg-gray-200 py-16 md:py-32 px-8 flex flex-col">
+    <section className="bg-dark-section text-cta-text justify-items-center">
+      <div className="max-w-7xl bg-dark-section text-cta-text py-16 md:py-32 px-8 flex flex-col">
         <div className="text-center pb-8">
           <h3 className="text-4xl md:text-6xl pb-4 font-bold ">{title}</h3>
           <p>{text}</p>

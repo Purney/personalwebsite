@@ -17,7 +17,7 @@ export default async function About() {
   return (
     <>
       {getPersonSchema()}
-      <section className="bg-gray-100">
+      <section className="bg-light-background">
         <div className="max-w-7xl mx-auto px-0 md:px-9">
           <div className="flex max-w-7xl mx-auto px-8 py-32 items-center flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
@@ -28,7 +28,7 @@ export default async function About() {
               />
             </div>
             <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[4rem] md:leading-[5rem]">Who is <br/><span className="bg-gray-200 p-2">William Purnell</span> ?</h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[4rem] md:leading-[5rem]">Who is <br/><span className="bg-dark-section text-cta-text p-2">William Purnell</span> ?</h1>
               <div className="text-lg">
                 Hello! I&apos;m Will, <br /> I&apos;m a Software Developer from
                 Bournemouth with over 5 years of experience working with local
@@ -44,21 +44,21 @@ export default async function About() {
             </div>
           </div>
           {/* Bournemouth Focus Section */}
-          <div className="flex max-w-7xl mx-auto px-8 py-32 items-center bg-gray-200 flex-col md:flex-row">
+          <div className="flex max-w-7xl mx-auto px-8 py-32 items-center bg-dark-section text-cta-text flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <h2 className="text-3xl font-bold text-center mb-8">
                 Why Choose William Purnell as your Local Bournemouth Software Developer ?
               </h2>
             </div>
             <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
-              <p className="text-center text-gray-700 max-w-2xl mx-auto">
+              <p className="text-center  max-w-2xl mx-auto">
                 Being based in Bournemouth allows me to understand the unique
                 challenges and opportunities local businesses face. Whether
                 you&apos;re a startup, small business, or established
                 enterprise, I provide personalized solutions that make a
                 difference.
               </p>
-              <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2">
+              <p className="text-center  max-w-2xl mx-auto pt-2">
                 From Poole to Christchurch, I&apos;m dedicated to serving the Dorset
                 community with reliable, high-quality software development
                 services.
@@ -66,10 +66,10 @@ export default async function About() {
             </div>
           </div>
           <div className="pt-32 px-8">
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            <h3 className="text-3xl font-bold text-center  mb-8">
               Expertise and Approach
             </h3>
-            <p className="text-center text-gray-700 max-w-2xl mx-auto pt-2 mb-8">
+            <p className="text-center  max-w-2xl mx-auto pt-2 mb-8">
               I bring a collaborative approach to every project, ensuring your
               vision is brought to life efficiently and effectively. With a
               strong focus on clean code, scalability, and performance, I&apos;m
@@ -80,13 +80,13 @@ export default async function About() {
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow"
+                className=" rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow"
               >
                 <div className="mb-4 flex justify-center">{skill.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                <h3 className="text-xl font-semibold  mb-2">
                   {skill.title}
                 </h3>
-                <p className="text-gray-600">{skill.description}</p>
+                <p className="">{skill.description}</p>
               </div>
             ))}
           </div>

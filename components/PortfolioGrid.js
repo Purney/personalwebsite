@@ -7,7 +7,7 @@ export default function PortfolioGrid() {
   const projects = Data.slice(0, 3);
 
   return (
-    <section className="bg-gray-200 py-16 md:py-32 px-8 justify-items-center">
+    <section className="bg-dark-section text-cta-text py-16 md:py-32 px-8 justify-items-center">
       <div className="max-w-7xl">
         <div className="text-center justify-items-center mb-12">
           <h2 className="text-3xl font-bold mb-4">My work</h2>
@@ -21,14 +21,14 @@ export default function PortfolioGrid() {
             <Link
               href={"/projects/" + project.id}
               key={"project-" + index}
-              className="bg-white shadow-md rounded pb-6 text-left hover:shadow-lg"
+              className="shadow-md pb-6 text-left hover:shadow-lg hover:border-cta-hover border-2"
             >
               <Image
                 className="object-cover mb-6"
                 src={project.image}
                 alt={project.title + " thumbnail"}
               />
-              <div className="px-6">
+              <div className="px-6 py-6">
                 <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-sm">{project.shortDescription}</p>
               </div>

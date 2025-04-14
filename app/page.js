@@ -40,12 +40,12 @@ export default async function Home() {
       />
       <TextCarouselHorizontalComponent />
       <ImageWithTextComponent format="text-left" image={image} title="About Me" text={aboutUsCopy} buttonLink="/about" buttonText="Learn More" />
+      <PortfolioGrid />
       {Data.length > 0 && (
         <ShowcaseComponent title="Services" text={servicesCopy} buttonLink="/services" buttonText="Explore Our Services" services={Data} />
       )}
-      <PortfolioGrid />
-      <ContactForm />
       <TestimonalComponent />
+      <ContactForm />
     </>
   );
 }

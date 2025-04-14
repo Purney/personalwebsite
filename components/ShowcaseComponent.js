@@ -19,7 +19,7 @@ export default function ShowcaseComponent({
             <PrimaryButton
               buttonLink={buttonLink}
               buttonText={buttonText}
-              className="mt-8 inline-block text-black rounded-sm text-xs hover:underline"
+              c
             />
           )}
         </div>
@@ -30,10 +30,10 @@ export default function ShowcaseComponent({
             <div key={index} className="flex my-4 gap-8 even:flex-row-reverse md:even:flex-row">
               <div className="flex items-center">{service.icon}</div>
               <div className="text-left">
-                <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                <h3 className="text-xl font-semibold  mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-600">{service.description}</p>
+                <p className="">{service.description}</p>
               </div>
             </div>
           ))}

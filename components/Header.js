@@ -8,8 +8,8 @@ export default function Header({isMenuOpen, toggleMenu}) {
     <header className=" py-4 px-8">
       <nav className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold bg-gray-200 p-2 px-3 rounded-sm">
-          <Link href="/" className="tracking-widest">William Purnell</Link>
+        <div className="text-xl font-bold px-3 rounded-sm">
+          <Link href="/" className="tracking-widest bg-dark-section text-cta-text p-2">William Purnell</Link>
         </div>
 
         {/* Hamburger Menu for Mobile */}
@@ -40,7 +40,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
           </li>
           <li>
             <div>
-              <PrimaryButton buttonLink="/contact" buttonText="Get in Touch" className="mt-0 inline-block bg-black text-white py-2 px-5 rounded-sm text-sm uppercase hover:bg-gray-700" />
+              <PrimaryButton buttonLink="/contact" buttonText="Get in Touch" className="mt-0 inline-block bg-cta-button text-cta-text hover:bg-cta-hover py-2 px-5 rounded-sm text-sm uppercase" />
             </div>
           </li>
         </ul>
@@ -88,7 +88,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
             </Link>
           </li>
           <li>
-            <PrimaryButton className="mt-0 inline-block bg-black text-white py-2 px-4 rounded-sm uppercase hover:bg-gray-700" buttonLink="/contact" onClick={toggleMenu} buttonText="Get in Touch" />
+            <PrimaryButton className="mt-0 inline-block bg-cta-button text-cta-text hover:bg-cta-hover py-2 px-4 rounded-sm uppercase" buttonLink="/contact" onClick={toggleMenu} buttonText="Get in Touch" />
           </li>
         </ul>
       </div>

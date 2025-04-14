@@ -157,9 +157,9 @@ export default function ContactForm({title = "Ready to take your business to the
             <button
               type="submit"
               disabled={!isVerified}
-              className="bg-black text-white py-3 px-4 text-xs hover:bg-gray-700 w-full"
+              className="py-3 px-4 text-xs uppercase cursor-pointer bg-cta-button text-cta-text hover:bg-cta-hover w-full"
             >
-              Send message
+              Get in touch
             </button>
           </form>
         </>
