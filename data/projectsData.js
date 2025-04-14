@@ -26,7 +26,7 @@ export const Data = [
     category: ["Web Development", "AI Integration"],
     image: text2quizhero,
     dateCreated: "2025-01-23T08:32:06.301Z",
-    dateUpdated: null,
+    dateUpdated: "2025-04-14T21:32:06.301Z",
     sections: [
       {
         name: "the-beginning",
@@ -160,7 +160,7 @@ export const Data = [
     category: ["Web Development", "AI Integration"],
     image: filamentgiftshero,
     dateCreated: "2025-01-23T08:32:06.301Z",
-    dateUpdated: null,
+    dateUpdated: "2025-04-14T21:32:06.301Z",
     sections: [
       {
         name: "what-is-text-2-quiz",

@@ -48,9 +48,9 @@ export default async function Project({ params }) {
           Back to Projects
         </Link>
         <div>
-          <p>Date Created: {project.dateCreated}</p>
+          <p>Date Created: {new Date(project.dateCreated).toDateString()}</p>
           {project.dateUpdated && (
-          <p>Last Updated: {project.dateUpdated}</p>
+          <p>Last Updated: {new Date(project.dateUpdated).toDateString()}</p>
           )}
         </div>
       </div>
