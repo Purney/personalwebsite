@@ -55,7 +55,7 @@ export default function Projects() {
       <section className="py-16 bg-light-background">
         <div className="max-w-7xl mx-auto px-8">
           <h1 className="text-4xl font-bold text-center  mb-8">
-            My Work
+            Projects
           </h1>
           <p className="text-lg  text-center mb-8">
             Explore the projects I’ve worked on, showcasing my expertise in web

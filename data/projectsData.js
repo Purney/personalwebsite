@@ -34,7 +34,7 @@ export const Data = [
         icon: <FaQuestion />,
         content: {
           html: `<section class="blog-content-wrapper mx-auto">
-  <h2 class="text-4xl font-bold mb-6">Turning Notes Into Knowledge: Building Text2Quiz With AI Integration</h1>
+  <h2 class="text-4xl font-bold mb-6">Turning Notes Into Knowledge: Building Text2Quiz With AI Integration</h2>
 
   <p class="mb-4">
     Like many developers, some of my best ideas have come from scratching my own itch. <strong>Text2Quiz</strong> was one of those projects born from a real-world problem — and a personal one at that.
@@ -151,8 +151,11 @@ export const Data = [
   {
     id: "filament-gifts",
     title: "Filament Gifts",
+    seoTitle: "Custom E-Commerce Build for Filament Gifts — Scalable Next.js & Tailwind Solution",
     shortDescription:
-      "A fully functional e-commerce platform for 3d Printed goods.",
+      "Custom E-Commerce Build for Filament Gifts — Scalable Next.js & Tailwind Solution",
+      seoDescription:
+      "Discover how I built a scalable, full-stack e-commerce platform for Filament Gifts using Next.js, Tailwind, MongoDB, and Stripe. A project designed for real business needs with a custom backend and flexible frontend built for growth.",
     techStack: [".NET", "React", "Stripe API"],
     category: ["Web Development", "AI Integration"],
     image: filamentgiftshero,
@@ -166,7 +169,7 @@ export const Data = [
         content: {
           image: { src: filamentgiftshero, alt: "Filament Home Page Image" },
           title: "What is Filament Gifts?",
-          text: "Filament Gifts is a manufacturing company that creates and distributes 3d printed goods",
+          text: "Filament Gifts is a manufacturing company that creates and distributes 3d printed goods. The Owner (Ben) wanted to have an independent website that would allow him to sell his products online without the use of an external company like Etsy.",
         },
       },
       {
@@ -184,16 +187,15 @@ export const Data = [
         },
       },
       {
-        name: "technical-overview",
-        type: "technical-overview",
+        name: "what-happened",
+        type: "text",
         icon: <FaQuestion />,
         content: {
-          title: "Technical Overview",
-          text: "This project used Nextjs and MongoDB",
-          images: [
-            { src: nextjs, alt: "Next js Logo" },
-            { src: mongodb, alt: "Mongo db Logo" },
-          ],
+          html: `<section class="blog-content-wrapper mx-auto">
+          <h3 class="text-2xl font-semibold mt-8 mb-4">Building for Growth: Why Two Sites Made Sense</h3>
+          <p class="mb-4"> What started as a simple product display page for <strong>Filament Gifts</strong> quickly grew into something more ambitious — a two-part system designed to separate day-to-day operations from customer-facing traffic. The project now consists of two distinct but connected sites: a frontend for users to browse and purchase products, and a backend that gives the shop owner, Ben, full control over his store, orders, and product listings. </p> <p class="mb-4"> The decision to split the project into two wasn’t made for the sake of complexity — it was all about scalability and long-term flexibility. Separating the frontend and backend meant that Ben could manage his inventory, update products, and process orders without ever interrupting the user experience for customers, even during periods of high traffic. It also future-proofed the project, making it easier to introduce new features without breaking the core flow of the storefront. </p>
+          <h3 class="text-2xl font-semibold mt-8 mb-4">Tailored for a Real Business</h3>
+          <p class="mb-4"> Ben, the client and owner of <strong>Filament Gifts</strong>, had specific needs that went beyond what typical e-commerce platforms like Shopify or Etsy could offer. Building the system from scratch gave me complete control over the feature set and allowed for direct, business-friendly solutions. The backend wasn’t just about adding and editing products — it was built to handle real-world workflows: everything from dynamic shipping prices to sales analytics and order status updates. </p> <p class="mb-4"> For example, the backend includes custom Stripe payment integration, along with a simple but powerful order management system. When an order is placed, Ben can update its status in the backend, which automatically triggers customer notifications via email — a small touch that makes the shop feel personal and professional at the same time. </p> <h3 class="text-2xl font-semibold mt-8 mb-4">Design Inspired, Experience Focused</h3> <p class="mb-4"> On the frontend side, Ben already had a clear vision of the kind of site he wanted, drawing inspiration from a design he’d seen and liked. The final build focused on keeping the user experience straightforward, with easy-to-navigate categories and a search system that helps customers quickly find the perfect gift. The site was designed to be lightweight and mobile-friendly, while still leaving room for future growth. </p> <h3 class="text-2xl font-semibold mt-8 mb-4">A Full-Stack Learning Curve</h3> <p class="mb-4"> The tech stack for both the frontend and backend was kept consistent: <strong>Next.js</strong> for server-side rendering, <strong>Tailwind CSS</strong> for styling, and <strong>MongoDB</strong> for flexible data handling. Building both sides of the project reinforced one of the most important lessons I’ve picked up as a developer — while splitting projects into distinct systems gives you flexibility and performance, maintaining design and technical consistency between them is what makes the whole thing feel cohesive. </p> <p class="mb-4"> <em>Filament Gifts</em> wasn’t just another shop; it was a practical exercise in balancing the needs of real-world businesses with a clean, scalable development approach — something I now apply to every client project I take on. </p></section>`,
         },
       },
       {
@@ -202,13 +204,14 @@ export const Data = [
         icon: <FaQuestion />,
         content: {
           image: { src: benRobb, alt: "Bens Face logo" },
-          title: "What did the client say?",
+          title: "What did Ben say?",
           text: "<q>It's been a smooth experience creating my custom 3D printing website with Will. He's always interested in developing the best user experience for my customers.</q>",
           format: "text-left",
           buttonLink: "https://filamentgifts.com/",
           buttonText: "Check out Filament Gifts",
         },
       },
+
       {
         name: "contact",
         type: "contact",

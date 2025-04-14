@@ -35,7 +35,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
           </li>
           <li>
             <Link href="/projects" className="">
-              My Work
+              Projects
             </Link>
           </li>
           <li>
@@ -84,7 +84,7 @@ export default function Header({isMenuOpen, toggleMenu}) {
               className=""
               onClick={toggleMenu}
             >
-              My Work
+              Projects
             </Link>
           </li>
           <li>

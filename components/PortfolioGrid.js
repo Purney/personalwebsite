@@ -11,7 +11,7 @@ export default function PortfolioGrid() {
     <section className="bg-dark-section text-cta-text py-16 md:py-32 px-8 justify-items-center">
       <FadeInAndOutWrapper className="max-w-7xl">
         <div className="text-center justify-items-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">My work</h2>
+          <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <p className="text-lg max-w-xl">
             Explore the projects I’ve worked on, showcasing my expertise in web
             development, AI, and more.

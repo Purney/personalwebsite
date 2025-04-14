@@ -10,7 +10,7 @@ export  default function Footer() {
           © {new Date().getFullYear()} William Purnell. All Rights Reserved.
         </p>
         <div className='flex flex-col text-sm text-center gap-4 md:text-left'>
-          <b>My Work</b>
+          <b>Projects</b>
           <Link href={"/projects"}>All Our Projects</Link>
           <Link href={"/projects/text-2-quiz"}>Text2Quiz</Link>
           <Link href={"/projects/filament-gifts"}>FilamentGifts</Link>
