@@ -73,7 +73,7 @@ export default function ContactForm({title = "Ready to take your business to the
   return (
     <section
       id="contact"
-      className=" py-32 text-center mx-8"
+      className=" py-32 text-center mx-4 md:mx-8"
     >
       {!messagedSubmitted ? (
         <>

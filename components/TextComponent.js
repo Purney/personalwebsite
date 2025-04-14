@@ -1,7 +1,7 @@
-export default function TextComponent({ text }) {
+export default function TextComponent({ html }) {
   return (
     <>
-      <p className=" leading-relaxed">{text}</p>
+      <div className="leading-relaxed" dangerouslySetInnerHTML={{ __html: html }}></div>
     </>
   );
 }

@@ -9,8 +9,8 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   let project = await Data.find((project) => project.id === id);
 
-  const title = "William Purnell - " + project.title;
-  const description = project.shortDescription;
+  const title = (project?.seoTitle || "") + " - William Purnell";
+  const description = project?.seoDescription || "";
 
   return getSEOTags({title, description});
 }

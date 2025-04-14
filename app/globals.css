@@ -7,13 +7,18 @@ body {
 }
 
 p {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 1.125rem /* 18px */;
+    line-height: 1.75rem /* 28px */;
 }
 
 .text-xxs {
     font-size: 0.5rem;
     line-height: 1rem;
+}
+
+.blog-content-wrapper {
+  max-width: 60rem;
+  width: 80%;
 }
 
 @keyframes marquee {
@@ -28,3 +33,17 @@ p {
   .animate-marquee {
     animation: marquee 20s linear infinite;
   }
+
+  
+@media screen and (max-width: 992px) {
+  p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-content-wrapper {
+    max-width: 18rem;;
+  }
+}

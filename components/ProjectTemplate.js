@@ -3,11 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import ComponentFactory from "./ComponentFactory";
 
-export default function ProjectTemplate({
-  id,
-  image,
-  sections,
-}) {
+export default function ProjectTemplate({ id, image, sections }) {
   const [activeSection, setActiveSection] = useState(sections[0].name);
 
   const sectionRefs = useRef({}); // Initialize an empty object to hold refs
@@ -47,22 +43,20 @@ export default function ProjectTemplate({
   }, [sections]);
 
   return (
-    <div className="max-w-7xl mx-auto flex justify-between items-center">
-      <div className="flex">
-        {/* Content */}
-        <main className="flex-1 p-6 md:p-8 space-y-24">
-          {sections.map((section) => (
-            <section
-              id={section.name}
-              key={section.name}
-              ref={(el) => (sectionRefs.current[section.name] = el)} // Use section.name as the key
-              className="scroll-mt-16"
-            >
-              <ComponentFactory type={section.type} content={section.content} />
-            </section>
-          ))}
-        </main>
-      </div>
+    <div className="max-w-7xl mx-auto flex justify-center items-center">
+      {/* Content */}
+      <main className="flex flex-col">
+        {sections.map((section) => (
+          <section
+            id={section.name}
+            key={section.name}
+            ref={(el) => (sectionRefs.current[section.name] = el)} // Use section.name as the key
+            className="scroll-mt-16"
+          >
+            <ComponentFactory type={section.type} content={section.content} />
+          </section>
+        ))}
+      </main>
     </div>
   );
 }
