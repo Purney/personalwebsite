@@ -3,6 +3,7 @@ import { Data } from "@/data/servicesData";
 import headshot from "../../assets/images/william-purnell-headshot.png";
 import Image from "next/image";
 import { getSEOTags, getPersonSchema } from "@/lib/seo";
+import FadeInAndOutWrapper from "@/components/AnimationWrappers/FadeInAndOutWrapper";
 
 export const metadata = getSEOTags({title: "Who is William Purnell?", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 

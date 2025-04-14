@@ -2,13 +2,14 @@ import Link from "next/link";
 import PrimaryButton from "./PrimaryButton";
 import { Data } from "@/data/projectsData";
 import Image from "next/image";
+import FadeInAndOutWrapper from "./AnimationWrappers/FadeInAndOutWrapper";
 
 export default function PortfolioGrid() {
   const projects = Data.slice(0, 3);
 
   return (
     <section className="bg-dark-section text-cta-text py-16 md:py-32 px-8 justify-items-center">
-      <div className="max-w-7xl">
+      <FadeInAndOutWrapper className="max-w-7xl">
         <div className="text-center justify-items-center mb-12">
           <h2 className="text-3xl font-bold mb-4">My work</h2>
           <p className="text-lg max-w-xl">
@@ -41,7 +42,7 @@ export default function PortfolioGrid() {
             buttonText="View All Projects"
           />
         </div>
-      </div>
+      </FadeInAndOutWrapper>
     </section>
   );
 }

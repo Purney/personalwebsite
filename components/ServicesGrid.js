@@ -1,5 +1,6 @@
 import { FaCode, FaReact, FaRobot, FaBriefcase } from "react-icons/fa";
 import PrimaryButton from "./PrimaryButton";
+import FadeInAndOutWrapper from "./AnimationWrappers/FadeInAndOutWrapper";
 
 export default function ServicesGrid() {
   const services = [
@@ -31,7 +32,7 @@ export default function ServicesGrid() {
 
   return (
     <section className="py-16 md:py-32 bg-light-background">
-      <div className="max-w-7xl mx-auto px-8">
+      <FadeInAndOutWrapper className="max-w-7xl mx-auto px-8">
         <h2 className="text-3xl font-bold text-center  mb-8">
           Services
         </h2>
@@ -49,7 +50,7 @@ export default function ServicesGrid() {
             </div>
           ))}
         </div>
-      </div>
+      </FadeInAndOutWrapper>
       <div className="mt-12 text-center">
         <PrimaryButton buttonLink="/services" buttonText="View All Services" />
       </div>
