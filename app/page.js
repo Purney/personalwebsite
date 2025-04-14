@@ -6,7 +6,7 @@ import headshot from "../assets/images/william-purnell-headshot.png";
 import ImageWithTextComponent from "@/components/ImageWithTextComponent";
 import ShowcaseComponent from "@/components/ShowcaseComponent";
 import { Data } from "@/data/servicesData";
-import { getSEOTags, getWebsiteSchema, getPersonSchema } from "@/lib/seo";
+import { getSEOTags, getWebsiteSchema, getPersonSchema, getLocalBusinessSchema } from "@/lib/seo";
 import TextCarouselHorizontalComponent from "@/components/TextCarouselHorizontalComponent";
 
 export const metadata = getSEOTags({
@@ -36,6 +36,7 @@ export default async function Home() {
     <>
       {getWebsiteSchema()}
       {getPersonSchema()}
+      {getLocalBusinessSchema()}
       <Hero
         title="Freelance Software Developer for Hire"
         description="Helping small businesses improve their efficiency through custom solutions, automation and AI!"

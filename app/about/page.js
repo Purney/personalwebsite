@@ -2,8 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import { Data } from "@/data/servicesData";
 import headshot from "../../assets/images/william-purnell-headshot.png";
 import Image from "next/image";
-import { getSEOTags, getPersonSchema } from "@/lib/seo";
-import FadeInAndOutWrapper from "@/components/AnimationWrappers/FadeInAndOutWrapper";
+import { getSEOTags, getPersonSchema, getLocalBusinessSchema } from "@/lib/seo";
 
 export const metadata = getSEOTags({title: "Who is William Purnell?", description: "Will is a software developer with 5 years experience based in Bournemouth"});
 
@@ -18,6 +17,7 @@ export default async function About() {
   return (
     <>
       {getPersonSchema()}
+      {getLocalBusinessSchema()}
       <section className="bg-light-background">
         <div className="max-w-7xl mx-auto px-0 md:px-9">
           <div className="flex max-w-7xl mx-auto px-8 py-32 items-center flex-col md:flex-row">
