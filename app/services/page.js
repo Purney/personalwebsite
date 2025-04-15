@@ -22,7 +22,7 @@ export default async function Services() {
         <div className="max-w-7xl mx-auto">
           <ShowcaseComponent title="Our Services" services={services} />
         </div>
-        <div className="bg-dark-section text-cta-text px-8 py-32 flex justify-center">
+        <div className="bg-dark-section text-cta-text px-8 py-16 flex justify-center">
           <div className="max-w-7xl">
             <h2 className="text-2xl font-bold text-center  mb-8">
               Why Choose Us?

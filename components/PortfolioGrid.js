@@ -8,7 +8,7 @@ export default function PortfolioGrid() {
   const projects = Data.slice(0, 3);
 
   return (
-    <section className="bg-dark-section text-cta-text py-16 md:py-32 px-8 justify-items-center">
+    <section className="bg-dark-section text-cta-text py-16 md:py-16 px-8 justify-items-center">
       <FadeInAndOutWrapper className="max-w-7xl">
         <div className="text-center justify-items-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Projects</h2>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MissionComponent({title, text, beforeImage, afterImage}) {
     return (
-        <div className="flex max-w-7xl mx-auto px-8 py-16 md:py-32 items-center flex-col-reverse md:flex-row">
+        <div className="flex max-w-7xl mx-auto px-8 py-16 md:py-16 items-center flex-col-reverse md:flex-row">
         <div className="w-full pl-0 md:pr-16 md:w-1/2 items-center md:justify-normal text-center md:text-left">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">{title}</h2>
           <div className="text-lg" dangerouslySetInnerHTML={{ __html: text }} />

@@ -8,7 +8,7 @@ export default function TestimonalComponent() {
   const testimonials = Data.slice(0, 3);
 
   return (
-    <section className="py-16 md:py-32 bg-dark-section text-cta-text">
+    <section className="py-16 md:py-16 bg-dark-section text-cta-text">
       <div className="max-w-7xl mx-auto px-8 text-center">
         <h3 className="text-3xl font-bold text-center mb-8">What my clients say</h3>
         <FadeInAndOutWrapper className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:px-28 gap-8">
