@@ -42,7 +42,7 @@ export default async function About() {
                 ?
               </h1>
               <div className="text-lg">
-                Hi, I&apos;m Will, I'm a Software Engineer from Bournemouth with
+                Hi, I&apos;m Will, I&apos;m a Software Engineer from Bournemouth with
                 5 years of experience building digital products for businesses
                 of all shapes and sizes. My career started in the agency world,
                 where I spent three years at a .NET development agency working
