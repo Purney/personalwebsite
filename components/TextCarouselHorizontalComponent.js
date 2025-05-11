@@ -3,20 +3,30 @@
 import { useEffect, useState } from "react";
 
 const messages = [
-  "Website development",
-  "AI integration",
-  "SEO optimisation",
+  "Web Design & Development",
+  "Automation & AI",
+  "SEO",
   "Custom software solutions",
-  "Business automation",
-  "Website development",
-  "AI integration",
-  "SEO optimisation",
+  "Bug fixing & Maintenance",
+  "Consulting Services",
+  "Web Design & Development",
+  "Automation & AI",
+  "SEO",
   "Custom software solutions",
-  "Business automation",
+  "Bug fixing & Maintenance",
+  "Consulting Services",
 ];
 
 export default function TextCarouselHorizontalComponent() {
   const [isClient, setIsClient] = useState(false);
+
+  // Define the colours for each message
+  const colours = [
+    "text-blue-600",
+    "text-cta-text",
+    "text-purple-600",
+    "text-cyan-500"
+  ];
 
   useEffect(() => {
     setIsClient(true); // Ensures hydration sync in Next.js
@@ -29,7 +39,10 @@ export default function TextCarouselHorizontalComponent() {
       <div className="flex w-max animate-marquee space-x-16 text-2xl font-semibold ">
         {/* Render the messages twice for a seamless loop */}
         {[...messages, ...messages].map((text, index) => (
-          <span key={"service-list-" + index} className="mx-4 text-cta-text">
+          <span
+            key={"service-list-" + index}
+            className={"mx-4 " + colours[index % colours.length]}
+          >
             {text}
           </span>
         ))}
