@@ -34,7 +34,7 @@ export const Data = [
       description:
         "Fix bugs and maintain your existing software solutions",
       icon: <FaCog size={80} className="text-purple-600" />,
-      longDescription: "Enhance your applications with AI capabilities. From automating workflows with zapier to personalizing user experiences, I integrate cutting-edge generative AI technologies into your existing systems."
+      longDescription: "Keep your software running smoothly with my bug-fixing and maintenance services. I ensure your applications are up-to-date, secure, and performing at their best. Whether it's a minor bug or a major overhaul, I've got you covered."
     },
     {
       title: "Consulting Services",
