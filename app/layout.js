@@ -24,21 +24,19 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={className}>
-      <head>
-        {/* Google Analytics */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0"
-        />
-        <Script id="google-analytics">
-          {`
+      {/* Google Analytics */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0"
+      />
+      <Script id="google-analytics">
+        {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-8KKTX6PF0');
           `}
-        </Script>
-      </head>
+      </Script>
       <body className="bg-light-background text-base-text min-h-screen flex flex-col">
         <Analytics />
         <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
