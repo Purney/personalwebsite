@@ -24,19 +24,20 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={className}>
-      {/* Google Analytics */}
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0"
-      />
-      <Script id="google-analytics">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8KKTX6PF0');
-          `}
-      </Script>
+       {/* Google Analytics Script */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0`}></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8KKTX6PF0', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       <body className="bg-light-background text-base-text min-h-screen flex flex-col">
         <Analytics />
         <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
