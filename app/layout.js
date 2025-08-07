@@ -25,14 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={className}>
        {/* Google Analytics Script */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0`}></script>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0E`}></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-8KKTX6PF0', {
+              gtag('config', 'G-8KKTX6PF0E', {
                 page_path: window.location.pathname,
               });
             `,
