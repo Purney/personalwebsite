@@ -6,7 +6,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 import TextCarouselVerticalComponent from "./TextCarouselVerticalComponent";
 
-export default function ContactForm({title = "Ready to take your business to the next level?", subHeading = "We can help you"}) {
+export default function ContactForm({title = "Ready to take your business to the next level?", subHeading = "We can"}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [service, setService] = useState(Data[0].title);

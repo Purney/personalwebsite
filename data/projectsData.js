@@ -1,16 +1,15 @@
-import { FaClock, FaList, FaPeopleArrows, FaQuestion } from "react-icons/fa";
+import { FaQuestion } from "react-icons/fa";
 
 import text2quizhero from "../assets/images/text2quiz/text2quizhero.jpg";
-import quizscreen from "../assets/images/text2quiz/quizscreen.png";
-import pdfIcon from "../assets/images/text2quiz/pdf-icon-transparent.png";
 import filamentgiftshero from "../assets/images/filamentgifts/filamentgiftshero.png";
-import mongodb from "../assets/images/logos/mongodb.png";
-import openai from "../assets/images/logos/openai.webp";
-import nextjs from "../assets/images/logos/nextjs.webp";
-import successFailure from "../assets/images/logos/success-failure.jpg";
 import generationScreen from "../assets/images/filamentgifts/generationScreen.png";
 import productPage from "../assets/images/filamentgifts/productPage.png";
 import benRobb from "../assets/images/testimonials/benRobb.jpg";
+import whoIsSoniaKenny from "../assets/images/soniakennyart/who-is-sonia-kenny-art.jpg";
+import soniaKennyArtHomePage from "../assets/images/soniakennyart/sonia-kenny-art-home-page.png";
+import soniaKennyArtProductPage from "../assets/images/soniakennyart/sonia-kenny-art-product-page.png";
+import soniaKenny from "../assets/images/soniakennyart/sonia-kenny.jpg";
+
 
 export const Data = [
   {
@@ -151,19 +150,20 @@ export const Data = [
   {
     id: "filament-gifts",
     title: "Filament Gifts",
-    seoTitle: "Custom E-Commerce Build for Filament Gifts — Scalable Next.js & Tailwind Solution",
+    seoTitle:
+      "Custom E-Commerce Build for Filament Gifts — Scalable Next.js & Tailwind Solution",
     shortDescription:
       "Custom E-Commerce Build for Filament Gifts — Scalable Next.js & Tailwind Solution",
-      seoDescription:
+    seoDescription:
       "Discover how I built a scalable, full-stack e-commerce platform for Filament Gifts using Next.js, Tailwind, MongoDB, and Stripe. A project designed for real business needs with a custom backend and flexible frontend built for growth.",
     techStack: [".NET", "React", "Stripe API"],
-    category: ["Web Development", "AI Integration"],
+    category: ["Web Development", "E-Commerce"],
     image: filamentgiftshero,
     dateCreated: "2025-01-23T08:32:06.301Z",
     dateUpdated: "2025-04-14T21:32:06.301Z",
     sections: [
       {
-        name: "what-is-text-2-quiz",
+        name: "what-is-filament-gifts",
         type: "image-with-text",
         icon: <FaQuestion />,
         content: {
@@ -209,6 +209,84 @@ export const Data = [
           format: "text-left",
           buttonLink: "https://filamentgifts.com/",
           buttonText: "Check out Filament Gifts",
+        },
+      },
+
+      {
+        name: "contact",
+        type: "contact",
+        icon: <FaQuestion />,
+        content: {
+          title: "Interested in having your own ecommerce store?",
+        },
+      },
+    ],
+  },
+  {
+    id: "sonia-kenny-art",
+    title: "SoniaKennyArt",
+    seoTitle: "Full E-Commerce Build for SoniaKennyArt — Shopify Solution",
+    shortDescription:
+      "Full E-Commerce Build for SoniaKennyArt — Shopify Solution",
+    seoDescription:
+      "Discover how I built a shopify website for SoniaKennyArt. A project to allow Sonia to sell her art outside of Etsy with a website she's proud of.",
+    techStack: ["Shopify"],
+    category: ["Web Development", "E-Commerce"],
+    image: filamentgiftshero,
+    dateCreated: "2025-08-07T18:55:06.301Z",
+    dateUpdated: "2025-08-07T18:55:06.301Z",
+    sections: [
+      {
+        name: "who-is-sonia-kenny-art",
+        type: "image-with-text",
+        icon: <FaQuestion />,
+        content: {
+          image: {
+            src: whoIsSoniaKenny,
+            alt: "Sonia Kenny Art with Art",
+          },
+          title: "Who is Sonia Kenny Art?",
+          text: "Sonia is a independent artist that creates high quality prints and paintings who previously only sold on Etsy. Sonia wanted to have an independent website that would allow her to sell her products online with fully CMS functionality.",
+        },
+      },
+      {
+        name: "initial-mission",
+        type: "image-with-text",
+        icon: <FaQuestion />,
+        content: {
+          image: {
+            src: soniaKennyArtHomePage,
+            alt: "Sonia Kenny Art Home Page Image",
+          },
+          title: "Initial Mission?",
+          text: "The mission was to create an ecommerce website that looked beautiful, was easy to use, and feels true to Sonia's style. That also allows her to also sell products outside of Etsy.",
+          format: "text-left",
+        },
+      },
+      {
+        name: "why-shopify",
+        type: "image-with-text",
+        icon: <FaQuestion />,
+        content: {
+          image: {
+            src: soniaKennyArtProductPage,
+            alt: "Sonia Kenny Art Product Page",
+          },
+          title: "Why Shopify?",
+          text: "After sitting down with Sonia and discussing her vision for the website, I decided that the best way to achieve this was to use Shopify. This would allow Sonia to have a fully functional CMS that she could use to manage her products, orders, and customers. To reduce the cost we decided that we should use a shopify template and then make adjustments from there to fit Sonia's artwork and style.",
+        },
+      },
+      {
+        name: "testimonial",
+        type: "image-with-text",
+        icon: <FaQuestion />,
+        content: {
+          image: { src: soniaKenny, alt: "Sonia Kenny" },
+          title: "What did Sonia say?",
+          text: "<q>I worked with Will to design and build a website to showcase and sell my original artwork. Before this, I was just using Etsy, so this was a big step forward for me. From the start, Will stood out, he was enthusiastic, clearly understood what I wanted, and offered a fair price. Throughout the process, he was incredibly responsive, took on all feedback without fuss, and made tweaks quickly as we refined things. I had a strong vision for how I wanted my work to be presented, and Will really listened. He translated that into a site that looks beautiful, is easy to use, and feels true to my style. The colour scheme, layout, and overall design are exactly what i hoped for. The early feedback from friends and peers has been really positive. I couldn't be happier with the result. Will would be a great fit for other artists or creatives. He gets itt, and he genuinely wants to help you bring your vision to life. Plus he's just a lovely person to work with.</q>",
+          format: "text-left",
+          buttonLink: "https://soniakennyart.com/",
+          buttonText: "Check out SoniaKennyArt",
         },
       },
 

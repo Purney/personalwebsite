@@ -23,6 +23,7 @@ export default function Projects() {
     "All",
     "Web Development",
     "AI Integration",
+    "E-Commerce",
     "Next.js",
     "React",
     ".NET",

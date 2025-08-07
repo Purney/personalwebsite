@@ -1,7 +1,6 @@
 import tomSearle from "../assets/images/testimonials/tomSearle.jpg"
 import benRobb from "../assets/images/testimonials/benRobb.jpg"
-
-
+import soniaKenny from "../assets/images/soniakennyart/sonia-kenny.jpg";
 
 export const Data = [
     {
@@ -10,7 +9,8 @@ export const Data = [
         role: "CEO",
         company: "FilamentGifts",
         image: benRobb,
-        link: "https://filamentgifts.com/"
+        link: "https://filamentgifts.com/",
+        projectLink: "https://www.william-purnell.com/projects/filament-gifts"
     },
     {
         quote: "Will is a dedicated developer with a fantastic ability to pick up new software and concepts.",
@@ -19,5 +19,14 @@ export const Data = [
         company: "AML Analytics",
         image: tomSearle,
         link: "https://www.linkedin.com/in/twsearle/"
+    },
+    {
+        quote: "Will would be a great fit for other artists or creatives. He gets it, and he genuinely wants to help you bring your vision to life.",
+        name: "Sonia Kenny",
+        role: "Artist",
+        company: "SoniaKennyArt",
+        image: soniaKenny,
+        link: "https://soniakennyart.com/",
+        projectLink: "https://www.william-purnell.com/projects/sonia-kenny-art"
     },
 ]
