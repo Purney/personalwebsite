@@ -8,7 +8,7 @@ import benRobb from "../assets/images/testimonials/benRobb.jpg";
 import whoIsSoniaKenny from "../assets/images/soniakennyart/who-is-sonia-kenny-art.jpg";
 import soniaKennyArtHomePage from "../assets/images/soniakennyart/sonia-kenny-art-home-page.png";
 import soniaKennyArtProductPage from "../assets/images/soniakennyart/sonia-kenny-art-product-page.png";
-import soniaKenny from "../assets/images/soniakennyart/sonia-kenny.jpg";
+import soniaKenny from "../assets/images/soniakennyart/sonia-kenny-art.jpeg";
 
 
 export const Data = [

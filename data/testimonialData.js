@@ -1,6 +1,6 @@
 import tomSearle from "../assets/images/testimonials/tomSearle.jpg"
 import benRobb from "../assets/images/testimonials/benRobb.jpg"
-import soniaKenny from "../assets/images/soniakennyart/sonia-kenny.jpg";
+import soniaKenny from "../assets/images/soniakennyart/sonia-kenny-art.jpeg";
 
 export const Data = [
     {
