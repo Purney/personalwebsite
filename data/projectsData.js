@@ -232,7 +232,7 @@ export const Data = [
       "Discover how I built a shopify website for SoniaKennyArt. A project to allow Sonia to sell her art outside of Etsy with a website she's proud of.",
     techStack: ["Shopify"],
     category: ["Web Development", "E-Commerce"],
-    image: filamentgiftshero,
+    image: soniaKennyArtHomePage,
     dateCreated: "2025-08-07T18:55:06.301Z",
     dateUpdated: "2025-08-07T18:55:06.301Z",
     sections: [
