@@ -66,7 +66,7 @@ export default async function About() {
               Vercel, and Stripe to help businesses launch, improve, or automate
               their online platforms. I&apos;ve also explored AI integration
               first-hand particularly using OpenAI to experiment with product
-              ideas like <Link href="projects/text-2-quiz" className="hover:underline text-bold text-cta-hover">Text2Quiz</Link>, a tool for generating study quizzes from
+              ideas like <Link href="/projects/text-2-quiz" className="hover:underline text-bold text-cta-hover">Text2Quiz</Link>, a tool for generating study quizzes from
               lecture notes.
             </p>
           </div>
