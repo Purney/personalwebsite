@@ -23,9 +23,9 @@ export default function ServicesGrid() {
       icon: <FaRobot size={40} className="text-purple-600" />,
     },
     {
-      title: "Consulting",
+      title: "Automation Build Support",
       description:
-        "Providing expert advice on web architecture, tech stacks, and scaling your solutions.",
+        "Helping turn workflow problems into practical software, integrations, and automation systems.",
       icon: <FaBriefcase size={40} className="text-yellow-500" />,
     },
   ];

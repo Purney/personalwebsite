@@ -3,12 +3,28 @@
 @tailwind utilities;
 
 body {
-    color: #1F2937;
+    color: #E2E8F0;
+    background:
+      radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 30rem),
+      radial-gradient(circle at top right, rgba(168, 85, 247, 0.16), transparent 32rem),
+      #050A17;
+    min-height: 100vh;
 }
 
 p {
-    font-size: 1.125rem /* 18px */;
-    line-height: 1.75rem /* 28px */;
+    line-height: 1.75rem;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.28);
+  color: #ffffff;
+}
+
+.glass-panel {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.78), rgba(17, 24, 39, 0.52));
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.32);
+  backdrop-filter: blur(18px);
 }
 
 .text-xxs {
@@ -34,10 +50,20 @@ p {
     animation: marquee 30s linear infinite;
   }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
   
 @media screen and (max-width: 992px) {
   p {
-    font-size: 0.875rem;
     line-height: 1.25rem;
   }
 }

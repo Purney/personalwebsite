@@ -4,11 +4,9 @@ const config = {
       subdomain: 'mg',                 // Optional subdomain if used in Mailgun (can be empty or undefined)
     },
     domainName: 'william-purnell.com',
-    appName: "William Purnell - Freelance Software Developer from Bournemouth",
-    appDescription: "Will is a software developer for Hire with 5 years experience based in Bournemouth"
+    appName: "William Purnell - AI Automation Developer London",
+    appDescription: "AI automation developer building practical AI workflows, internal tools, OpenAI integrations, and business process automation for UK businesses."
   };
 
   
 export default config;
-
-  

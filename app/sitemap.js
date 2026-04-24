@@ -1,8 +1,8 @@
 import { Data } from "@/data/projectsData";
+import { Data as services } from "@/data/servicesData";
 
 export default async function sitemap() {
-  // Base URL - replace with your actual domain
-  const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
+  const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "https://www.william-purnell.com";
 
   // Static routes
   const staticRoutes = [
@@ -47,6 +47,13 @@ export default async function sitemap() {
     priority: 0.7,
   }))
 
+  const serviceRoutes = services.map(service => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }))
+
   // Combine static and dynamic routes
-  return [...staticRoutes, ...dynamicRoutes]
+  return [...staticRoutes, ...dynamicRoutes, ...serviceRoutes]
 }

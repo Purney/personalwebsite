@@ -1,105 +1,90 @@
 "use client";
 
-import PrimaryButton from "./PrimaryButton";
+import { useState } from "react";
 import Link from "next/link";
+import PrimaryButton from "./PrimaryButton";
 
-export default function Header({isMenuOpen, toggleMenu}) {
+const navItems = [
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/projects", label: "Case Studies" },
+];
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen((current) => !current);
+
   return (
-    <header className=" py-4 px-8">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-xl font-bold px-3 rounded-sm">
-          <Link href="/" className="tracking-widest bg-dark-section text-cta-text p-2">William Purnell</Link>
-        </div>
+    <header className="border-b border-white/10 bg-background-dark/95 px-6 py-4 text-slate-100 backdrop-blur md:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between">
+        <Link href="/" className="flex flex-col leading-tight text-white">
+          <span className="text-base font-bold tracking-wide">William Purnell</span>
+          <span className="text-xs font-medium text-accent-cyan">AI Automation Developer</span>
+        </Link>
 
-        {/* Hamburger Menu for Mobile */}
         <button
-          className="text-2xl md:hidden"
+          className="text-sm font-semibold uppercase tracking-[0.16em] text-white md:hidden"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          ☰
+          Menu
         </button>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6 items-center gap-8">
+        <ul className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="text-sm text-slate-300 hover:text-white">
+                {item.label}
+              </Link>
+            </li>
+          ))}
           <li>
-            <Link href="/about" className="">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects" className="">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <div>
-              <PrimaryButton buttonLink="/contact" buttonText="Get in Touch" className="mt-0 inline-block bg-cta-button text-cta-text hover:bg-cta-hover py-2 px-5 rounded-sm text-sm uppercase" />
-            </div>
+            <PrimaryButton
+              buttonLink="/contact"
+              buttonText="Free Automation Audit"
+              className="mt-0 inline-block bg-accent-cyan px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 hover:bg-white"
+            />
           </li>
         </ul>
       </nav>
 
-      {/* Mobile Side Menu */}
       <div
-        className={`fixed top-0 right-0 h-full  w-full transform z-10 ${
+        className={`fixed right-0 top-0 z-20 h-full w-full transform bg-background-dark text-white transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out bg-gray-300`}
+        }`}
       >
         <button
-          className="text-2xl p-4 focus:outline-none"
+          className="p-6 text-sm font-semibold uppercase tracking-[0.16em]"
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          ×
+          Close
         </button>
-        <ul className="flex flex-col space-y-4 mt-10 px-6 text-lg">
+        <ul className="mt-10 flex flex-col space-y-6 px-6 text-lg">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} onClick={toggleMenu}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
           <li>
-            <Link
-              href="/about"
-              className=""
+            <PrimaryButton
+              className="mt-0 inline-block bg-accent-cyan px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 hover:bg-white"
+              buttonLink="/contact"
               onClick={toggleMenu}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/services"
-              className=""
-              onClick={toggleMenu}
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/projects"
-              className=""
-              onClick={toggleMenu}
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <PrimaryButton className="mt-0 inline-block bg-cta-button text-cta-text hover:bg-cta-hover py-2 px-4 rounded-sm uppercase" buttonLink="/contact" onClick={toggleMenu} buttonText="Get in Touch" />
+              buttonText="Free Automation Audit"
+            />
           </li>
         </ul>
       </div>
 
-      {/* Overlay to close menu when clicking outside */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50"
+          className="fixed inset-0 z-10 bg-black/50"
           onClick={toggleMenu}
           aria-hidden="true"
-        ></div>
+        />
       )}
     </header>
   );

@@ -1,9 +1,32 @@
 import Hero from "@/components/Hero";
 import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
-import { getSEOTags, getCreativeWorkSchema } from "@/lib/seo";
+import { getSEOTags, getCreativeWorkSchema, getBreadcrumbSchema } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from 'next/navigation';
+
+const serviceLinks = [
+  {
+    href: "/services/ai-agent-integration",
+    label: "AI Agent Integration",
+    matches: ["AI Integration"],
+  },
+  {
+    href: "/services/custom-internal-tools",
+    label: "Custom Internal Tools",
+    matches: ["Web Development", "Next.js", "React", ".NET"],
+  },
+  {
+    href: "/services/crm-email-automation",
+    label: "CRM & Email Automation",
+    matches: ["E-Commerce", "Stripe API"],
+  },
+  {
+    href: "/services/business-process-automation",
+    label: "Business Process Automation",
+    matches: ["E-Commerce", "Web Development"],
+  },
+];
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -23,9 +46,22 @@ export default async function Project({ params }) {
     notFound();
   }
 
+  const projectSignals = [...project.category, ...project.techStack];
+  const relatedServices = serviceLinks.filter((service) =>
+    service.matches.some((match) => projectSignals.includes(match))
+  );
+
   return (
     <>
       {getCreativeWorkSchema(project.title, project.shortDescription, project.dateCreated, project.techStack, project.image.src, project.id)}
+      {getBreadcrumbSchema([
+        { name: "Home", url: "https://www.william-purnell.com/" },
+        { name: "Projects", url: "https://www.william-purnell.com/projects" },
+        {
+          name: project.title,
+          url: `https://www.william-purnell.com/projects/${project.id}`,
+        },
+      ])}
       <Hero title={project.title} description={project.shortDescription} />
       <div className="max-w-7xl mx-auto justify-between flex p-4 md:p-6">
         <Link
@@ -54,6 +90,24 @@ export default async function Project({ params }) {
           )}
         </div>
       </div>
+      {relatedServices.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          <h2 className="text-2xl font-semibold text-white">
+            Related automation services
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {relatedServices.map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-accent-cyan transition hover:border-accent-cyan/60 hover:text-white"
+              >
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
       <ProjectTemplate {...project} />
     </>
   );

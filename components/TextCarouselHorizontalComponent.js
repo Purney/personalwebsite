@@ -8,13 +8,13 @@ const messages = [
   "SEO",
   "Custom software solutions",
   "Bug fixing & Maintenance",
-  "Consulting Services",
+  "Automation Builds",
   "Web Design & Development",
   "Automation & AI",
   "SEO",
   "Custom software solutions",
   "Bug fixing & Maintenance",
-  "Consulting Services",
+  "Workflow Audits",
 ];
 
 export default function TextCarouselHorizontalComponent() {

@@ -6,9 +6,9 @@ import { getSEOTags, getPersonSchema, getLocalBusinessSchema } from "@/lib/seo";
 import Link from "next/link";
 
 export const metadata = getSEOTags({
-  title: "Who is William Purnell?",
+  title: "About William Purnell | AI Automation Developer London",
   description:
-    "Will is a software developer with 5 years experience based in Bournemouth",
+    "Will is a London-based AI automation developer and software engineer building workflows, internal tools, and practical AI integrations for businesses.",
 });
 
 const image = {
@@ -42,7 +42,7 @@ export default async function About() {
                 ?
               </h1>
               <div className="text-lg">
-                Hi, I&apos;m Will, I&apos;m a Software Engineer from Bournemouth with
+                Hi, I&apos;m Will, I&apos;m a Software Engineer based in London with
                 5 years of experience building digital products for businesses
                 of all shapes and sizes. My career started in the agency world,
                 where I spent three years at a .NET development agency working
@@ -70,26 +70,26 @@ export default async function About() {
               lecture notes.
             </p>
           </div>
-          {/* Bournemouth Focus Section */}
+          {/* London Focus Section */}
           <div className="flex max-w-7xl mx-auto px-8 py-16 items-center bg-dark-section text-cta-text flex-col md:flex-row">
             <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
               <h2 className="text-3xl font-bold text-center mb-8">
-                Why Choose William Purnell as your Local Bournemouth Software
-                Developer ?
+                Why Choose William Purnell as your London AI Automation
+                Developer?
               </h2>
             </div>
             <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
               <p className="text-center  max-w-2xl mx-auto">
-                Being based in Bournemouth allows me to understand the unique
-                challenges and opportunities local businesses face. Whether
+                Being based in London gives me direct access to ambitious
+                startups, agencies, SMEs, and operations teams. Whether
                 you&apos;re a startup, small business, or established
                 enterprise, I provide personalized solutions that make a
                 difference.
               </p>
               <p className="text-center max-w-2xl mx-auto pt-2">
-                From Poole to Christchurch, I&apos;m dedicated to serving the
-                Dorset community with reliable, high-quality software
-                development services.
+                I work with London companies and remote UK teams that need
+                reliable, high-quality software, workflow automation, and
+                practical AI integration.
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default async function About() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 pb-16">
-            {Data.splice(0, 3).map((skill, index) => (
+            {Data.slice(0, 3).map((skill, index) => (
               <div
                 key={index}
                 className=" rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow border-cta-hover border-2"
