@@ -24,7 +24,7 @@ export default function WorkflowVisual({ steps = [], title = "Automated workflow
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-cyan">
             Animated workflow preview
           </p>
-          <h2 className="mt-1 text-xl font-semibold text-white">{title}</h2>
+          <p className="mt-1 text-xl font-semibold text-white">{title}</p>
         </div>
         <motion.span
           aria-hidden="true"

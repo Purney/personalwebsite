@@ -97,7 +97,7 @@ export default function Services() {
           {HireReasonsData.map((reason) => (
             <article key={reason.title} className="border border-white/10 bg-white/[0.04] p-6">
               <div className="mb-4">{reason.icon}</div>
-              <h2 className="text-xl font-semibold text-white">{reason.title}</h2>
+              <h3 className="text-xl font-semibold text-white">{reason.title}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-300">{reason.description}</p>
             </article>
           ))}

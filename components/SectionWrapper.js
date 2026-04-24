@@ -6,7 +6,10 @@ export default function SectionWrapper({
   className = "",
   contentClassName = "",
   id,
+  titleAs = "h2",
 }) {
+  const TitleTag = titleAs === "h1" ? "h1" : "h2";
+
   return (
     <section id={id} className={`relative overflow-hidden py-20 md:py-28 ${className}`}>
       <div className={`mx-auto w-full max-w-7xl px-6 md:px-8 ${contentClassName}`}>
@@ -18,9 +21,9 @@ export default function SectionWrapper({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl font-semibold text-white md:text-5xl">
+              <TitleTag className="text-3xl font-semibold text-white md:text-5xl">
                 {title}
-              </h2>
+              </TitleTag>
             )}
             {description && (
               <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">

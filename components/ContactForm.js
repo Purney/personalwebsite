@@ -8,7 +8,9 @@ import axios from "axios";
 export default function ContactForm({
   title = "Claim your free AI workflow automation audit.",
   subHeading = "Tell me which process is slow, repetitive, or hard to scale. I will review it and show where AI automation could save time, connect tools, and reduce manual work.",
+  headingLevel = "h2",
 }) {
+  const HeadingTag = headingLevel === "h1" ? "h1" : "h2";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [service, setService] = useState(Data[0].title);
@@ -79,9 +81,9 @@ export default function ContactForm({
     >
       {!messagedSubmitted ? (
         <>
-          <h2 className="mb-4 text-3xl font-semibold text-white md:text-5xl">
+          <HeadingTag className="mb-4 text-3xl font-semibold text-white md:text-5xl">
             {title}
-          </h2>
+          </HeadingTag>
           <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
             {subHeading}
           </p>

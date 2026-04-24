@@ -46,6 +46,7 @@ export default function Projects() {
       />
       <SectionWrapper
         eyebrow="Case studies"
+        titleAs="h1"
         title="Projects built around useful software, AI integration, and operational outcomes."
         description="A selection of web platforms, e-commerce systems, and AI product work that demonstrates practical delivery, maintainable engineering, and workflow thinking."
       >

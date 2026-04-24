@@ -94,9 +94,9 @@ export default async function About() {
             </div>
           </div>
           <div className="pt-16 px-8">
-            <h3 className="text-3xl font-bold text-center mb-8">
+            <h2 className="text-3xl font-bold text-center mb-8">
               Expertise and Approach
-            </h3>
+            </h2>
             <p className="text-center max-w-2xl mx-auto pt-2 mb-8">
               My approach is simple: I focus on clear communication, reliable
               delivery, and building solutions that are easy to maintain and

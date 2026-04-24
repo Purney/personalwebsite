@@ -68,9 +68,9 @@ export default function ProjectsClient() {
                   </span>
                 ))}
               </div>
-              <h2 className="text-2xl font-semibold text-white">
+              <h3 className="text-2xl font-semibold text-white">
                 {project.title}
-              </h2>
+              </h3>
               <p className="mt-3 text-sm leading-6 text-slate-300">
                 {project.shortDescription}
               </p>

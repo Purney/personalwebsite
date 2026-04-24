@@ -97,7 +97,7 @@ export default async function ServicePage({ params }) {
               key={section.heading}
               className="border border-white/10 bg-white/[0.04] p-6"
             >
-              <h2 className="text-xl font-semibold text-white">{section.heading}</h2>
+              <h3 className="text-xl font-semibold text-white">{section.heading}</h3>
               <p className="mt-4 text-sm leading-7 text-slate-300">
                 {section.copy}
               </p>
@@ -146,7 +146,7 @@ export default async function ServicePage({ params }) {
         <div className="grid gap-4 md:grid-cols-3">
           {service.faqs.map((faq) => (
             <article key={faq.question} className="border border-white/10 bg-white/[0.04] p-6">
-              <h2 className="text-lg font-semibold text-white">{faq.question}</h2>
+              <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
               <p className="mt-3 text-sm leading-7 text-slate-300">{faq.answer}</p>
             </article>
           ))}
@@ -167,7 +167,7 @@ export default async function ServicePage({ params }) {
                 href={`/services/${related.slug}`}
                 className="border border-white/10 bg-white/[0.04] p-5 transition hover:border-accent-cyan/60 hover:bg-white/[0.07]"
               >
-                <h2 className="text-lg font-semibold text-white">{related.title}</h2>
+                <h3 className="text-lg font-semibold text-white">{related.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-300">{related.description}</p>
               </Link>
             ))}

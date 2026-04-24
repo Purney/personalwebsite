@@ -19,9 +19,9 @@ export default function AnimatedWorkflowDiagram() {
           <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
             Workflow engine
           </p>
-          <h2 className="mt-1 text-xl font-semibold text-white">
+          <p className="mt-1 text-xl font-semibold text-white">
             Lead-to-delivery automation
-          </h2>
+          </p>
         </div>
         <span className="h-3 w-3 rounded-full bg-accent-green shadow-[0_0_24px_rgba(52,211,153,0.8)]" />
       </div>
