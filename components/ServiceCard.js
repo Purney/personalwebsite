@@ -1,17 +1,8 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 
-export default function ServiceCard({ service, index = 0 }) {
-  const shouldReduceMotion = useReducedMotion();
-
+export default function ServiceCard({ service }) {
   return (
-    <motion.article
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
-      whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+    <article
       className="group flex h-full flex-col border border-white/10 bg-white/[0.04] p-6 transition hover:border-accent-cyan/60 hover:bg-white/[0.07]"
     >
       <Link href={`/services/${service.slug}`} className="flex h-full flex-col">
@@ -30,6 +21,6 @@ export default function ServiceCard({ service, index = 0 }) {
           View service
         </span>
       </Link>
-    </motion.article>
+    </article>
   );
 }

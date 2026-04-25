@@ -9,6 +9,7 @@ import config from "@/config";
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -37,11 +38,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <Script
-        async
+        strategy="lazyOnload"
         src="https://www.googletagmanager.com/gtag/js?id=G-8KKTX6PF0E"
       />
       <Script
         id="google-analytics"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];

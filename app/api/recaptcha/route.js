@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export async function POST(req) {
   if (req.method !== "POST") {
     return new Response(
@@ -19,11 +17,20 @@ export async function POST(req) {
   }
 
   try {
-    const response = await axios.post(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
-    );
+    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        secret: secretKey || "",
+        response: token,
+      }),
+    });
 
-    if (response.data.success) {
+    const result = await response.json();
+
+    if (result.success) {
       return new Response(JSON.stringify({ message: "Success" }), {
         status: 200,
       });

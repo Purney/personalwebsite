@@ -1,6 +1,6 @@
-import ContactForm from "@/components/ContactForm";
 import CTASection from "@/components/CTASection";
 import HeroSection from "@/components/HeroSection";
+import LazyContactFormSection from "@/components/LazyContactFormSection";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import ProjectCard from "@/components/ProjectCard";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -194,7 +194,7 @@ export default function Home() {
       </SectionWrapper>
 
       <CTASection />
-      <ContactForm
+      <LazyContactFormSection
         title="Get a free AI workflow automation audit."
         subHeading="Share the workflow that is slowing your team down. I will review the process and show where automation could save time, connect tools, or reduce manual work."
       />

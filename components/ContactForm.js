@@ -1,14 +1,23 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { Data } from "@/data/servicesData";
-import ReCAPTCHA from "react-google-recaptcha";
-import axios from "axios";
+
+const LazyReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false,
+  loading: () => (
+    <div className="border border-white/10 bg-white/[0.04] px-4 py-3 text-center text-sm text-slate-300">
+      Loading verification...
+    </div>
+  ),
+});
 
 export default function ContactForm({
   title = "Claim your free AI workflow automation audit.",
   subHeading = "Tell me which process is slow, repetitive, or hard to scale. I will review it and show where AI automation could save time, connect tools, and reduce manual work.",
   headingLevel = "h2",
+  sectionId = "contact",
 }) {
   const HeadingTag = headingLevel === "h1" ? "h1" : "h2";
   const [name, setName] = useState("");
@@ -17,9 +26,26 @@ export default function ContactForm({
   const [otherService, setOtherService] = useState("");
   const [message, setMessage] = useState("");
   const [messagedSubmitted, setMessagedSubmitted] = useState(false);
-  const recaptchaRef = useRef();
+  const [captchaRequested, setCaptchaRequested] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
+
+  function requestCaptcha() {
+    setCaptchaRequested(true);
+  }
+
+  useEffect(() => {
+    const loadCaptcha = () => setCaptchaRequested(true);
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(loadCaptcha, { timeout: 1200 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(loadCaptcha, 500);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   const handleChange = (token) => {
     handleCaptchaSubmission(token);
@@ -47,36 +73,59 @@ export default function ContactForm({
     }
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!captchaRequested) {
+      setCaptchaRequested(true);
+      return;
+    }
+
     if (!isVerified) {
       alert("Please verify the reCAPTCHA!");
-    } else {
-      axios
-        .post("/api/contact", {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           name,
           email,
           service,
           otherService,
           message,
-        })
-        .then(() => {
-          setSubmittedName(name);
-          setMessagedSubmitted(true);
-          setEmail("");
-          setMessage("");
-          setService("");
-          setOtherService("");
-          setName("");
-        });
-    }
+        }),
+      });
 
-   
+      if (!response.ok) {
+        throw new Error("Message failed to send");
+      }
+
+      setSubmittedName(name);
+      setMessagedSubmitted(true);
+      setEmail("");
+      setMessage("");
+      setService(Data[0].title);
+      setOtherService("");
+      setName("");
+      setIsVerified(false);
+      setCaptchaRequested(false);
+    } catch (error) {
+      alert("Sorry, something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <section
-      id="contact"
+      id={sectionId}
       className=" py-16 text-center mx-4 md:mx-8"
     >
       {!messagedSubmitted ? (
@@ -88,7 +137,11 @@ export default function ContactForm({
             {subHeading}
           </p>
 
-          <form className="mx-auto max-w-2xl border border-white/10 bg-slate-950/70 p-5 text-left md:p-8" onSubmit={handleSubmit}>
+          <form
+            className="mx-auto max-w-2xl border border-white/10 bg-slate-950/70 p-5 text-left md:p-8"
+            onFocus={requestCaptcha}
+            onSubmit={handleSubmit}
+          >
             <div className="mb-4 text-left">
               <label htmlFor="name" className="text-sm font-semibold text-slate-200">
                 What is your name?
@@ -100,7 +153,10 @@ export default function ContactForm({
                 name="name"
                 required
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  requestCaptcha();
+                  setName(e.target.value);
+                }}
                 className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-accent-cyan"
               />
             </div>
@@ -116,7 +172,10 @@ export default function ContactForm({
                 required
                 className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-accent-cyan"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  requestCaptcha();
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div className="mb-4 text-left">
@@ -129,7 +188,10 @@ export default function ContactForm({
                 required
                 className="mt-2 w-full border border-white/10 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-accent-cyan"
                 value={service}
-                onChange={(e) => setService(e.target.value)}
+                onChange={(e) => {
+                  requestCaptcha();
+                  setService(e.target.value);
+                }}
                 >
                   {Data.map((serviceItem, index) => (
                     <option key={"service-index-" + index} value={serviceItem.title}>{serviceItem.title}</option>
@@ -144,7 +206,10 @@ export default function ContactForm({
                 placeholder="Custom service"
                 className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-accent-cyan"
                 value={otherService}
-                onChange={(e) => setOtherService(e.target.value)}
+                onChange={(e) => {
+                  requestCaptcha();
+                  setOtherService(e.target.value);
+                }}
               />)}
             </div>
             <div className="mb-4 text-left">
@@ -159,23 +224,31 @@ export default function ContactForm({
                 rows="4"
                 className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-accent-cyan"
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => {
+                  requestCaptcha();
+                  setMessage(e.target.value);
+                }}
               ></textarea>
             </div>
             <div className="flex justify-center py-4">
-                  <ReCAPTCHA
+              {captchaRequested ? (
+                  <LazyReCAPTCHA
                     sitekey={process.env.NEXT_PUBLIC_SITE_KEY || ""}
-                    ref={recaptchaRef}
                     onChange={handleChange}
                     onExpired={handleExpired}
                   />
+              ) : (
+                <div className="border border-white/10 bg-white/[0.04] px-4 py-3 text-center text-sm text-slate-300">
+                  Preparing secure verification...
                 </div>
+              )}
+            </div>
             <button
               type="submit"
-              disabled={!isVerified}
+              disabled={!captchaRequested || !isVerified || isSubmitting}
               className="w-full cursor-pointer bg-accent-cyan px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-950 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Request free audit
+              {isSubmitting ? "Sending..." : "Request free audit"}
             </button>
           </form>
         </>

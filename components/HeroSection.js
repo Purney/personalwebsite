@@ -1,25 +1,16 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import AnimatedWorkflowDiagram from "./AnimatedWorkflowDiagram";
-import ParallaxBackground from "./ParallaxBackground";
+import HeroWorkflowPreview from "./HeroWorkflowPreview";
 
 export default function HeroSection() {
-  const shouldReduceMotion = useReducedMotion();
-  const motionProps = shouldReduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 24 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.7, ease: "easeOut" },
-      };
-
   return (
     <section className="relative isolate min-h-[calc(100vh-84px)] overflow-hidden bg-background-dark py-20 text-white md:py-28">
-      <ParallaxBackground />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full border border-accent-cyan/15 bg-[radial-gradient(circle,rgba(34,211,238,0.14),transparent_62%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.07)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,transparent,rgba(5,10,23,0.88)_68%)]" />
+      </div>
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.02fr_0.98fr]">
-        <motion.div {...motionProps}>
+        <div>
           <p className="mb-5 inline-flex border border-accent-cyan/30 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
             AI automation and workflow engineering
           </p>
@@ -59,8 +50,8 @@ export default function HeroSection() {
               </div>
             ))}
           </dl>
-        </motion.div>
-        <AnimatedWorkflowDiagram />
+        </div>
+        <HeroWorkflowPreview />
       </div>
     </section>
   );
