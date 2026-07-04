@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import PrimaryButton from "./PrimaryButton";
 
+const consultationUrl = "https://calendly.com/hello-william-purnell/initial-call";
+
 const navItems = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
@@ -40,8 +42,10 @@ export default function Header() {
           ))}
           <li>
             <PrimaryButton
-              buttonLink="/contact"
-              buttonText="Free Automation Audit"
+              buttonLink={consultationUrl}
+              buttonText="Book Consultation"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-0 inline-block bg-accent-cyan px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 hover:bg-white"
             />
           </li>
@@ -79,9 +83,11 @@ export default function Header() {
               <li>
                 <PrimaryButton
                   className="mt-0 inline-block bg-accent-cyan px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 hover:bg-white"
-                  buttonLink="/contact"
+                  buttonLink={consultationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={toggleMenu}
-                  buttonText="Free Automation Audit"
+                  buttonText="Book Consultation"
                 />
               </li>
             </ul>

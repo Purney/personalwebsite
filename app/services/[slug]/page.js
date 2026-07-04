@@ -175,8 +175,8 @@ export default async function ServicePage({ params }) {
       </SectionWrapper>
 
       <ContactForm
-        title={`Get a free ${service.title.toLowerCase()} audit.`}
-        subHeading="Share the current process, tools, and outcome you want. I will identify the practical automation opportunities before we discuss a build."
+        title={`Book a ${service.title.toLowerCase()} consultation.`}
+        subHeading="Share the current process, tools, and outcome you want. We can identify the practical automation opportunities before discussing a build."
       />
     </main>
   );

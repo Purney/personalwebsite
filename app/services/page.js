@@ -5,6 +5,7 @@ import ServiceCard from "@/components/ServiceCard";
 import WorkflowVisual from "@/components/WorkflowVisual";
 import { Data as projects } from "@/data/projectsData";
 import { Data as services, HireReasonsData } from "@/data/servicesData";
+import Link from "next/link";
 import {
   getAutomationServiceSchema,
   getBreadcrumbSchema,
@@ -77,6 +78,23 @@ export default function Services() {
             <ServiceCard key={service.slug} service={service} index={index} />
           ))}
         </div>
+        <div className="mt-8 border border-accent-cyan/20 bg-accent-cyan/5 p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-cyan">
+            For architecture practices
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-white">
+            Explore Architecture AI & Automation Audits.
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
+            A dedicated service area for architecture practices that want to compare fixed-scope audit options before investing in AI tools, workflow automation, or custom software.
+          </p>
+          <Link
+            href="/services/architecture-ai-automation-audit"
+            className="mt-5 inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
+          >
+            Compare audit options
+          </Link>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper
@@ -88,8 +106,8 @@ export default function Services() {
           <p>
             As a London-based AI automation developer, I build practical systems
             for SMEs, startups, agencies, and operations teams that need more
-            than generic AI tools. The work usually starts with a free workflow
-            audit, then moves into a focused automation build once the value is
+            than generic AI tools. The work usually starts with a focused
+            consultation, then moves into a focused automation build once the value is
             clear.
           </p>
         </div>
@@ -117,8 +135,8 @@ export default function Services() {
       </SectionWrapper>
 
       <ContactForm
-        title="Get a free AI workflow automation audit."
-        subHeading="Tell me which process is costing time and I will show where automation could help before you commit to a build."
+        title="Book an automation consultation."
+        subHeading="Tell me which process is costing time and we can discuss where automation could help before you commit to a build."
       />
     </main>
   );

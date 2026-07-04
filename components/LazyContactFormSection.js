@@ -8,10 +8,10 @@ const ContactForm = dynamic(() => import("./ContactForm"), {
   loading: () => (
     <div className="mx-4 py-16 text-center md:mx-8">
       <h2 className="mb-4 text-3xl font-semibold text-white md:text-5xl">
-        Get a free AI workflow automation audit.
+        Book an automation consultation.
       </h2>
       <p className="mx-auto max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
-        Loading the secure audit form...
+        Loading the secure consultation form...
       </p>
     </div>
   ),
@@ -67,7 +67,7 @@ export default function LazyContactFormSection({ title, subHeading }) {
             onClick={() => setShouldLoad(true)}
             className="inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
           >
-            Load secure audit form
+            Load secure consultation form
           </button>
         </div>
       )}

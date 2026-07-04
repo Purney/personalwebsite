@@ -1,5 +1,6 @@
 import { Data } from "@/data/projectsData";
 import { Data as services } from "@/data/servicesData";
+import { architectureAuditBasePath, architectureAuditOffers } from "@/data/architectureAuditOffers";
 
 export default async function sitemap() {
   const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "https://www.william-purnell.com";
@@ -35,6 +36,12 @@ export default async function sitemap() {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
+    },
+    {
+      url: `${baseUrl}${architectureAuditBasePath}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     }
   ]
 
@@ -54,6 +61,13 @@ export default async function sitemap() {
     priority: 0.8,
   }))
 
+  const architectureAuditRoutes = architectureAuditOffers.map(offer => ({
+    url: `${baseUrl}${architectureAuditBasePath}/${offer.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }))
+
   // Combine static and dynamic routes
-  return [...staticRoutes, ...dynamicRoutes, ...serviceRoutes]
+  return [...staticRoutes, ...dynamicRoutes, ...serviceRoutes, ...architectureAuditRoutes]
 }

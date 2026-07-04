@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Data } from "@/data/servicesData";
+import { architectureAuditOffers } from "@/data/architectureAuditOffers";
+
+const DEFAULT_BOOKING_URL = "https://calendly.com/hello-william-purnell/initial-call";
+const architectureServiceOptions = [
+  { title: "Architecture AI & Automation Audit" },
+  ...architectureAuditOffers.map((offer) => ({ title: offer.name })),
+];
 
 const LazyReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
   ssr: false,
@@ -14,15 +21,30 @@ const LazyReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
 });
 
 export default function ContactForm({
-  title = "Claim your free AI workflow automation audit.",
-  subHeading = "Tell me which process is slow, repetitive, or hard to scale. I will review it and show where AI automation could save time, connect tools, and reduce manual work.",
+  title = "Book a consultation.",
+  subHeading = "Tell me which process is slow, repetitive, or hard to scale. I will review it and we can discuss where automation could save time, connect tools, and reduce manual work.",
   headingLevel = "h2",
   sectionId = "contact",
+  bookingUrl = DEFAULT_BOOKING_URL,
+  bookingButtonText = "Book a consultation",
+  submitButtonText = "Send consultation request",
+  successMessage = "Your message has been sent successfully. You can also book a consultation below.",
+  messageLabel = "What workflow should we discuss?",
+  messagePlaceholder = "For example: we manually copy new enquiries into three tools and want to route them automatically.",
+  defaultService = Data[0].title,
+  extraServiceOptions = [],
 }) {
   const HeadingTag = headingLevel === "h1" ? "h1" : "h2";
+  const serviceOptions = [
+    ...new Map(
+      [...Data, ...architectureServiceOptions, ...extraServiceOptions].map(
+        (item) => [item.title, item]
+      )
+    ).values(),
+  ];
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState(Data[0].title);
+  const [service, setService] = useState(defaultService);
   const [otherService, setOtherService] = useState("");
   const [message, setMessage] = useState("");
   const [messagedSubmitted, setMessagedSubmitted] = useState(false);
@@ -111,7 +133,7 @@ export default function ContactForm({
       setMessagedSubmitted(true);
       setEmail("");
       setMessage("");
-      setService(Data[0].title);
+      setService(defaultService);
       setOtherService("");
       setName("");
       setIsVerified(false);
@@ -136,6 +158,16 @@ export default function ContactForm({
           <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
             {subHeading}
           </p>
+          {bookingUrl && (
+            <a
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-8 inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
+            >
+              {bookingButtonText}
+            </a>
+          )}
 
           <form
             className="mx-auto max-w-2xl border border-white/10 bg-slate-950/70 p-5 text-left md:p-8"
@@ -193,12 +225,12 @@ export default function ContactForm({
                   setService(e.target.value);
                 }}
                 >
-                  {Data.map((serviceItem, index) => (
+                  {serviceOptions.map((serviceItem, index) => (
                     <option key={"service-index-" + index} value={serviceItem.title}>{serviceItem.title}</option>
                   ))}
                   <option value="Other">Other</option>
                 </select>
-                {service !== "" && !Data.some((item) => item.title === service) && (
+                {service !== "" && !serviceOptions.some((item) => item.title === service) && (
               <input
                 type="text"
                 id="otherService"
@@ -214,10 +246,10 @@ export default function ContactForm({
             </div>
             <div className="mb-4 text-left">
               <label htmlFor="message" className="text-sm font-semibold text-slate-200">
-                What workflow should I audit?
+                {messageLabel}
               </label>
               <textarea
-                placeholder="For example: we manually copy new enquiries into three tools and want to route them automatically."
+                placeholder={messagePlaceholder}
                 id="message"
                 name="message"
                 required
@@ -248,7 +280,7 @@ export default function ContactForm({
               disabled={!captchaRequested || !isVerified || isSubmitting}
               className="w-full cursor-pointer bg-accent-cyan px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-950 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
             >
-              {isSubmitting ? "Sending..." : "Request free audit"}
+              {isSubmitting ? "Sending..." : submitButtonText}
             </button>
           </form>
         </>
@@ -258,8 +290,18 @@ export default function ContactForm({
             Thank you {submittedName}!
           </h2>
           <p className="mt-4 text-lg text-slate-300">
-            Your message has been sent successfully. I&apos;ll get back to you soon!
+            {successMessage}
           </p>
+          {bookingUrl && (
+            <a
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
+            >
+              {bookingButtonText}
+            </a>
+          )}
         </div>
       )}
     </section>

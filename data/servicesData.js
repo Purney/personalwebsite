@@ -177,7 +177,7 @@ const serviceSeoContent = {
       },
       {
         heading: "Avoid expensive AI experiments",
-        copy: "Not every process needs AI, and not every AI idea is worth building. The free workflow audit helps separate quick wins from complex projects, identify dependencies, and define what a useful first version should actually do.",
+        copy: "Not every process needs AI, and not every AI idea is worth building. A focused consultation helps separate quick wins from complex projects, identify dependencies, and define what a useful first version should actually do.",
       },
       {
         heading: "A build plan your team can act on",
@@ -186,8 +186,8 @@ const serviceSeoContent = {
     ],
     faqs: [
       {
-        question: "What happens in a free AI workflow automation audit?",
-        answer: "We review your current process, tools, manual effort, data flow, and goals, then identify automation opportunities and prioritise the highest-value starting point.",
+        question: "What happens in an AI workflow automation consultation?",
+        answer: "We discuss your current process, tools, manual effort, data flow, and goals, then identify automation opportunities and prioritise the highest-value starting point.",
       },
       {
         question: "Do you only recommend AI automation?",
@@ -235,7 +235,7 @@ const services = [
       "Track outcome",
     ],
     deliverables: [
-      "Free workflow audit and automation map",
+      "Consultation and automation opportunity map",
       "API integrations between core tools",
       "AI-assisted routing, summaries, or decisions",
       "Monitoring, fallbacks, and human approval points",
@@ -402,7 +402,7 @@ const services = [
     title: "Automation Implementation",
     seoTitle: "Automation Implementation Developer London | AI Automation Builds",
     seoDescription:
-      "Automation implementation for London and UK businesses that want a free workflow audit before building AI automation, internal tools, or integrations.",
+      "Automation implementation for London and UK businesses that want a focused consultation before building AI automation, internal tools, or integrations.",
     keywords: [
       "automation developer London",
       "AI automation implementation",
@@ -410,7 +410,7 @@ const services = [
       "AI strategy for small business",
     ],
     description:
-      "Start with a free audit, then turn the strongest opportunity into a working automation system.",
+      "Start with a consultation, then turn the strongest opportunity into a working automation system.",
     icon: <FaComment className={iconClassName} aria-hidden="true" />,
     longDescription:
       "I help you choose the right stack, scope the useful first version, and pressure-test automation ideas before they become expensive projects.",
@@ -430,7 +430,7 @@ const services = [
       "Next build",
     ],
     deliverables: [
-      "Free automation opportunity audit",
+      "Automation opportunity consultation",
       "Prioritised build plan with risk and value",
       "Recommended stack and integration approach",
       "Prototype scope for the first practical automation",

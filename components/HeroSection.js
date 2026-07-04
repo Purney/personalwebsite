@@ -1,6 +1,8 @@
 import Link from "next/link";
 import HeroWorkflowPreview from "./HeroWorkflowPreview";
 
+const consultationUrl = "https://calendly.com/hello-william-purnell/initial-call";
+
 export default function HeroSection() {
   return (
     <section className="relative isolate min-h-[calc(100vh-84px)] overflow-hidden bg-background-dark py-20 text-white md:py-28">
@@ -23,12 +25,14 @@ export default function HeroSection() {
             operational efficiency.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="#contact"
+            <a
+              href={consultationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark"
             >
-              Get a Free AI Workflow Audit
-            </Link>
+              Book Consultation
+            </a>
             <Link
               href="/projects"
               className="inline-flex items-center justify-center border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:border-accent-cyan/70 hover:text-accent-cyan"

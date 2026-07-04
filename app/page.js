@@ -105,7 +105,7 @@ export default function Home() {
       <SectionWrapper
         eyebrow="The solution"
         title="Practical AI automation, built around your workflow."
-        description="I use a free AI workflow automation audit to find the highest-value opportunities, then design, build, and integrate reliable automation systems your team can actually use."
+        description="Start with a focused consultation to identify the highest-value opportunities, then design, build, and integrate reliable automation systems your team can actually use."
         className="bg-background-dark"
       >
         <div className="grid gap-4 md:grid-cols-5">
@@ -195,8 +195,8 @@ export default function Home() {
 
       <CTASection />
       <LazyContactFormSection
-        title="Get a free AI workflow automation audit."
-        subHeading="Share the workflow that is slowing your team down. I will review the process and show where automation could save time, connect tools, or reduce manual work."
+        title="Book an automation consultation."
+        subHeading="Share the workflow that is slowing your team down. We can discuss where automation could save time, connect tools, or reduce manual work."
       />
     </main>
   );

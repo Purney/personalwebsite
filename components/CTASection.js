@@ -1,4 +1,4 @@
-import Link from "next/link";
+const consultationUrl = "https://calendly.com/hello-william-purnell/initial-call";
 
 export default function CTASection() {
   return (
@@ -12,12 +12,14 @@ export default function CTASection() {
             Bring one workflow. Leave with a clear automation opportunity map.
           </h2>
         </div>
-        <Link
-          href="#contact"
+        <a
+          href={consultationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
         >
-          Claim the free workflow audit
-        </Link>
+          Book Consultation
+        </a>
       </div>
     </section>
   );
