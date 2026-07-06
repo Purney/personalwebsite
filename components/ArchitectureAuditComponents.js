@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import SectionWrapper from "@/components/SectionWrapper";
+import ArchitectureROICalculator from "@/components/ArchitectureROICalculator";
 import {
   architectureAuditBasePath,
   architectureAuditBookingUrl,
@@ -243,6 +244,8 @@ export function ParentContent() {
           ))}
         </div>
       </SectionWrapper>
+
+      <ArchitectureROICalculator />
 
       <SectionWrapper
         id="compare"
