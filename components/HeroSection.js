@@ -13,7 +13,7 @@ export default function HeroSection() {
       </div>
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.02fr_0.98fr]">
         <div>
-          <p className="mb-5 inline-flex border border-accent-cyan/30 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
+          <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
             AI automation and workflow engineering
           </p>
           <h1 className="max-w-5xl text-4xl font-semibold leading-tight text-white md:text-6xl lg:text-7xl">
@@ -29,13 +29,13 @@ export default function HeroSection() {
               href={consultationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark"
+              className="btn-primary"
             >
-              Book Consultation
+              Book a Free Automation Consultation
             </a>
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:border-accent-cyan/70 hover:text-accent-cyan"
+              className="btn-secondary"
             >
               View Automation Projects
             </Link>
@@ -48,7 +48,7 @@ export default function HeroSection() {
             ].map(([value, label]) => (
               <div key={label}>
                 <dt className="text-2xl font-semibold text-white">{value}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-400">
+                <dd className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-300">
                   {label}
                 </dd>
               </div>

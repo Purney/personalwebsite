@@ -12,7 +12,35 @@ body {
 }
 
 p {
-    line-height: 1.75rem;
+    line-height: 1.6;
+}
+
+a,
+button {
+  text-underline-offset: 0.22em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #22D3EE;
+  outline-offset: 3px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center bg-accent-cyan px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-glow-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center border border-white/20 bg-white/[0.03] px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:-translate-y-0.5 hover:border-accent-amber/70 hover:text-accent-amber focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark;
+  }
+
+  .text-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-accent-amber;
+  }
 }
 
 ::selection {
@@ -64,7 +92,7 @@ p {
   
 @media screen and (max-width: 992px) {
   p {
-    line-height: 1.25rem;
+    line-height: 1.55;
   }
 }
 

@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
-import { getSEOTags, getContactSchema, getLocalBusinessSchema } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { getSEOTags, getContactSchema, getLocalBusinessSchema, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata = getSEOTags({
   title: "Book an AI Automation Consultation | William Purnell",
@@ -11,7 +12,19 @@ export default function Contact() {
   return (<>
   {getContactSchema()}
   {getLocalBusinessSchema()}
+  {getBreadcrumbSchema([
+    { name: "Home", url: "https://www.william-purnell.com/" },
+    { name: "Contact", url: "https://www.william-purnell.com/contact" },
+  ])}
   <main className="bg-background-dark text-slate-100">
+    <div className="mx-auto max-w-7xl px-6 pt-10 md:px-8">
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/contact", label: "Contact" },
+        ]}
+      />
+    </div>
     <ContactForm
       headingLevel="h1"
       title="Book an AI automation consultation."

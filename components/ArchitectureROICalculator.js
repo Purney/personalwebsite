@@ -148,22 +148,23 @@ export default function ArchitectureROICalculator() {
   return (
     <section className="bg-background-dark py-16">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
-            Estimated capacity
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold text-white md:text-5xl">
-            Estimate the capacity across repeated workflows.
-          </h2>
-          <p className="mt-5 text-base leading-8 text-slate-300">
-            Use this simple model to estimate how much time repeated drawing,
-            document, planning or project-information workflows may be consuming
-            each year. The result is a directional planning estimate to help
-            identify which workflows are worth reviewing in an audit.
-          </p>
-        </div>
+        <div className="border border-white/10 bg-slate-950/80 p-5 shadow-panel md:p-8">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-kicker">
+              Estimated capacity
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl">
+              Estimate the capacity across repeated workflows.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+              Use this simple model to estimate how much time repeated drawing,
+              document, planning or project-information workflows may be consuming
+              each year. The result is a directional planning estimate to help
+              identify which workflows are worth reviewing in an audit.
+            </p>
+          </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-5">
             {workflowResults.map((workflow, index) => (
               <div
@@ -172,7 +173,7 @@ export default function ArchitectureROICalculator() {
               >
                 <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-cyan">
+                    <p className="text-kicker">
                       Workflow {index + 1}
                     </p>
                     <h3 className="mt-2 text-xl font-semibold text-white">
@@ -183,7 +184,7 @@ export default function ArchitectureROICalculator() {
                     type="button"
                     onClick={() => removeWorkflow(workflow.id)}
                     disabled={workflows.length === 1}
-                    className="inline-flex items-center justify-center border border-white/15 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:border-accent-cyan/60 hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark disabled:cursor-not-allowed disabled:border-white/5 disabled:text-slate-600 disabled:hover:text-slate-600"
+                    className="btn-secondary px-4 py-2 text-xs disabled:cursor-not-allowed disabled:border-white/5 disabled:text-slate-600 disabled:hover:text-slate-600"
                   >
                     Remove
                   </button>
@@ -326,15 +327,15 @@ export default function ArchitectureROICalculator() {
             <button
               type="button"
               onClick={addWorkflow}
-              className="inline-flex w-full items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark sm:w-auto"
+              className="btn-primary w-full sm:w-auto"
             >
               Add workflow
             </button>
           </div>
 
           <div className="space-y-5">
-            <div className="border border-accent-cyan/20 bg-accent-cyan/5 p-5 md:p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-cyan">
+            <div className="border border-accent-amber/25 bg-accent-amber/10 p-5 md:p-6">
+              <p className="text-kicker">
                 Combined estimate
               </p>
               <h3 className="mt-2 text-2xl font-semibold text-white">
@@ -390,13 +391,13 @@ export default function ArchitectureROICalculator() {
                   href={consultationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark"
+                  className="btn-primary"
                 >
                   Book a Consultation
                 </a>
                 <a
                   href="#compare"
-                  className="inline-flex items-center justify-center border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:border-accent-cyan/60 hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark"
+                  className="btn-secondary"
                 >
                   Compare Audit Options
                 </a>
@@ -410,6 +411,7 @@ export default function ArchitectureROICalculator() {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ProjectCard from "@/components/ProjectCard";
 import SectionWrapper from "@/components/SectionWrapper";
 import ServiceCard from "@/components/ServiceCard";
@@ -49,7 +50,14 @@ export default function Services() {
         <div className="absolute inset-0 bg-radial-grid bg-[size:28px_28px] opacity-20" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:px-8 lg:grid-cols-[1fr_0.9fr]">
           <div>
-            <p className="mb-5 inline-flex border border-accent-cyan/30 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
+            <Breadcrumbs
+              className="mb-8"
+              items={[
+                { href: "/", label: "Home" },
+                { href: "/services", label: "Services" },
+              ]}
+            />
+            <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
               AI automation services in London
             </p>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
@@ -72,28 +80,33 @@ export default function Services() {
         eyebrow="Service pages"
         title="Focused automation services, each built around a specific operational problem."
         description="Every service has a dedicated page with the business problems it solves, the workflow it can streamline, and the technical deliverables behind it."
+        headerAlign="center"
       >
+        <div className="mb-8 grid gap-6 border border-accent-amber/25 bg-accent-amber/10 p-6 md:grid-cols-[0.72fr_1fr] md:items-center">
+          <div>
+            <p className="text-kicker">
+              For architecture practices
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold text-white">
+              Explore Architecture AI & Automation Audits.
+            </h2>
+          </div>
+          <div>
+            <p className="max-w-3xl text-sm leading-7 text-slate-300">
+              A dedicated service area for architecture practices that want to compare fixed-scope audit options before investing in AI tools, workflow automation, or custom software.
+            </p>
+            <Link
+              href="/services/architecture-ai-automation-audit"
+              className="btn-primary mt-5"
+            >
+              Compare audit options
+            </Link>
+          </div>
+        </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard key={service.slug} service={service} index={index} />
           ))}
-        </div>
-        <div className="mt-8 border border-accent-cyan/20 bg-accent-cyan/5 p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-cyan">
-            For architecture practices
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold text-white">
-            Explore Architecture AI & Automation Audits.
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
-            A dedicated service area for architecture practices that want to compare fixed-scope audit options before investing in AI tools, workflow automation, or custom software.
-          </p>
-          <Link
-            href="/services/architecture-ai-automation-audit"
-            className="mt-5 inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
-          >
-            Compare audit options
-          </Link>
         </div>
       </SectionWrapper>
 
@@ -101,6 +114,7 @@ export default function Services() {
         eyebrow="Why work this way"
         title="Automation should feel useful before it feels futuristic."
         className="bg-slate-950"
+        headerAlign="right"
       >
         <div className="mb-10 max-w-3xl text-base leading-8 text-slate-300">
           <p>
@@ -126,6 +140,7 @@ export default function Services() {
         eyebrow="Proof"
         title="Recent systems and product work."
         description="Automation is strongest when it sits on good software foundations: clear data, good UX, reliable integrations, and maintainable code."
+        headerAlign="center"
       >
         <div className="grid gap-5 md:grid-cols-3">
           {projects.slice(0, 3).map((project) => (

@@ -20,12 +20,14 @@ export default function TestimonialCard({ testimonial }) {
           </p>
         </div>
       </div>
-      {testimonial.projectLink && (
+      {(testimonial.projectLink || testimonial.link) && (
         <Link
-          href={testimonial.projectLink}
-          className="mt-6 inline-flex text-sm font-semibold uppercase tracking-[0.14em] text-accent-cyan hover:text-white"
+          href={testimonial.projectLink || testimonial.link}
+          className="mt-6 inline-flex text-sm font-semibold uppercase tracking-[0.14em] text-accent-amber transition hover:text-white hover:underline"
+          target={testimonial.projectLink ? undefined : "_blank"}
+          rel={testimonial.projectLink ? undefined : "noopener noreferrer"}
         >
-          View related project
+          {testimonial.projectLink ? "View related project" : "View client profile"}
         </Link>
       )}
     </article>

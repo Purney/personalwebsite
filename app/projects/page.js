@@ -1,4 +1,5 @@
 import ProjectsClient from "@/components/ProjectsClient";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionWrapper from "@/components/SectionWrapper";
 import { Data } from "@/data/projectsData";
 import { getBreadcrumbSchema, getSEOTags } from "@/lib/seo";
@@ -49,7 +50,15 @@ export default function Projects() {
         titleAs="h1"
         title="Projects built around useful software, AI integration, and operational outcomes."
         description="A selection of web platforms, e-commerce systems, and AI product work that demonstrates practical delivery, maintainable engineering, and workflow thinking."
+        headerAlign="center"
       >
+        <Breadcrumbs
+          className="mb-10 justify-center"
+          items={[
+            { href: "/", label: "Home" },
+            { href: "/projects", label: "Projects" },
+          ]}
+        />
         <ProjectsClient />
       </SectionWrapper>
     </main>

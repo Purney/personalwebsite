@@ -1,8 +1,10 @@
 import {
   ArchitectureAuditCTA,
   ArchitectureAuditHeroVisual,
+  AuditStickyCTA,
   ParentContent,
 } from "@/components/ArchitectureAuditComponents";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   architectureAuditBasePath,
   architectureAuditBookingUrl,
@@ -34,7 +36,7 @@ export const metadata = getSEOTags({
 
 export default function ArchitectureAIAutomationAudit() {
   return (
-    <main className="bg-background-dark text-slate-100">
+    <main className="bg-background-dark pb-28 text-slate-100 sm:pb-24">
       {getBreadcrumbSchema([
         { name: "Home", url: "https://www.william-purnell.com/" },
         { name: "Services", url: "https://www.william-purnell.com/services" },
@@ -90,7 +92,18 @@ export default function ArchitectureAIAutomationAudit() {
         <div className="absolute inset-0 bg-radial-grid bg-[size:28px_28px] opacity-20" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:px-8 lg:grid-cols-[1fr_0.9fr]">
           <div>
-            <p className="mb-5 inline-flex border border-accent-cyan/30 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
+            <Breadcrumbs
+              className="mb-8"
+              items={[
+                { href: "/", label: "Home" },
+                { href: "/services", label: "Services" },
+                {
+                  href: architectureAuditBasePath,
+                  label: "Architecture AI & Automation Audit",
+                },
+              ]}
+            />
+            <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
               AI & Automation Audits for Architecture Practices
             </p>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
@@ -99,7 +112,7 @@ export default function ArchitectureAIAutomationAudit() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               Review the drawing, document, planning and project-information workflows that consume the most time in your practice. Identify practical opportunities, assess readiness and leave with a prioritised plan before committing budget to new tools or custom software.
             </p>
-            <p className="mt-6 max-w-2xl border-l-2 border-accent-cyan pl-5 text-base leading-7 text-slate-200">
+            <p className="mt-6 max-w-2xl border-l-2 border-accent-amber pl-5 text-base leading-7 text-slate-200">
               Built around your real workflows, representative files and operational priorities.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -107,13 +120,13 @@ export default function ArchitectureAIAutomationAudit() {
                 href={architectureAuditBookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark"
+                className="btn-primary"
               >
                 Book an Architecture AI Audit
               </a>
               <Link
                 href="#compare"
-                className="inline-flex items-center justify-center border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:border-accent-cyan/60 hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background-dark"
+                className="btn-secondary"
               >
                 Compare Audit Options
               </Link>
@@ -130,6 +143,7 @@ export default function ArchitectureAIAutomationAudit() {
         copy="Share the parts of your drawing, document, planning or project-information workflow that feel repetitive, difficult to manage or overly manual. The audit will help identify the most practical next step."
         secondaryHref="/contact"
       />
+      <AuditStickyCTA />
     </main>
   );
 }

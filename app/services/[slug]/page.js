@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionWrapper from "@/components/SectionWrapper";
 import WorkflowVisual from "@/components/WorkflowVisual";
 import { Data as services, getServiceBySlug } from "@/data/servicesData";
@@ -61,15 +62,15 @@ export default async function ServicePage({ params }) {
         <div className="absolute inset-0 bg-radial-grid bg-[size:28px_28px] opacity-20" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:px-8 lg:grid-cols-[1fr_0.9fr]">
           <div>
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <Link
-                href="/services"
-                className="inline-flex border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent-cyan transition hover:border-accent-cyan/60 hover:text-white"
-              >
-                Back to services
-              </Link>
-            </nav>
-            <p className="mb-5 inline-flex border border-accent-cyan/30 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
+            <Breadcrumbs
+              className="mb-8"
+              items={[
+                { href: "/", label: "Home" },
+                { href: "/services", label: "Services" },
+                { href: `/services/${service.slug}`, label: service.title },
+              ]}
+            />
+            <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
               London and UK automation service
             </p>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
@@ -78,7 +79,7 @@ export default async function ServicePage({ params }) {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               {service.longDescription}
             </p>
-            <p className="mt-6 max-w-2xl border-l-2 border-accent-cyan pl-5 text-base leading-7 text-slate-300">
+            <p className="mt-6 max-w-2xl border-l-2 border-accent-amber pl-5 text-base leading-7 text-slate-300">
               Best for: {service.audience}
             </p>
           </div>
@@ -90,6 +91,7 @@ export default async function ServicePage({ params }) {
         eyebrow="How it works"
         title={`${service.title} that fits the way your team already works.`}
         description="Each project starts by understanding the current workflow before deciding what should be automated, what should stay human, and which systems need to talk to each other."
+        headerAlign="center"
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {service.bodySections.map((section) => (
@@ -110,11 +112,12 @@ export default async function ServicePage({ params }) {
         eyebrow="Problems solved"
         title={`When ${service.title.toLowerCase()} is the right move.`}
         description="The best automation projects start with a workflow that is already repeated, measurable, and slowing people down."
+        headerAlign="right"
       >
         <div className="grid gap-5 md:grid-cols-3">
           {service.painPoints.map((point) => (
             <article key={point} className="border border-white/10 bg-white/[0.04] p-6">
-              <span className="mb-5 block h-1 w-10 bg-gradient-to-r from-accent-cyan to-accent-purple" />
+              <span className="mb-5 block h-1 w-10 bg-accent-amber" />
               <p className="text-base leading-7 text-slate-200">{point}</p>
             </article>
           ))}
@@ -126,15 +129,26 @@ export default async function ServicePage({ params }) {
         title="A practical system, not a disconnected AI demo."
         className="bg-slate-950"
       >
-        <div className="grid gap-4 md:grid-cols-2">
-          {service.deliverables.map((deliverable) => (
-            <div
-              key={deliverable}
-              className="border border-accent-cyan/20 bg-accent-cyan/5 p-5 text-base font-semibold leading-7 text-slate-100"
-            >
-              {deliverable}
-            </div>
-          ))}
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1fr] lg:items-start">
+          <div className="border border-accent-amber/25 bg-accent-amber/10 p-6">
+            <p className="text-kicker">Delivery focus</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">
+              Useful software has to survive real operations.
+            </h3>
+            <p className="mt-4 text-sm leading-7 text-slate-300">
+              Deliverables are shaped around the systems, people, and handoffs already present in the workflow.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {service.deliverables.map((deliverable) => (
+              <div
+                key={deliverable}
+                className="border border-white/10 bg-white/[0.04] p-5 text-base font-semibold leading-7 text-slate-100"
+              >
+                {deliverable}
+              </div>
+            ))}
+          </div>
         </div>
       </SectionWrapper>
 
@@ -142,6 +156,7 @@ export default async function ServicePage({ params }) {
         eyebrow="Questions"
         title="Common questions before starting."
         className="bg-slate-950"
+        headerAlign="center"
       >
         <div className="grid gap-4 md:grid-cols-3">
           {service.faqs.map((faq) => (
@@ -156,6 +171,7 @@ export default async function ServicePage({ params }) {
       <SectionWrapper
         eyebrow="Related services"
         title="Connected automation capabilities."
+        headerAlign="right"
       >
         <div className="grid gap-4 md:grid-cols-3">
           {services

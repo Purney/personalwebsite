@@ -6,9 +6,20 @@ import ProjectCard from "@/components/ProjectCard";
 import SectionWrapper from "@/components/SectionWrapper";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
+import { architectureAuditBasePath } from "@/data/architectureAuditOffers";
 import { Data as services } from "@/data/servicesData";
 import { Data as projects } from "@/data/projectsData";
 import { Data as testimonials } from "@/data/testimonialData";
+import {
+  FiBarChart2,
+  FiCompass,
+  FiCopy,
+  FiLink,
+  FiMail,
+  FiRepeat,
+  FiSettings,
+  FiUsers,
+} from "react-icons/fi";
 import {
   getAutomationServiceSchema,
   getLocalBusinessSchema,
@@ -18,20 +29,20 @@ import {
 } from "@/lib/seo";
 
 const painPoints = [
-  "Copying data between systems",
-  "Responding to repetitive emails",
-  "Manual reporting",
-  "Slow customer onboarding",
-  "Disconnected tools",
-  "No clear AI strategy",
+  { title: "Copying data between systems", icon: FiCopy },
+  { title: "Responding to repetitive emails", icon: FiMail },
+  { title: "Manual reporting", icon: FiBarChart2 },
+  { title: "Slow customer onboarding", icon: FiUsers },
+  { title: "Disconnected tools", icon: FiLink },
+  { title: "No clear AI strategy", icon: FiCompass },
 ];
 
 const outcomes = [
-  "Automate repetitive admin tasks",
-  "Connect your tools and data",
-  "Build internal dashboards and workflows",
-  "Integrate OpenAI and AI agents into real business processes",
-  "Replace manual handoffs with reliable systems",
+  { title: "Automate repetitive admin tasks", icon: FiRepeat },
+  { title: "Connect your tools and data", icon: FiLink },
+  { title: "Build internal dashboards and workflows", icon: FiBarChart2 },
+  { title: "Integrate OpenAI and AI agents into real business processes", icon: FiSettings },
+  { title: "Replace manual handoffs with reliable systems", icon: FiUsers },
 ];
 
 const techStack = [
@@ -90,13 +101,15 @@ export default function Home() {
         className="bg-slate-950"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {painPoints.map((point) => (
+          {painPoints.map(({ title, icon: Icon }) => (
             <div
-              key={point}
-              className="border border-white/10 bg-white/[0.04] p-5 text-slate-200"
+              key={title}
+              className="flex gap-4 border border-white/10 bg-white/[0.04] p-5 text-slate-200"
             >
-              <span className="mb-4 block h-1 w-10 bg-gradient-to-r from-accent-cyan to-accent-purple" />
-              <h3 className="text-lg font-semibold text-white">{point}</h3>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-accent-amber/30 bg-accent-amber/10 text-accent-amber">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="pt-2 text-lg font-semibold text-white">{title}</h3>
             </div>
           ))}
         </div>
@@ -107,14 +120,16 @@ export default function Home() {
         title="Practical AI automation, built around your workflow."
         description="Start with a focused consultation to identify the highest-value opportunities, then design, build, and integrate reliable automation systems your team can actually use."
         className="bg-background-dark"
+        headerAlign="right"
       >
         <div className="grid gap-4 md:grid-cols-5">
-          {outcomes.map((outcome) => (
+          {outcomes.map(({ title, icon: Icon }) => (
             <div
-              key={outcome}
-              className="border border-accent-cyan/20 bg-accent-cyan/5 p-4 text-sm font-semibold leading-6 text-slate-100"
+              key={title}
+              className="flex min-h-24 gap-3 border border-white/10 bg-white/[0.04] p-4 text-sm font-semibold leading-6 text-slate-100"
             >
-              {outcome}
+              <Icon className="mt-1 h-5 w-5 shrink-0 text-accent-amber" aria-hidden="true" />
+              <span>{title}</span>
             </div>
           ))}
         </div>
@@ -125,8 +140,30 @@ export default function Home() {
         eyebrow="Services"
         title="Automation-first software for teams with real operating pressure."
         description="The focus is not novelty. It is replacing repeated admin, scattered data, and slow handoffs with reliable systems that people can trust."
-        className="bg-background-dark"
+        className="bg-slate-950"
+        headerAlign="center"
       >
+        <div className="mb-8 grid gap-6 border border-accent-amber/25 bg-accent-amber/10 p-6 md:grid-cols-[0.78fr_1fr] md:items-center">
+          <div>
+            <p className="text-kicker">For architecture practices</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">
+              Explore Architecture AI & Automation Audit.
+            </h3>
+          </div>
+          <div>
+            <p className="max-w-3xl text-sm leading-7 text-slate-200">
+              A fixed-scope audit service for architecture practices that want to identify practical AI and automation opportunities before investing in tools, prototypes or custom software.
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <a href={architectureAuditBasePath} className="btn-primary">
+                Explore Architecture AI & Automation Audit
+              </a>
+              <a href={`${architectureAuditBasePath}#compare`} className="btn-secondary">
+                Compare Audit Options
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard
@@ -142,7 +179,7 @@ export default function Home() {
         eyebrow="Process"
         title="A practical build process for automation work."
         description="Small, staged releases make it easier to prove value, protect business continuity, and avoid overbuilding."
-        className="bg-slate-950"
+        className="bg-background-dark"
       >
         <ProcessTimeline />
       </SectionWrapper>
@@ -151,7 +188,8 @@ export default function Home() {
         eyebrow="Projects"
         title="Recent builds and product experiments."
         description="A selection of web platforms, e-commerce systems, and AI product work."
-        className="bg-background-dark"
+        className="bg-slate-950"
+        headerAlign="right"
       >
         <div className="grid gap-5 md:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -182,6 +220,7 @@ export default function Home() {
         eyebrow="Client results"
         title="Clear communication, useful software, and systems built around the user."
         className="bg-slate-950"
+        headerAlign="center"
       >
         <div className="grid gap-5 md:grid-cols-3">
           {featuredTestimonials.map((testimonial) => (

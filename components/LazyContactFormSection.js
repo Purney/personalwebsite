@@ -11,7 +11,7 @@ const ContactForm = dynamic(() => import("./ContactForm"), {
         Book an automation consultation.
       </h2>
       <p className="mx-auto max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
-        Loading the secure consultation form...
+        Preparing the consultation form...
       </p>
     </div>
   ),
@@ -65,9 +65,9 @@ export default function LazyContactFormSection({ title, subHeading }) {
           <button
             type="button"
             onClick={() => setShouldLoad(true)}
-            className="inline-flex items-center justify-center bg-accent-cyan px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-white"
+            className="btn-primary"
           >
-            Load secure consultation form
+            Show the consultation form
           </button>
         </div>
       )}

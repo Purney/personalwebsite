@@ -1,139 +1,207 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ContactForm from "@/components/ContactForm";
-import { Data } from "@/data/servicesData";
+import SectionWrapper from "@/components/SectionWrapper";
+import { HireReasonsData } from "@/data/servicesData";
+import { architectureAuditBasePath } from "@/data/architectureAuditOffers";
 import headshot from "../../assets/images/william-purnell-headshot.png";
 import Image from "next/image";
-import { getSEOTags, getPersonSchema, getLocalBusinessSchema } from "@/lib/seo";
 import Link from "next/link";
+import {
+  getBreadcrumbSchema,
+  getLocalBusinessSchema,
+  getPersonSchema,
+  getSEOTags,
+} from "@/lib/seo";
+
+const focusAreas = [
+  {
+    title: "Workflow automation",
+    copy: "Mapping repeated admin, handoffs, reporting loops and inbox-heavy processes before building the software that removes the drag.",
+    href: "/services/ai-workflow-automation",
+  },
+  {
+    title: "AI integration",
+    copy: "Adding OpenAI and AI-assisted workflows where they have a defined job: classification, extraction, retrieval, drafting, routing or decision support.",
+    href: "/services/ai-agent-integration",
+  },
+  {
+    title: "Internal tools",
+    copy: "Building dashboards, portals and operational systems that give teams one reliable place to manage work.",
+    href: "/services/custom-internal-tools",
+  },
+  {
+    title: "Architecture audits",
+    copy: "Helping architecture practices identify where AI and automation can support drawing, document, planning and project-information workflows.",
+    href: architectureAuditBasePath,
+  },
+];
+
+const principles = [
+  "Start with the workflow, not the tool.",
+  "Keep humans in control where judgement matters.",
+  "Build small enough to prove value, solid enough to keep.",
+  "Make recommendations evidence-led and implementation-aware.",
+];
 
 export const metadata = getSEOTags({
   title: "About William Purnell | AI Automation Developer London",
   description:
     "Will is a London-based AI automation developer and software engineer building workflows, internal tools, and practical AI integrations for businesses.",
+  canonicalUrlRelative: "/about",
+  openGraph: {
+    title: "About William Purnell | AI Automation Developer London",
+    description:
+      "London-based software engineer building practical automation, internal tools, and AI-integrated workflows.",
+    url: "https://www.william-purnell.com/about",
+  },
 });
-
-const image = {
-  src: headshot,
-  alt: "William Purnell headshot",
-};
-
-
 
 export default async function About() {
   return (
-    <>
+    <main className="bg-background-dark text-slate-100">
       {getPersonSchema()}
       {getLocalBusinessSchema()}
-      <section className="bg-light-background">
-        <div className="max-w-7xl mx-auto px-0 md:px-9">
-          <div className="flex max-w-7xl mx-auto px-8 pt-16 items-center flex-col md:flex-row">
-            <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
-              <Image
-                className="object-cover w-full"
-                src={image.src}
-                alt={image.alt}
-              />
-            </div>
-            <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[4rem] md:leading-[5rem]">
-                Who is <br />
-                <span className="bg-dark-section text-cta-text p-2">
-                  William Purnell
-                </span>
-                ?
-              </h1>
-              <div className="text-lg">
-                Hi, I&apos;m Will, I&apos;m a Software Engineer based in London with
-                5 years of experience building digital products for businesses
-                of all shapes and sizes. My career started in the agency world,
-                where I spent three years at a .NET development agency working
-                on a wide range of client projects, from robust backends to
-                fully integrated web platforms.
-                <br />
-                After sharpening my skills in agency life, I moved into the
-                startup world as a Software Developer at Instanda, an InsurTech
-                company focused on modernizing the insurance industry. This gave
-                me hands-on experience working with real-world scale, tight
-                deadlines, and product-driven thinking, all while expanding my
-                toolkit beyond code.
-              </div>
+      {getBreadcrumbSchema([
+        { name: "Home", url: "https://www.william-purnell.com/" },
+        { name: "About", url: "https://www.william-purnell.com/about" },
+      ])}
+
+      <section className="relative overflow-hidden border-b border-white/10 bg-hero-glow py-20 md:py-28">
+        <div className="absolute inset-0 bg-radial-grid bg-[size:28px_28px] opacity-20" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:px-8 lg:grid-cols-[0.85fr_1fr]">
+          <div>
+            <Image
+              className="w-full border border-white/10 object-cover shadow-panel"
+              src={headshot}
+              alt="William Purnell headshot"
+              priority
+            />
+          </div>
+          <div>
+            <Breadcrumbs
+              className="mb-8"
+              items={[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About" },
+              ]}
+            />
+            <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
+              About William Purnell
+            </p>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
+              I build practical AI automation around real operational work.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              I am a London-based software engineer helping businesses replace repeated admin, scattered data and slow handoffs with maintainable workflows, internal tools and AI-assisted systems.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/services" className="btn-primary">
+                Explore Services
+              </Link>
+              <Link href={architectureAuditBasePath} className="btn-secondary">
+                View Audit Options
+              </Link>
             </div>
           </div>
-          <div className="blog-post-content mx-8 pb-16">
-            <p className="text-center md:text-left mx-auto my-8 text-lg">
-              These days alongside working at Instanda, I also work as a
-              freelance Software Engineer and Full Stack Developer, using modern
-              frameworks like .NET, React, Next.js, Tailwind, MongoDB, Azure,
-              Vercel, and Stripe to help businesses launch, improve, or automate
-              their online platforms. I&apos;ve also explored AI integration
-              first-hand particularly using OpenAI to experiment with product
-              ideas like <Link href="/projects/text-2-quiz" className="hover:underline text-bold text-cta-hover">Text2Quiz</Link>, a tool for generating study quizzes from
-              lecture notes.
+        </div>
+      </section>
+
+      <SectionWrapper
+        eyebrow="Current focus"
+        title="Automation that earns its place inside the business."
+        description="The work now sits at the intersection of software engineering, workflow design and practical AI implementation."
+        headerAlign="center"
+      >
+        <div className="grid gap-5 md:grid-cols-2">
+          {focusAreas.map((area, index) => (
+            <Link
+              key={area.title}
+              href={area.href}
+              className={`border border-white/10 bg-white/[0.04] p-6 transition hover:border-accent-amber/60 hover:bg-white/[0.07] ${
+                index % 2 === 1 ? "md:translate-y-8" : ""
+              }`}
+            >
+              <p className="text-kicker">{String(index + 1).padStart(2, "0")}</p>
+              <h2 className="mt-3 text-2xl font-semibold text-white">{area.title}</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{area.copy}</p>
+            </Link>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
+        eyebrow="Experience"
+        title="A software engineering background, applied to operational problems."
+        description="My career started in a .NET development agency, then moved into product engineering at Instanda, an InsurTech company focused on modernising insurance operations."
+        className="bg-slate-950"
+        headerAlign="right"
+      >
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1fr] lg:items-start">
+          <div className="border border-accent-amber/25 bg-accent-amber/10 p-6">
+            <h2 className="text-2xl font-semibold text-white">The useful bit.</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-200">
+              I can talk to business owners about process pain, then translate that into data structures, APIs, screens, automations and AI guardrails that developers can maintain and teams can actually use.
             </p>
           </div>
-          {/* London Focus Section */}
-          <div className="flex max-w-7xl mx-auto px-8 py-16 items-center bg-dark-section text-cta-text flex-col md:flex-row">
-            <div className="w-full pr-0 md:pr-8 md:w-1/2 items-center md:justify-normal pb-8 md:pb-0">
-              <h2 className="text-3xl font-bold text-center mb-8">
-                Why Choose William Purnell as your London AI Automation
-                Developer?
-              </h2>
-            </div>
-            <div className="w-full pl-0 md:pl-8 md:w-1/2 items-center md:justify-normal text-center md:text-left">
-              <p className="text-center  max-w-2xl mx-auto">
-                Being based in London gives me direct access to ambitious
-                startups, agencies, SMEs, and operations teams. Whether
-                you&apos;re a startup, small business, or established
-                enterprise, I provide personalized solutions that make a
-                difference.
-              </p>
-              <p className="text-center max-w-2xl mx-auto pt-2">
-                I work with London companies and remote UK teams that need
-                reliable, high-quality software, workflow automation, and
-                practical AI integration.
-              </p>
-            </div>
-          </div>
-          <div className="pt-16 px-8">
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Expertise and Approach
-            </h2>
-            <p className="text-center max-w-2xl mx-auto pt-2 mb-8">
-              My approach is simple: I focus on clear communication, reliable
-              delivery, and building solutions that are easy to maintain and
-              scale. Whether it&apos;s a clean and effective brochure website
-              for a local business or a full-stack application for a growing
-              startup, I like working closely with clients to turn ideas into
-              finished products that make a real impact.
+          <div className="space-y-5">
+            <p className="text-base leading-8 text-slate-300">
+              I work with modern engineering foundations including .NET, React, Next.js, Tailwind, MongoDB, Azure, Vercel, Stripe, APIs and OpenAI. The stack matters, but only after the workflow is understood.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 pb-16">
-            {Data.slice(0, 3).map((skill, index) => (
-              <div
-                key={index}
-                className=" rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow border-cta-hover border-2"
-              >
-                <div className="mb-4 flex justify-center">{skill.icon}</div>
-                <h3 className="text-xl font-semibold  mb-2">{skill.title}</h3>
-                <p className="">{skill.description}</p>
-              </div>
-            ))}
-          </div>
-          <div className="blog-post-content mx-8">
-            <p className="text-left mx-auto my-8">
-              Right now, I&apos;m especially interested in working with tradespeople
-              and small businesses, helping them create their first
-              professional websites and take control of their online presence.
-              I&apos;ve worked solo on everything from front-end design to back-end
-              logic, and I&apos;m always keen to form long-term partnerships rather
-              than one-off jobs. If you&apos;re looking for a developer who values
-              creativity as much as technical reliability, someone who
-              understands both the code and the commercial side of projects.
-              I&apos;d be happy to chat.
+            <p className="text-base leading-8 text-slate-300">
+              My own AI product experiments, including{" "}
+              <Link href="/projects/text-2-quiz" className="text-accent-amber hover:text-white hover:underline">
+                Text2Quiz
+              </Link>
+              , also shaped how I think about practical AI: the hard part is rarely calling a model. The hard part is making the surrounding workflow reliable, useful and worth changing.
             </p>
           </div>
         </div>
-        <ContactForm />
-      </section>
-    </>
+      </SectionWrapper>
+
+      <SectionWrapper
+        eyebrow="Approach"
+        title="Clear recommendations before code. Staged delivery after that."
+        className="bg-background-dark"
+      >
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-start">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {principles.map((principle) => (
+              <div key={principle} className="border border-white/10 bg-white/[0.04] p-5 text-sm font-semibold leading-7 text-slate-100">
+                {principle}
+              </div>
+            ))}
+          </div>
+          <div className="border border-white/10 bg-white/[0.04] p-6 text-sm leading-7 text-slate-300">
+            <h2 className="mb-3 text-2xl font-semibold text-white">How projects usually start.</h2>
+            <p>
+              Most work begins with a consultation or audit: understand the current process, identify the highest-value opportunity, then decide whether the next step should be an integration, internal tool, AI workflow, prototype or roadmap.
+            </p>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
+        eyebrow="Why work with me"
+        title="A practical partner for teams that need momentum without guesswork."
+        description="The goal is to help you make better automation decisions before money is spent on the wrong tool, prototype or build."
+        className="bg-slate-950"
+        headerAlign="center"
+      >
+        <div className="grid gap-5 md:grid-cols-3">
+          {HireReasonsData.map((reason) => (
+            <article key={reason.title} className="border border-white/10 bg-white/[0.04] p-6">
+              <div className="mb-4">{reason.icon}</div>
+              <h3 className="text-xl font-semibold text-white">{reason.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{reason.description}</p>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      <ContactForm
+        title="Start with the workflow that is slowing you down."
+        subHeading="Share the process, toolchain or AI idea you are considering and I can help identify the most practical next step."
+      />
+    </main>
   );
 }
