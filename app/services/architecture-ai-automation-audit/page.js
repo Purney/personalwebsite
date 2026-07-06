@@ -10,6 +10,7 @@ import {
   architectureAuditBookingUrl,
   architectureAuditContactEmail,
   architectureAuditOffers,
+  parentFaqs,
 } from "@/data/architectureAuditOffers";
 import { getBreadcrumbSchema, getFAQSchema, getSEOTags } from "@/lib/seo";
 import Link from "next/link";
@@ -45,13 +46,7 @@ export default function ArchitectureAIAutomationAudit() {
           url: `https://www.william-purnell.com${architectureAuditBasePath}`,
         },
       ])}
-      {getFAQSchema([
-        {
-          question: "What is the difference between the three audit options?",
-          answer:
-            "Essential gives a focused diagnostic, Discovery Sprint provides deeper operational assessment, and Validation Programme adds one limited non-production proof of concept.",
-        },
-      ])}
+      {getFAQSchema(parentFaqs)}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

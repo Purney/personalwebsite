@@ -5,7 +5,7 @@ import {
   architectureAuditContactEmail,
   getArchitectureAuditOffer,
 } from "@/data/architectureAuditOffers";
-import { getBreadcrumbSchema, getSEOTags } from "@/lib/seo";
+import { getBreadcrumbSchema, getFAQSchema, getSEOTags } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
 const offer = getArchitectureAuditOffer("discovery-sprint");
@@ -32,6 +32,7 @@ export default function DiscoverySprintPage() {
     <main className="bg-background-dark text-slate-100">
       <OfferSchema offer={offer} />
       <OfferBreadcrumb offer={offer} />
+      {getFAQSchema(offer.faqs)}
       <OfferDetailPage offer={offer} />
     </main>
   );
