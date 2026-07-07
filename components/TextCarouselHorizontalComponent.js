@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 const messages = [
   "Web Design & Development",
   "Automation & AI",
@@ -18,8 +16,6 @@ const messages = [
 ];
 
 export default function TextCarouselHorizontalComponent() {
-  const [isClient, setIsClient] = useState(false);
-
   // Define the colours for each message
   const colours = [
     "text-blue-600",
@@ -27,12 +23,6 @@ export default function TextCarouselHorizontalComponent() {
     "text-purple-600",
     "text-cyan-500"
   ];
-
-  useEffect(() => {
-    setIsClient(true); // Ensures hydration sync in Next.js
-  }, []);
-
-  if (!isClient) return null; // Prevents mismatch issues
 
   return (
     <div className="overflow-hidden whitespace-nowrap bg-dark-section text-cta-text py-4 relative">

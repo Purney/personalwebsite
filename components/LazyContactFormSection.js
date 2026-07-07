@@ -27,7 +27,7 @@ export default function LazyContactFormSection({ title, subHeading }) {
     }
 
     if (window.location.hash === "#contact") {
-      setShouldLoad(true);
+      window.requestAnimationFrame(() => setShouldLoad(true));
       return;
     }
 
