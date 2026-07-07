@@ -52,6 +52,8 @@ export default function ContactForm({
   const [isVerified, setIsVerified] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [website, setWebsite] = useState("");
 
   function requestCaptcha() {
     setCaptchaRequested(true);
@@ -74,25 +76,19 @@ export default function ContactForm({
   };
 
   function handleExpired() {
+    setRecaptchaToken("");
     setIsVerified(false);
   }
 
   async function handleCaptchaSubmission(token) {
-    try {
-      if (token) {
-        await fetch("/api/recaptcha", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token }),
-        });
-        setIsVerified(true);
-      }
-    } catch (e) {
-      setIsVerified(false);
+    if (token) {
+      setRecaptchaToken(token);
+      setIsVerified(true);
+      return;
     }
+
+    setRecaptchaToken("");
+    setIsVerified(false);
   }
 
   async function handleSubmit(e) {
@@ -122,6 +118,8 @@ export default function ContactForm({
           service,
           otherService,
           message,
+          recaptchaToken,
+          website,
         }),
       });
 
@@ -136,6 +134,8 @@ export default function ContactForm({
       setService(defaultService);
       setOtherService("");
       setName("");
+      setRecaptchaToken("");
+      setWebsite("");
       setIsVerified(false);
       setCaptchaRequested(false);
     } catch (error) {
@@ -174,6 +174,18 @@ export default function ContactForm({
             onFocus={requestCaptcha}
             onSubmit={handleSubmit}
           >
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+            </div>
             <div className="mb-4 text-left">
               <label htmlFor="name" className="text-sm font-semibold text-slate-200">
                 What is your name?
@@ -230,19 +242,21 @@ export default function ContactForm({
                   ))}
                   <option value="Other">Other</option>
                 </select>
-                {service !== "" && !serviceOptions.some((item) => item.title === service) && (
-              <input
-                type="text"
-                id="otherService"
-                name="otherService"
-                placeholder="Custom service"
-                className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-accent-cyan"
-                value={otherService}
-                onChange={(e) => {
-                  requestCaptcha();
-                  setOtherService(e.target.value);
-                }}
-              />)}
+                {service === "Other" && (
+                  <input
+                    type="text"
+                    id="otherService"
+                    name="otherService"
+                    placeholder="Custom service"
+                    required
+                    className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-accent-cyan"
+                    value={otherService}
+                    onChange={(e) => {
+                      requestCaptcha();
+                      setOtherService(e.target.value);
+                    }}
+                  />
+                )}
             </div>
             <div className="mb-4 text-left">
               <label htmlFor="message" className="text-sm font-semibold text-slate-200">

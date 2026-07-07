@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
-import { getSEOTags, getCreativeWorkSchema, getBreadcrumbSchema } from "@/lib/seo";
+import { absoluteUrl, getSEOTags, getCreativeWorkSchema, getBreadcrumbSchema } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from 'next/navigation';
 
@@ -33,10 +33,31 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   let project = await Data.find((project) => project.id === id);
 
+  if (!project) {
+    return getSEOTags({
+      title: "Project Not Found - William Purnell",
+      description: "The requested project case study could not be found.",
+      canonicalUrlRelative: "/projects",
+      openGraph: {
+        url: "/projects",
+      },
+    });
+  }
+
   const title = (project?.seoTitle || "") + " - William Purnell";
   const description = project?.seoDescription || "";
 
-  return getSEOTags({title, description});
+  return getSEOTags({
+    title,
+    description,
+    canonicalUrlRelative: `/projects/${project.id}`,
+    openGraph: {
+      title,
+      description,
+      url: `/projects/${project.id}`,
+      image: project.image,
+    },
+  });
 }
 
 export default async function Project({ params }) {
@@ -56,11 +77,11 @@ export default async function Project({ params }) {
     <>
       {getCreativeWorkSchema(project.title, project.shortDescription, project.dateCreated, project.techStack, project.image.src, project.id)}
       {getBreadcrumbSchema([
-        { name: "Home", url: "https://www.william-purnell.com/" },
-        { name: "Projects", url: "https://www.william-purnell.com/projects" },
+        { name: "Home", url: absoluteUrl("/") },
+        { name: "Projects", url: absoluteUrl("/projects") },
         {
           name: project.title,
-          url: `https://www.william-purnell.com/projects/${project.id}`,
+          url: absoluteUrl(`/projects/${project.id}`),
         },
       ])}
       <Hero title={`${project.title} Case Study`} description={project.shortDescription} />

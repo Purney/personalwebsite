@@ -6,6 +6,7 @@ export const metadata = getSEOTags({
   title: "Book an AI Automation Consultation | William Purnell",
   description:
     "Book an AI automation consultation and discuss where custom AI workflows, internal tools, and OpenAI integrations could reduce manual work.",
+  canonicalUrlRelative: "/contact",
 });
 
 export default function Contact() {

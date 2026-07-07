@@ -4,6 +4,7 @@ const config = {
       subdomain: 'mg',                 // Optional subdomain if used in Mailgun (can be empty or undefined)
     },
     domainName: 'william-purnell.com',
+    siteUrl: 'https://www.william-purnell.com',
     appName: "William Purnell - AI Automation Developer London",
     appDescription: "AI automation developer building practical AI workflows, internal tools, OpenAI integrations, and business process automation for UK businesses."
   };

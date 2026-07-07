@@ -74,6 +74,7 @@ export const metadata = getSEOTags({
     "Next.js developer UK",
     "OpenAI integration developer",
   ],
+  canonicalUrlRelative: "/",
   openGraph: {
     title: "AI Automation Developer UK | William Purnell",
     description:

@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import config from "@/config";
+import { absoluteUrl, defaultOgImage, siteOrigin, siteUrl } from "@/lib/seo";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -13,24 +14,55 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL(`https://www.${config.domainName}`),
+  metadataBase: siteOrigin,
+  applicationName: config.appName,
+  creator: "William Purnell",
+  publisher: "William Purnell",
   title: {
     default: config.appName,
     template: "%s",
   },
   description: config.appDescription,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: config.appName,
     description: config.appDescription,
-    url: `https://www.${config.domainName}`,
+    url: siteUrl,
     siteName: config.appName,
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultOgImage),
+        width: 1200,
+        height: 630,
+        alt: config.appName,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: config.appName,
     description: config.appDescription,
+    images: [absoluteUrl(defaultOgImage)],
   },
 };
 
