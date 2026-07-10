@@ -426,7 +426,7 @@ function Field({ label, htmlFor, suffix, hint, className = "", children }) {
       <div className="relative">
         {children}
         {suffix && (
-          <span className="pointer-events-none absolute right-4 top-1/2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+          <span className="pointer-events-none absolute right-4 top-1/2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-300">
             {suffix}
           </span>
         )}

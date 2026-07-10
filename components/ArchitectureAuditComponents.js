@@ -2,7 +2,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ContactForm from "@/components/ContactForm";
 import SectionWrapper from "@/components/SectionWrapper";
-import ArchitectureROICalculator from "@/components/ArchitectureROICalculator";
+import LazyArchitectureROICalculator from "@/components/LazyArchitectureROICalculator";
 import {
   FiAlertTriangle,
   FiCheckCircle,
@@ -331,7 +331,7 @@ export function ParentContent() {
         </div>
       </SectionWrapper>
 
-      <ArchitectureROICalculator />
+      <LazyArchitectureROICalculator />
 
       <SectionWrapper
         id="compare"

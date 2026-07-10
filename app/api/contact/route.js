@@ -15,6 +15,8 @@ const maxLengths = {
 const requestsByIp = new Map();
 const rateLimitWindowMs = 15 * 60 * 1000;
 const rateLimitMax = 5;
+const maxRateLimitEntries = 1000;
+const maxBodyBytes = 16 * 1024;
 const serviceOptions = new Set([
     ...services.map((service) => service.title),
     "Architecture AI & Automation Audit",
@@ -52,6 +54,19 @@ function isRateLimited(request) {
     const entry = requestsByIp.get(ip);
 
     if (!entry || now - entry.startedAt > rateLimitWindowMs) {
+        if (requestsByIp.size >= maxRateLimitEntries) {
+            for (const [storedIp, storedEntry] of requestsByIp) {
+                if (now - storedEntry.startedAt > rateLimitWindowMs) {
+                    requestsByIp.delete(storedIp);
+                }
+            }
+        }
+
+        if (requestsByIp.size >= maxRateLimitEntries) {
+            const oldestIp = requestsByIp.keys().next().value;
+            requestsByIp.delete(oldestIp);
+        }
+
         requestsByIp.set(ip, { count: 1, startedAt: now });
         return false;
     }
@@ -99,6 +114,19 @@ async function verifyRecaptcha(token) {
 }
 
 export async function POST(request) {
+    const contentType = request.headers.get("content-type") || "";
+    if (
+        contentType &&
+        !/^application\/(?:json|[a-z0-9!#$&^_.+-]+\+json)(?:\s*;|$)/i.test(contentType)
+    ) {
+        return jsonResponse({ message: "Invalid request." }, 415);
+    }
+
+    const declaredLength = Number(request.headers.get("content-length"));
+    if (Number.isFinite(declaredLength) && declaredLength > maxBodyBytes) {
+        return jsonResponse({ message: "Invalid request." }, 413);
+    }
+
     if (isRateLimited(request)) {
         return jsonResponse({ message: "Unable to process this request right now." }, 429);
     }
@@ -106,7 +134,11 @@ export async function POST(request) {
     let body;
 
     try {
-        body = await request.json();
+        const rawBody = await request.text();
+        if (new TextEncoder().encode(rawBody).length > maxBodyBytes) {
+            return jsonResponse({ message: "Invalid request." }, 413);
+        }
+        body = JSON.parse(rawBody);
     } catch {
         return jsonResponse({ message: "Invalid request." }, 400);
     }
