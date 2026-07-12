@@ -7,6 +7,9 @@ import {
 } from "@/data/architectureAuditOffers";
 import { getBreadcrumbSchema, getFAQSchema, getSEOTags } from "@/lib/seo";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { buildArchitectureOfferSchema } from "@/lib/structured-data";
+import { absoluteUrl } from "@/lib/seo";
 
 const offer = getArchitectureAuditOffer("discovery-sprint");
 
@@ -54,35 +57,5 @@ function OfferBreadcrumb({ offer }) {
 }
 
 function OfferSchema({ offer }) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: offer.name,
-          provider: {
-            "@type": "Person",
-            name: "William Purnell",
-            email: architectureAuditContactEmail,
-            url: "https://www.william-purnell.com",
-          },
-          areaServed: ["London", "United Kingdom"],
-          url: `https://www.william-purnell.com${architectureAuditBasePath}/${offer.slug}`,
-          description: offer.positioning,
-          offers: {
-            "@type": "Offer",
-            name: offer.name,
-            price: "4595",
-            priceCurrency: "GBP",
-          },
-          availableChannel: {
-            "@type": "ServiceChannel",
-            serviceUrl: architectureAuditBookingUrl,
-          },
-        }),
-      }}
-    />
-  );
+  return <JsonLd data={buildArchitectureOfferSchema({ offer, basePath: architectureAuditBasePath, bookingUrl: architectureAuditBookingUrl, contactEmail: architectureAuditContactEmail }, absoluteUrl)} />;
 }

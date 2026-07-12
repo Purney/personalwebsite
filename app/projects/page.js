@@ -2,7 +2,9 @@ import ProjectsClient from "@/components/ProjectsClient";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionWrapper from "@/components/SectionWrapper";
 import { Data } from "@/data/projectsData";
-import { getBreadcrumbSchema, getSEOTags } from "@/lib/seo";
+import { absoluteUrl, getBreadcrumbSchema, getSEOTags } from "@/lib/seo";
+import { buildItemListSchema } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata = getSEOTags({
   title: "AI Automation Case Studies | William Purnell",
@@ -30,21 +32,7 @@ export default function Projects() {
         { name: "Home", url: "https://www.william-purnell.com/" },
         { name: "Projects", url: "https://www.william-purnell.com/projects" },
       ])}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "itemListElement": Data.map((project, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "name": project.title,
-              "url": `https://www.william-purnell.com/projects/${project.id}`,
-            })),
-          }),
-        }}
-      />
+      <JsonLd data={buildItemListSchema(Data, absoluteUrl)} />
       <SectionWrapper
         eyebrow="Case studies"
         titleAs="h1"

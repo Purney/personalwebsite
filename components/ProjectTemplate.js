@@ -1,5 +1,3 @@
-"use client";
-
 import ComponentFactory from "./ComponentFactory";
 
 export default function ProjectTemplate({ sections }) {

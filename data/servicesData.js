@@ -438,9 +438,20 @@ const services = [
   },
 ];
 
+const serviceRelationships = {
+  "ai-workflow-automation": { relatedServiceSlugs: ["business-process-automation", "crm-email-automation", "automation-implementation"], relatedProjectIds: ["text-2-quiz", "filament-gifts"] },
+  "ai-agent-integration": { relatedServiceSlugs: ["ai-workflow-automation", "custom-internal-tools", "automation-implementation"], relatedProjectIds: ["text-2-quiz"] },
+  "custom-internal-tools": { relatedServiceSlugs: ["business-process-automation", "ai-agent-integration", "crm-email-automation"], relatedProjectIds: ["filament-gifts", "sonia-kenny-art"] },
+  "crm-email-automation": { relatedServiceSlugs: ["ai-workflow-automation", "business-process-automation", "custom-internal-tools"], relatedProjectIds: ["filament-gifts"] },
+  "business-process-automation": { relatedServiceSlugs: ["ai-workflow-automation", "custom-internal-tools", "automation-implementation"], relatedProjectIds: ["filament-gifts", "sonia-kenny-art"] },
+  "automation-implementation": { relatedServiceSlugs: ["ai-workflow-automation", "ai-agent-integration", "business-process-automation"], relatedProjectIds: ["text-2-quiz"] },
+};
+
 export const Data = services.map((service) => ({
   ...service,
   ...serviceSeoContent[service.slug],
+  ...serviceRelationships[service.slug],
+  dateUpdated: "2026-07-06T00:00:00.000Z",
 }));
 
 export const HireReasonsData = [

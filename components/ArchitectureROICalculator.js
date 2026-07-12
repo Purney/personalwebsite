@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { calculateTotals, calculateWorkflow, clamp, toNumber } from "@/lib/roi-calculations";
 
 const consultationUrl = "https://calendly.com/hello-william-purnell/initial-call";
 
@@ -36,38 +37,6 @@ const createWorkflow = (id, name) => ({
   confidence: 0.65,
 });
 
-function toNumber(value, fallback = 0) {
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : fallback;
-}
-
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
-
-function calculateWorkflow(workflow) {
-  const safeHours = Math.max(0, toNumber(workflow.hoursPerOccurrence));
-  const safeOccurrences = Math.max(0, toNumber(workflow.occurrencesPerMonth));
-  const safePeople = Math.max(1, toNumber(workflow.people, 1));
-  const safeHourlyCost = Math.max(0, toNumber(workflow.hourlyCost));
-  const safeReduction = clamp(toNumber(workflow.reductionPercent), 0, 90) / 100;
-  const safeConfidence = clamp(toNumber(workflow.confidence, 0.65), 0, 1);
-
-  const annualHours = safeHours * safeOccurrences * safePeople * 12;
-  const currentAnnualCost = annualHours * safeHourlyCost;
-  const possibleReleasedHours = annualHours * safeReduction;
-  const possibleAnnualCapacityValue = possibleReleasedHours * safeHourlyCost;
-  const confidenceAdjustedPlanningValue = possibleAnnualCapacityValue * safeConfidence;
-
-  return {
-    annualHours,
-    currentAnnualCost,
-    possibleReleasedHours,
-    possibleAnnualCapacityValue,
-    confidenceAdjustedPlanningValue,
-  };
-}
-
 export default function ArchitectureROICalculator() {
   const nextWorkflowNumber = useRef(2);
   const [workflows, setWorkflows] = useState([
@@ -83,32 +52,7 @@ export default function ArchitectureROICalculator() {
     [workflows]
   );
 
-  const totals = useMemo(
-    () =>
-      workflowResults.reduce(
-        (combined, workflow) => ({
-          annualHours: combined.annualHours + workflow.results.annualHours,
-          currentAnnualCost:
-            combined.currentAnnualCost + workflow.results.currentAnnualCost,
-          possibleReleasedHours:
-            combined.possibleReleasedHours + workflow.results.possibleReleasedHours,
-          possibleAnnualCapacityValue:
-            combined.possibleAnnualCapacityValue +
-            workflow.results.possibleAnnualCapacityValue,
-          confidenceAdjustedPlanningValue:
-            combined.confidenceAdjustedPlanningValue +
-            workflow.results.confidenceAdjustedPlanningValue,
-        }),
-        {
-          annualHours: 0,
-          currentAnnualCost: 0,
-          possibleReleasedHours: 0,
-          possibleAnnualCapacityValue: 0,
-          confidenceAdjustedPlanningValue: 0,
-        }
-      ),
-    [workflowResults]
-  );
+  const totals = useMemo(() => calculateTotals(workflowResults), [workflowResults]);
 
   const updateWorkflow = (id, field, value) => {
     setWorkflows((currentWorkflows) =>

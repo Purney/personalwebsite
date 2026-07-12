@@ -7,9 +7,12 @@ import {
   getBreadcrumbSchema,
   getFAQSchema,
   getSEOTags,
-  getSingleServiceSchema,
 } from "@/lib/seo";
+import { buildServiceSchema } from "@/lib/structured-data";
+import { absoluteUrl } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import Link from "next/link";
+import { Data as projects } from "@/data/projectsData";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
@@ -47,7 +50,7 @@ export default async function ServicePage({ params }) {
 
   return (
     <main className="bg-background-dark text-slate-100">
-      {getSingleServiceSchema(service)}
+      <JsonLd data={buildServiceSchema(service, absoluteUrl)} />
       {getFAQSchema(service.faqs)}
       {getBreadcrumbSchema([
         { name: "Home", url: "https://www.william-purnell.com/" },
@@ -174,9 +177,7 @@ export default async function ServicePage({ params }) {
         headerAlign="right"
       >
         <div className="grid gap-4 md:grid-cols-3">
-          {services
-            .filter((related) => related.slug !== service.slug)
-            .slice(0, 3)
+          {service.relatedServiceSlugs.map((slug) => services.find((item) => item.slug === slug)).filter(Boolean)
             .map((related) => (
               <Link
                 key={related.slug}
@@ -187,6 +188,17 @@ export default async function ServicePage({ params }) {
                 <p className="mt-3 text-sm leading-6 text-slate-300">{related.description}</p>
               </Link>
             ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper eyebrow="Related projects" title="See the approach in practice.">
+        <div className="grid gap-4 md:grid-cols-2">
+          {service.relatedProjectIds.map((id) => projects.find((item) => item.id === id)).filter(Boolean).map((project) => (
+            <Link key={project.id} href={`/projects/${project.id}`} className="border border-white/10 bg-white/[0.04] p-5 transition hover:border-accent-cyan/60">
+              <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{project.shortDescription}</p>
+            </Link>
+          ))}
         </div>
       </SectionWrapper>
 

@@ -14,6 +14,9 @@ import {
 } from "@/data/architectureAuditOffers";
 import { getBreadcrumbSchema, getFAQSchema, getSEOTags } from "@/lib/seo";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { buildArchitectureAuditSchema } from "@/lib/structured-data";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata = getSEOTags({
   title: "Architecture AI & Automation Audit | William Purnell",
@@ -47,41 +50,7 @@ export default function ArchitectureAIAutomationAudit() {
         },
       ])}
       {getFAQSchema(parentFaqs)}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Architecture AI & Automation Audit",
-            serviceType: [
-              "Architecture workflow audit",
-              "Architecture AI audit",
-              "Automation discovery",
-              "Drawing and file readiness assessment",
-            ],
-            provider: {
-              "@type": "Person",
-              name: "William Purnell",
-              email: architectureAuditContactEmail,
-              url: "https://www.william-purnell.com",
-            },
-            areaServed: ["London", "United Kingdom"],
-            url: `https://www.william-purnell.com${architectureAuditBasePath}`,
-            offers: architectureAuditOffers.map((offer) => ({
-              "@type": "Offer",
-              name: offer.name,
-              price: offer.price.replace("£", "").replace(" + VAT", "").replace(",", ""),
-              priceCurrency: "GBP",
-              url: `https://www.william-purnell.com${architectureAuditBasePath}/${offer.slug}`,
-            })),
-            availableChannel: {
-              "@type": "ServiceChannel",
-              serviceUrl: architectureAuditBookingUrl,
-            },
-          }),
-        }}
-      />
+      <JsonLd data={buildArchitectureAuditSchema({ offers: architectureAuditOffers, basePath: architectureAuditBasePath, bookingUrl: architectureAuditBookingUrl, contactEmail: architectureAuditContactEmail }, absoluteUrl)} />
 
       <section className="relative overflow-hidden border-b border-white/10 bg-hero-glow py-20 md:py-28">
         <div className="absolute inset-0 bg-radial-grid bg-[size:28px_28px] opacity-20" aria-hidden="true" />

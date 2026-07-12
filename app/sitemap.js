@@ -3,7 +3,7 @@ import { Data as services } from "@/data/servicesData";
 import { architectureAuditBasePath, architectureAuditOffers } from "@/data/architectureAuditOffers";
 import { siteUrl } from "@/lib/seo";
 
-const staticLastModified = new Date("2026-07-06T00:00:00.000Z");
+export const staticLastModified = new Date("2026-07-06T00:00:00.000Z");
 
 export default async function sitemap() {
   const baseUrl = siteUrl;
@@ -71,7 +71,7 @@ export default async function sitemap() {
 
   const serviceRoutes = services.map(service => ({
     url: `${baseUrl}/services/${service.slug}`,
-    lastModified: staticLastModified,
+    lastModified: new Date(service.dateUpdated),
     changeFrequency: 'weekly',
     priority: 0.8,
   }))

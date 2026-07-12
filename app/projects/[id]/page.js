@@ -2,32 +2,13 @@ import Hero from "@/components/Hero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProjectTemplate from "@/components/ProjectTemplate";
 import { Data } from "@/data/projectsData";
-import { absoluteUrl, getSEOTags, getCreativeWorkSchema, getBreadcrumbSchema } from "@/lib/seo";
+import { absoluteUrl, getSEOTags, getBreadcrumbSchema } from "@/lib/seo";
+import { buildCreativeWorkSchema } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
 import Link from "next/link";
 import { notFound } from 'next/navigation';
 
-const serviceLinks = [
-  {
-    href: "/services/ai-agent-integration",
-    label: "AI Agent Integration",
-    matches: ["AI Integration"],
-  },
-  {
-    href: "/services/custom-internal-tools",
-    label: "Custom Internal Tools",
-    matches: ["Web Development", "Next.js", "React", ".NET"],
-  },
-  {
-    href: "/services/crm-email-automation",
-    label: "CRM & Email Automation",
-    matches: ["E-Commerce", "Stripe API"],
-  },
-  {
-    href: "/services/business-process-automation",
-    label: "Business Process Automation",
-    matches: ["E-Commerce", "Web Development"],
-  },
-];
+import { Data as services } from "@/data/servicesData";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -68,14 +49,12 @@ export default async function Project({ params }) {
     notFound();
   }
 
-  const projectSignals = [...project.category, ...project.techStack];
-  const relatedServices = serviceLinks.filter((service) =>
-    service.matches.some((match) => projectSignals.includes(match))
-  );
+  const relatedServices = project.relatedServiceSlugs.map((slug) => services.find((service) => service.slug === slug)).filter(Boolean);
+  const relatedProjects = project.relatedProjectIds.map((id) => Data.find((item) => item.id === id)).filter(Boolean);
 
   return (
     <>
-      {getCreativeWorkSchema(project.title, project.shortDescription, project.dateCreated, project.techStack, project.image.src, project.id)}
+      <JsonLd data={buildCreativeWorkSchema(project, absoluteUrl)} />
       {getBreadcrumbSchema([
         { name: "Home", url: absoluteUrl("/") },
         { name: "Projects", url: absoluteUrl("/projects") },
@@ -94,7 +73,8 @@ export default async function Project({ params }) {
           ]}
         />
         <div>
-          <p>Date Created: {new Date(project.dateCreated).toDateString()}</p>
+          <p>By {project.author}</p>
+          <p>Published: {new Date(project.dateCreated).toDateString()}</p>
           {project.dateUpdated && (
           <p>Last Updated: {new Date(project.dateUpdated).toDateString()}</p>
           )}
@@ -109,18 +89,27 @@ export default async function Project({ params }) {
             <div className="flex flex-wrap gap-3 md:justify-end">
             {relatedServices.map((service) => (
               <Link
-                key={service.href}
-                href={service.href}
+                key={service.slug}
+                href={`/services/${service.slug}`}
                 className="border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-accent-amber transition hover:border-accent-amber/60 hover:text-white"
               >
-                {service.label}
+                {service.title}
               </Link>
             ))}
             </div>
           </div>
         </section>
       )}
+      <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+        <h2 className="text-2xl font-semibold text-white">Project overview</h2>
+        <dl className="mt-5 grid gap-5 md:grid-cols-2">
+          {[["Client type", project.clientType], ["Challenge", project.challenge], ["Approach", project.approach], ["Outcomes", project.outcomes]].map(([label, value]) => (
+            <div key={label} className="border border-white/10 bg-white/[0.04] p-5"><dt className="text-kicker">{label}</dt><dd className="mt-3 leading-7 text-slate-300">{value}</dd></div>
+          ))}
+        </dl>
+      </section>
       <ProjectTemplate {...project} />
+      {relatedProjects.length > 0 && <section className="mx-auto max-w-7xl px-4 py-12 md:px-6"><h2 className="text-2xl font-semibold text-white">Related projects</h2><div className="mt-5 flex flex-wrap gap-3">{relatedProjects.map((item) => <Link key={item.id} href={`/projects/${item.id}`} className="btn-secondary">{item.title}</Link>)}</div></section>}
     </>
   );
 }

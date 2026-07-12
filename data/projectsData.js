@@ -26,6 +26,13 @@ export const Data = [
     image: text2quizhero,
     dateCreated: "2025-01-23T08:32:06.301Z",
     dateUpdated: "2025-04-14T21:32:06.301Z",
+    author: "William Purnell",
+    clientType: "Independent product experiment",
+    challenge: "Generate useful quiz questions from supplied learning material while keeping outputs grounded in the source.",
+    approach: "Tested structured prompts and retrieval-augmented generation against different source lengths and content types.",
+    outcomes: "Produced a working educational product experiment and practical lessons about grounding, validation, and product discovery.",
+    relatedServiceSlugs: ["ai-agent-integration", "custom-internal-tools"],
+    relatedProjectIds: ["filament-gifts"],
     sections: [
       {
         name: "the-beginning",
@@ -161,6 +168,13 @@ export const Data = [
     image: filamentgiftshero,
     dateCreated: "2025-01-23T08:32:06.301Z",
     dateUpdated: "2025-04-14T21:32:06.301Z",
+    author: "William Purnell",
+    clientType: "Independent retail business",
+    challenge: "Give the owner direct control of products, orders, shipping, and customer updates without relying on a marketplace.",
+    approach: "Built separate customer-facing and administration applications with shared commerce workflows and Stripe payments.",
+    outcomes: "Delivered an independent storefront and an operational back office designed around the owner's day-to-day workflow.",
+    relatedServiceSlugs: ["custom-internal-tools", "crm-email-automation", "business-process-automation"],
+    relatedProjectIds: ["sonia-kenny-art"],
     sections: [
       {
         name: "what-is-filament-gifts",
@@ -235,6 +249,13 @@ export const Data = [
     image: soniaKennyArtHomePage,
     dateCreated: "2025-08-07T18:55:06.301Z",
     dateUpdated: "2025-08-07T18:55:06.301Z",
+    author: "William Purnell",
+    clientType: "Independent artist",
+    challenge: "Create an artist-owned online shop outside Etsy that was straightforward to maintain.",
+    approach: "Configured and tailored Shopify around the artist's catalogue, brand, and commerce requirements.",
+    outcomes: "Delivered an independent, maintainable shop that presents and sells the artist's work online.",
+    relatedServiceSlugs: ["custom-internal-tools", "business-process-automation"],
+    relatedProjectIds: ["filament-gifts"],
     sections: [
       {
         name: "who-is-sonia-kenny-art",
