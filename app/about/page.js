@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import SectionWrapper from "@/components/SectionWrapper";
 import { HireReasonsData } from "@/data/servicesData";
 import { architectureAuditBasePath } from "@/data/architectureAuditOffers";
-import headshot from "../../assets/images/william-purnell-headshot.png";
+import headshot from "../../assets/images/william-purnell-headshot-2026.png";
 import Image from "next/image";
 import Link from "next/link";
 import {
