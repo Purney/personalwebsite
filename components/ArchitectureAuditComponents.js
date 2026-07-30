@@ -120,9 +120,9 @@ export function ArchitectureAuditHeroVisual() {
 export function OfferCard({ offer }) {
   return (
     <article className="flex h-full flex-col border border-white/10 bg-white/[0.04] p-6 transition hover:border-accent-amber/60 hover:bg-white/[0.07]">
-      <p className="text-kicker">
+      {/* <p className="text-kicker">
         {offer.price}
-      </p>
+      </p> */}
       <h3 className="mt-3 text-2xl font-semibold text-white">{offer.name}</h3>
       <p className="mt-3 text-sm leading-7 text-slate-300">{offer.bestFor}</p>
       <dl className="mt-5 space-y-3 text-sm">
@@ -411,9 +411,9 @@ export function OfferDetailPage({ offer }) {
           />
           <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr]">
             <div>
-              <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
+              {/* <p className="mb-5 inline-flex border border-accent-amber/30 bg-white/5 px-3 py-2 text-kicker">
                 {offer.price}
-              </p>
+              </p> */}
               <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
                 {offer.name}
               </h1>
