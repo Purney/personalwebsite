@@ -20,6 +20,7 @@ const maxBodyBytes = 16 * 1024;
 const serviceOptions = new Set([
     ...services.map((service) => service.title),
     "Architecture AI & Automation Audit",
+    "Technical Detail Search for Architecture Practices",
     ...architectureAuditOffers.map((offer) => offer.name),
     "Other",
 ]);

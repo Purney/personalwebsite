@@ -57,6 +57,12 @@ export default async function sitemap() {
       lastModified: staticLastModified,
       changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/technical-detail-search`,
+      lastModified: new Date("2026-10-01T00:00:00.000Z"),
+      changeFrequency: "weekly",
+      priority: 0.8,
     }
   ]
 

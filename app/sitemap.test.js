@@ -10,6 +10,7 @@ describe("sitemap", () => {
     const entries = await sitemap();
     const staticPaths = ["", "/about", "/services", "/projects", "/contact", "/privacy", "/termsandconditions", architectureAuditBasePath];
     const expectedUrls = [
+      `${siteUrl}/services/technical-detail-search`,
       ...staticPaths.map((path) => `${siteUrl}${path}`),
       ...projects.map(({ id }) => `${siteUrl}/projects/${id}`),
       ...services.map(({ slug }) => `${siteUrl}/services/${slug}`),
@@ -18,6 +19,7 @@ describe("sitemap", () => {
     expect(entries).toHaveLength(expectedUrls.length);
     expect(new Set(entries.map(({ url }) => url)).size).toBe(entries.length);
     expect(entries.map(({ url }) => url)).toEqual(expect.arrayContaining(expectedUrls));
+    expect(entries.find(({ url }) => url === `${siteUrl}/services/technical-detail-search`).lastModified.toISOString()).toBe("2026-10-01T00:00:00.000Z");
     for (const entry of entries) expect(Number.isNaN(entry.lastModified.getTime())).toBe(false);
     for (const path of staticPaths) {
       expect(entries.find(({ url }) => url === `${siteUrl}${path}`).lastModified.toISOString()).toBe(staticLastModified.toISOString());

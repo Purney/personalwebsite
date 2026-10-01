@@ -103,6 +103,10 @@ export default function Services() {
             </Link>
           </div>
         </div>
+        <article className="mb-8 grid gap-6 border border-white/10 bg-white/[0.04] p-6 md:grid-cols-[0.72fr_1fr] md:items-center">
+          <div><p className="text-kicker">For architecture practices</p><h2 className="mt-3 text-2xl font-semibold text-white">Find the detail your team already drew.</h2></div>
+          <div><p className="text-sm leading-7 text-slate-300">Time spent hunting through past project folders, asking colleagues or redrawing details can keep your team from the work in front of them. Make your existing technical-detail archive easier to search, without moving or renaming drawings.</p><Link href="/services/technical-detail-search" className="btn-primary mt-5">Explore Technical Detail Search</Link></div>
+        </article>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard key={service.slug} service={service} index={index} />

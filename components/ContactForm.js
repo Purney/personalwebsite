@@ -7,6 +7,7 @@ import { architectureAuditOffers } from "@/data/architectureAuditOffers";
 
 const DEFAULT_BOOKING_URL = "https://calendly.com/hello-william-purnell/initial-call";
 const architectureServiceOptions = [
+  { title: "Technical Detail Search for Architecture Practices" },
   { title: "Architecture AI & Automation Audit" },
   ...architectureAuditOffers.map((offer) => ({ title: offer.name })),
 ];

@@ -325,6 +325,11 @@ export function ParentContent() {
             {architectureProblems.map((problem) => (
               <div key={problem} className="border border-white/10 bg-white/[0.04] p-5 text-sm leading-7 text-slate-200">
                 {problem}
+                {problem === "Technical details, previous drawings and project knowledge are difficult to find and reuse." && (
+                  <Link href="/services/technical-detail-search" className="mt-3 block font-semibold text-accent-amber hover:underline">
+                    Explore Technical Detail Search
+                  </Link>
+                )}
               </div>
             ))}
           </div>
